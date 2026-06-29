@@ -1,0 +1,3405 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bloons TD 6 – Hướng Dẫn Toàn Tập 2026</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600;700&display=swap");
+      :root {
+        --bg: #0c1016;
+        --bg2: #151b24;
+        --bg3: #1d2533;
+        --accent: #f7b731;
+        --accent-dim: #5c4a1c;
+        --red: #ff6b6b;
+        --orange: #ffa94d;
+        --blue: #74c0fc;
+        --green: #69db7c;
+        --purple: #da77f2;
+        --text: #e8eaf0;
+        --muted: #8c96aa;
+        --border: #262f40;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        line-height: 1.65;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Rajdhani", sans-serif;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+          animation: none !important;
+        }
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
+      nav {
+        position: sticky;
+        top: 0;
+        background: rgba(12, 16, 22, 0.96);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+        z-index: 100;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        height: 54px;
+      }
+      nav::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-logo {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--accent);
+        white-space: nowrap;
+        margin-right: 10px;
+      }
+      .nav-btn {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        padding: 6px 13px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 13px;
+        white-space: nowrap;
+        transition:
+          background 0.15s,
+          color 0.15s,
+          border-color 0.15s;
+        font-family: "Inter", sans-serif;
+      }
+      .nav-btn:hover {
+        border-color: var(--accent);
+        color: var(--text);
+      }
+      .nav-btn.active {
+        background: var(--accent);
+        color: #000;
+        border-color: var(--accent);
+        font-weight: 600;
+      }
+
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 28px 18px 90px;
+      }
+      .section {
+        display: none;
+      }
+      .section.active {
+        display: block;
+        animation: fadeIn 0.25s ease;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(4px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .hero-banner {
+        background: linear-gradient(
+          135deg,
+          #1a2540 0%,
+          #0c1016 55%,
+          #1c1530 100%
+        );
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 36px 28px;
+        margin-bottom: 28px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-banner::before {
+        content: "🎈";
+        position: absolute;
+        right: 22px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 74px;
+        opacity: 0.12;
+      }
+      .hero-banner h1 {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--accent);
+        line-height: 1.2;
+      }
+      .hero-banner p {
+        color: var(--muted);
+        margin-top: 8px;
+        max-width: 520px;
+        font-size: 14px;
+      }
+      .version-badge {
+        display: inline-block;
+        background: var(--accent);
+        color: #000;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 4px 11px;
+        border-radius: 20px;
+        margin-top: 14px;
+        letter-spacing: 0.4px;
+      }
+
+      .sec-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+      }
+      .sec-header h2 {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .sec-header.sub {
+        border-bottom: none;
+        margin-top: 28px;
+        margin-bottom: 10px;
+      }
+      .sec-header.sub h2 {
+        font-size: 16px;
+        color: var(--accent);
+      }
+      .sec-icon {
+        font-size: 20px;
+      }
+
+      .card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 18px;
+        margin-bottom: 12px;
+        transition: border-color 0.15s;
+      }
+      .card:hover {
+        border-color: var(--accent-dim);
+      }
+      .card h3 {
+        font-size: 17px;
+        font-weight: 700;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .card p {
+        color: var(--muted);
+        font-size: 13.5px;
+      }
+      .card ul {
+        list-style: none;
+        margin-top: 8px;
+      }
+      .card ul li {
+        padding: 4px 0;
+        font-size: 13.5px;
+        color: var(--text);
+        border-bottom: 1px solid var(--border);
+      }
+      .card ul li:last-child {
+        border-bottom: none;
+      }
+      .card ul li::before {
+        content: "▸ ";
+        color: var(--accent);
+      }
+
+      .grid2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .grid3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 12px;
+      }
+      @media (max-width: 680px) {
+        .grid2,
+        .grid3 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .tier-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 14px;
+        font-size: 13.5px;
+      }
+      .tier-table th {
+        background: var(--bg3);
+        padding: 9px 12px;
+        text-align: left;
+        font-size: 11px;
+        letter-spacing: 0.5px;
+        color: var(--muted);
+        text-transform: uppercase;
+      }
+      .tier-table td {
+        padding: 11px 12px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+      }
+      .tier-table tr:last-child td {
+        border-bottom: none;
+      }
+      .tier-table tr:hover td {
+        background: var(--bg3);
+      }
+
+      .tier-badge {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        text-align: center;
+        line-height: 32px;
+        font-weight: 700;
+        font-size: 15px;
+        flex-shrink: 0;
+      }
+      .tier-s {
+        background: var(--red);
+        color: #fff;
+      }
+      .tier-a {
+        background: var(--orange);
+        color: #000;
+      }
+      .tier-b {
+        background: var(--blue);
+        color: #000;
+      }
+      .tier-c {
+        background: #868e96;
+        color: #fff;
+      }
+
+      .tip-box {
+        background: var(--bg2);
+        border-left: 4px solid var(--accent);
+        border-radius: 0 10px 10px 0;
+        padding: 14px 16px;
+        margin-bottom: 10px;
+      }
+      .tip-box.green {
+        border-left-color: var(--green);
+      }
+      .tip-box.red {
+        border-left-color: var(--red);
+      }
+      .tip-box.blue {
+        border-left-color: var(--blue);
+      }
+      .tip-box.purple {
+        border-left-color: var(--purple);
+      }
+      .tip-box.orange {
+        border-left-color: var(--orange);
+      }
+      .tip-box strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 13.5px;
+        color: var(--text);
+      }
+      .tip-box p {
+        color: var(--muted);
+        font-size: 13.5px;
+      }
+
+      /* TOWER DETAIL CARD */
+      .tower-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 0;
+        margin-bottom: 14px;
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
+      .tower-card:hover {
+        border-color: var(--accent-dim);
+      }
+      .tower-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 18px;
+        background: var(--bg3);
+        border-bottom: 1px solid var(--border);
+        cursor: pointer;
+        user-select: none;
+      }
+      .tower-header h3 {
+        font-size: 16px;
+        font-weight: 700;
+        flex: 1;
+        margin: 0;
+      }
+      .tower-body {
+        padding: 16px 18px;
+        display: none;
+      }
+      .tower-body.open {
+        display: block;
+      }
+      .tower-card.open .tower-header {
+        border-bottom-color: var(--border);
+      }
+
+      .tower-meta {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      .meta-pill {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 7px 11px;
+        font-size: 12px;
+      }
+      .meta-pill span {
+        color: var(--muted);
+        display: block;
+        font-size: 10.5px;
+        margin-bottom: 2px;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+      }
+      .meta-pill b {
+        color: var(--text);
+      }
+
+      .path-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+      }
+      .path-chip {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 4px 10px;
+        font-size: 11.5px;
+      }
+      .path-chip b {
+        color: var(--accent);
+      }
+      .path-chip span {
+        color: var(--muted);
+      }
+
+      .stage-tag {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 2px 7px;
+        border-radius: 10px;
+        margin-right: 4px;
+        margin-bottom: 3px;
+      }
+      .st-early {
+        background: #1e4d2b;
+        color: var(--green);
+      }
+      .st-mid {
+        background: #4d3a00;
+        color: #ffd43b;
+      }
+      .st-late {
+        background: #4d1a1a;
+        color: var(--red);
+      }
+      .st-free {
+        background: #2a1a4d;
+        color: var(--purple);
+      }
+
+      .tag {
+        display: inline-block;
+        font-size: 10.5px;
+        font-weight: 600;
+        padding: 2px 8px;
+        border-radius: 10px;
+        margin-right: 4px;
+        margin-top: 4px;
+      }
+      .tag-dmg {
+        background: #4d1a1a;
+        color: var(--red);
+      }
+      .tag-sup {
+        background: #1a3a4d;
+        color: var(--blue);
+      }
+      .tag-eco {
+        background: #1e3a1e;
+        color: var(--green);
+      }
+      .tag-cc {
+        background: #3a1e4d;
+        color: var(--purple);
+      }
+      .tag-new {
+        background: var(--accent);
+        color: #000;
+      }
+      .tag-camo {
+        background: #152235;
+        color: #74c0fc;
+      }
+      .tag-lead {
+        background: #2e2e10;
+        color: #ffd43b;
+      }
+
+      .combo-box {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px 14px;
+        margin-top: 8px;
+        font-size: 13px;
+      }
+      .combo-box b {
+        color: var(--accent);
+        display: block;
+        margin-bottom: 4px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+      }
+      .combo-box p {
+        color: var(--muted);
+      }
+
+      .warn-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 14px;
+        border-radius: 8px;
+        background: var(--bg3);
+        margin-bottom: 7px;
+        border: 1px solid var(--border);
+      }
+      .warn-num {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--accent);
+        min-width: 52px;
+      }
+      .warn-desc {
+        font-size: 12.5px;
+        color: var(--muted);
+      }
+
+      .tier-label {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-right: 6px;
+      }
+
+      .phase-block {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px 18px;
+        margin-bottom: 12px;
+        background: var(--bg2);
+      }
+      .phase-block h3 {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .phase-block ul {
+        list-style: none;
+      }
+      .phase-block ul li {
+        padding: 5px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 13.5px;
+        color: var(--text);
+      }
+      .phase-block ul li:last-child {
+        border-bottom: none;
+      }
+      .phase-block ul li::before {
+        content: "▸ ";
+        color: var(--accent);
+      }
+
+      .prop-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+        margin-top: 10px;
+      }
+      .prop-table th {
+        background: var(--bg3);
+        padding: 8px 10px;
+        text-align: left;
+        font-size: 11px;
+        color: var(--muted);
+        text-transform: uppercase;
+      }
+      .prop-table td {
+        padding: 9px 10px;
+        border-bottom: 1px solid var(--border);
+        color: var(--muted);
+      }
+      .prop-table td:first-child {
+        color: var(--text);
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .prop-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .mini-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px;
+      }
+      .mini-card h3 {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .mini-card p {
+        font-size: 12.5px;
+        color: var(--muted);
+      }
+      .mode-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+        gap: 12px;
+      }
+      .diff {
+        display: inline-block;
+        font-size: 10.5px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 10px;
+        margin-bottom: 7px;
+      }
+      .diff-easy {
+        background: #1e4d2b;
+        color: var(--green);
+      }
+      .diff-med {
+        background: #4d3a00;
+        color: #ffd43b;
+      }
+      .diff-hard {
+        background: #4d1a1a;
+        color: var(--red);
+      }
+      .diff-special {
+        background: #2a1a4d;
+        color: var(--purple);
+      }
+
+      .update-item {
+        display: flex;
+        gap: 14px;
+        padding: 15px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .update-item:last-child {
+        border-bottom: none;
+      }
+      .update-version {
+        background: var(--accent);
+        color: #000;
+        font-weight: 700;
+        font-size: 12px;
+        padding: 4px 9px;
+        border-radius: 8px;
+        height: fit-content;
+        white-space: nowrap;
+      }
+      .update-content h4 {
+        font-weight: 600;
+        margin-bottom: 3px;
+        font-size: 14.5px;
+        font-family: "Inter", sans-serif;
+      }
+      .update-content p {
+        font-size: 12.5px;
+        color: var(--muted);
+      }
+
+      .toggle-arrow {
+        transition: transform 0.2s;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .tower-card.open .toggle-arrow {
+        transform: rotate(180deg);
+      }
+
+      footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: 11.5px;
+        padding: 24px 18px 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav aria-label="Điều hướng">
+      <div class="nav-logo">🐒 BTD6 Guide</div>
+      <button class="nav-btn active" onclick="showSection('overview', this)">
+        Tổng Quan
+      </button>
+      <button class="nav-btn" onclick="showSection('phase', this)">
+        Theo Giai Đoạn
+      </button>
+      <button class="nav-btn" onclick="showSection('bloons', this)">
+        Kẻ Địch
+      </button>
+      <button class="nav-btn" onclick="showSection('heroes', this)">
+        Hero
+      </button>
+      <button class="nav-btn" onclick="showSection('primary', this)">
+        Primary
+      </button>
+      <button class="nav-btn" onclick="showSection('military', this)">
+        Military
+      </button>
+      <button class="nav-btn" onclick="showSection('magic', this)">
+        Magic
+      </button>
+      <button class="nav-btn" onclick="showSection('support', this)">
+        Support
+      </button>
+      <button class="nav-btn" onclick="showSection('combos', this)">
+        Combo
+      </button>
+      <button class="nav-btn" onclick="showSection('modes', this)">
+        Chế Độ
+      </button>
+      <button class="nav-btn" onclick="showSection('farming', this)">
+        Cày / Farm
+      </button>
+      <button class="nav-btn" onclick="showSection('updates', this)">
+        Update
+      </button>
+    </nav>
+
+    <main>
+      <!-- ========== TỔNG QUAN ========== -->
+      <div class="section active" id="overview">
+        <div class="hero-banner">
+          <h1>Bloons TD 6<br />Hướng Dẫn Toàn Tập</h1>
+          <p>
+            Tier list, combo, lối chơi từng giai đoạn, tất cả hero + 23 monkey +
+            11 paragon — cập nhật v55.1 tháng 6/2026.
+          </p>
+          <div class="version-badge">🆕 Version 55.1 · Cập nhật 6/2026</div>
+        </div>
+
+        <div class="sec-header">
+          <span class="sec-icon">📋</span>
+          <h2>Cơ Bản Cần Biết</h2>
+        </div>
+        <div class="grid2">
+          <div class="tip-box green">
+            <strong>🎯 Mục tiêu</strong>
+            <p>
+              Ngăn Bloon đi hết đường bằng cách đặt Monkey Tower + 1 Hero để
+              tiêu diệt chúng.
+            </p>
+          </div>
+          <div class="tip-box blue">
+            <strong>💰 3 loại tiền</strong>
+            <p>
+              <b>Cash</b>: tiền ván (mua tower). <b>Monkey Money</b>: tiền
+              "thật" (mở hero/skin/map). <b>Trophy</b>: từ event.
+            </p>
+          </div>
+          <div class="tip-box purple">
+            <strong>🦸 Hero — chỉ 1/ván</strong>
+            <p>
+              Tự lên cấp theo XP tích lũy, max level 20. Đặt hero từ round 1 để
+              tối đa thời gian lên cấp.
+            </p>
+          </div>
+          <div class="tip-box">
+            <strong>🐒 3 nhánh upgrade</strong>
+            <p>
+              Mỗi tower có 3 path. Chỉ 1 nhánh được tối đa Tier 5, nhánh 2 tối
+              đa Tier 2 (vd 5-2-0).
+            </p>
+          </div>
+        </div>
+
+        <div class="sec-header" style="margin-top: 26px">
+          <span class="sec-icon">⚠️</span>
+          <h2>Timeline Round Nguy Hiểm</h2>
+        </div>
+        <div class="warn-row">
+          <span class="warn-num">R24</span
+          ><span class="warn-desc"
+            >Camo Bloon đầu tiên — cần tower thấy camo: Ninja, Village 2-0-0,
+            Sub 0-4-0, Etienne, Sauda, Psi...</span
+          >
+        </div>
+        <div class="warn-row">
+          <span class="warn-num">R28</span
+          ><span class="warn-desc"
+            >Lead Bloon — cần Explosive / Magic / Acid (Alchemist). Glue Gunner
+            strip Lead tạm thời.</span
+          >
+        </div>
+        <div class="warn-row">
+          <span class="warn-num">R40</span
+          ><span class="warn-desc"
+            >MOAB đầu tiên — bắt buộc có MOAB-damage (Bomb Shooter, Dartling,
+            Pirate Lord...)</span
+          >
+        </div>
+        <div class="warn-row">
+          <span class="warn-num">R59</span
+          ><span class="warn-desc"
+            >Camo + Lead cùng lúc — combo nguy hiểm nhất đầu game. Cần Village
+            MIB hoặc Alchemist + decamo.</span
+          >
+        </div>
+        <div class="warn-row">
+          <span class="warn-num">R60</span
+          ><span class="warn-desc"
+            >BFB đầu tiên (chứa 4 MOAB). Cần heavy DPS đã sẵn sàng.</span
+          >
+        </div>
+        <div class="warn-row">
+          <span class="warn-num">R63/76/78</span
+          ><span class="warn-desc"
+            >Rush Ceramic/MOAB dày — test sức mạnh build. Có Perma-Spike sẵn từ
+            round này là chuẩn nhất.</span
+          >
+        </div>
+        <div class="warn-row">
+          <span class="warn-num">R80</span
+          ><span class="warn-desc"
+            >ZOMG đầu tiên — 4.000 hit, chứa nhiều BFB. Cần Tier 5 hoặc
+            Paragon.</span
+          >
+        </div>
+        <div class="warn-row">
+          <span class="warn-num">R90</span
+          ><span class="warn-desc"
+            >DDT — Camo + Lead + Black + tốc độ cao. Khó nhất midgame. Sub 0-4-0
+            / Glue + decamo là key.</span
+          >
+        </div>
+        <div class="warn-row">
+          <span class="warn-num">R100</span
+          ><span class="warn-desc"
+            >B.A.D. — 20.000 hit, miễn slow/knockback/instakill. Cần full DPS
+            build hoàn chỉnh.</span
+          >
+        </div>
+        <div class="warn-row">
+          <span class="warn-num">Freeplay</span
+          ><span class="warn-desc"
+            >Bloon mạnh vô hạn — lúc Paragon + build "1 tower carry" phát huy
+            tối đa.</span
+          >
+        </div>
+      </div>
+
+      <!-- ========== THEO GIAI ĐOẠN ========== -->
+      <div class="section" id="phase">
+        <div class="sec-header">
+          <span class="sec-icon">🗓️</span>
+          <h2>Nên Chơi Tower Nào — Theo Từng Giai Đoạn</h2>
+        </div>
+        <div class="tip-box blue" style="margin-bottom: 16px">
+          <strong>💡 Nguyên tắc chung</strong>
+          <p>
+            Đầu game: kiếm tiền + defense rẻ. Giữa game: farm nặng + chuẩn bị
+            MOAB. Cuối game: Tier 5 + Paragon. Freeplay: "1 tower carry".
+          </p>
+        </div>
+
+        <div class="phase-block">
+          <h3>
+            <span class="st-early stage-tag">EARLY</span> R1–25: Tiết kiệm, cầm
+            cự, đặt farm sớm
+          </h3>
+          <ul>
+            <li>
+              <b>🥷 Ninja Monkey (0-0-3+)</b> — camo detect sẵn, tấn công nhanh,
+              rẻ nhất cho R1–50. Đặt R1–5 làm main damage.
+            </li>
+            <li>
+              <b>🧪 Alchemist (0-2-0)</b> — đặt sớm để buff tower chính liên
+              tục, tăng damage gấp đôi với chi phí thấp.
+            </li>
+            <li>
+              <b>🎈 Dart Monkey</b> — chỉ dùng làm filler R1–5, bán khi có tower
+              tốt hơn.
+            </li>
+            <li>
+              <b>🪃 Boomerang (1-0-0 → 3-0-0)</b> — pierce cao, tốt để dọn nhóm
+              bloon dồn cụm đầu game.
+            </li>
+            <li>
+              <b>🍌 Banana Farm (0-2-0)</b> — đặt ngay R14–15, ưu tiên upgrade
+              lên tự động thu (0-3-0 Marketplace).
+            </li>
+            <li>
+              <b>🏘️ Monkey Village (2-0-0)</b> — nếu bị camo R24, mua Village
+              Radar Scanner là cách nhanh nhất cover.
+            </li>
+            <li>
+              <b>❄️ Ice Monkey (0-2-0)</b> — hỗ trợ nhóm bloon lại cho tower AoE
+              dọn sạch. Dùng sớm nếu map có nhiều bloon cùng lúc.
+            </li>
+          </ul>
+        </div>
+
+        <div class="phase-block">
+          <h3>
+            <span class="st-mid stage-tag">MID</span> R26–65: Farm mạnh, chuẩn
+            bị MOAB defense
+          </h3>
+          <ul>
+            <li>
+              <b>🍌 Banana Farm ×4–6</b> — spam farm giai đoạn này, mục tiêu 4–6
+              cái trước R40.
+            </li>
+            <li>
+              <b>💣 Bomb Shooter (0-2-0 → 5-0-2)</b> — rẻ nhất để xử lý MOAB
+              R40. Pop and Awe là 1 trong những ability mạnh nhất game.
+            </li>
+            <li>
+              <b>🌵 Spike Factory (0-0-3)</b> — đặt sớm làm safety net, tích
+              spike giữa rounds, upgrade dần lên Perma-Spike.
+            </li>
+            <li>
+              <b>🤿 Monkey Sub (0-4-0)</b> — cần có trước R90 (DDT). Decamo tốt
+              nhất game, rẻ, không cần micro.
+            </li>
+            <li>
+              <b>🧴 Glue Gunner (0-2-0 → 0-2-5)</b> — làm chậm mọi thứ, strip
+              Lead tạm thời, cực kỳ cần thiết khi gặp DDT R90.
+            </li>
+            <li>
+              <b>🔫 Dartling Gunner</b> — đầu tư từ giữa game nếu có vốn, range
+              toàn map, damage cực cao.
+            </li>
+            <li>
+              <b>🌿 Druid (0-0-3+)</b> — Avatar of Wrath scale rất tốt khi bloon
+              đông, buff lẫn nhau (Poplust).
+            </li>
+            <li>
+              <b>🏴‍☠️ Buccaneer (5-0-2)</b> — nếu map có nước, Pirate Lord hook
+              MOAB gần như instakill cực hiệu quả.
+            </li>
+            <li>
+              <b>🔮 Wizard (2-0-5)</b> — Prince of Darkness hồi sinh zombie
+              bloon làm "lá chắn" tự nhiên.
+            </li>
+          </ul>
+        </div>
+
+        <div class="phase-block">
+          <h3>
+            <span class="st-late stage-tag">LATE</span> R66–100: Tier 5,
+            Paragon, xử lý BAD
+          </h3>
+          <ul>
+            <li>
+              <b>🌵 Spike Factory → 2-0-5 Perma-Spike</b> — safety net số 1 cho
+              R80, R90, R100. Đặt trước R70.
+            </li>
+            <li>
+              <b>☀️ Super Monkey → 5-2-0 True Sun God</b> — damage cao nhất cuối
+              game. Cần "sacrifice" đủ tiền từ mỗi category.
+            </li>
+            <li>
+              <b>🥷 Ninja → Ascended Shadow (Paragon)</b> — làm chậm toàn màn,
+              shuriken homing cực mạnh vs BAD.
+            </li>
+            <li>
+              <b>🪃 Boomerang → Glaive Dominus (Paragon)</b> — knockback + shred
+              MOAB-class rất tốt.
+            </li>
+            <li>
+              <b>🏘️ Monkey Village (0-2-3 MIB)</b> — giúp dính Lead+Black+Camo
+              cho toàn dàn tower trong tầm. Bắt buộc R90+.
+            </li>
+            <li>
+              <b>🔫 Dartling → 0-2-5 M.A.D</b> — DPS thuần cao nhất game ở
+              Freeplay R150+.
+            </li>
+            <li>
+              <b>🔧 Engineer → 5-0-0 Sentry Champion</b> — turret tự động liên
+              tục, Overclock buff ability.
+            </li>
+          </ul>
+        </div>
+
+        <div class="phase-block">
+          <h3>
+            <span class="st-free stage-tag">FREEPLAY</span> R100+: Paragon + 1
+            tower carry
+          </h3>
+          <ul>
+            <li>
+              <b>Paragon bất kỳ đã build từ R100</b> — Degree tăng theo tiền đổ
+              + pop count. Geraldo's Paragon Power Totem là cách duy nhất đạt
+              Degree 100 solo.
+            </li>
+            <li>
+              <b>True Sun God / Legend of the Night</b> — sau R100 là lúc Super
+              Monkey thống trị.
+            </li>
+            <li>
+              <b>Avatar of Wrath (Druid 0-0-5)</b> — damage tăng theo tổng bloon
+              trên màn, Freeplay là đỉnh của nó.
+            </li>
+            <li>
+              <b>Ascended Shadow (Ninja Paragon)</b> — làm chậm toàn màn, ideal
+              cho mọi round Freeplay.
+            </li>
+            <li>
+              <b>Perma-Spike</b> — vẫn là safety net không thể thiếu dù Freeplay
+              bất kỳ vòng nào.
+            </li>
+          </ul>
+        </div>
+
+        <div class="tip-box orange" style="margin-top: 10px">
+          <strong>🏆 CHIMPS Mode — Build đặc biệt</strong>
+          <p>
+            Không farm được (không có Banana Farm). Ưu tiên: Ninja + Alchemist
+            đầu game → Spike Factory safety net sớm → Bomb Pop and Awe cho MOAB
+            → Dartling M.A.D hoặc True Sun God cho R100. Hero: Geraldo hoặc
+            Sauda là meta CHIMPS số 1.
+          </p>
+        </div>
+      </div>
+
+      <!-- ========== KẺ ĐỊCH ========== -->
+      <div class="section" id="bloons">
+        <div class="sec-header">
+          <span class="sec-icon">🎈</span>
+          <h2>Bloon — Kẻ Địch</h2>
+        </div>
+        <div class="tip-box blue">
+          <strong>Thứ tự bloon thường</strong>
+          <p>
+            Red → Blue → Green → Yellow → Pink (mỗi lớp nhanh hơn, vỡ ra thành
+            lớp yếu hơn). Sau đó: Black, White, Lead, Zebra, Rainbow, Ceramic,
+            Purple.
+          </p>
+        </div>
+
+        <div class="sec-header sub"><h2>🏷️ Thuộc Tính & Cách Counter</h2></div>
+        <table class="prop-table">
+          <tr>
+            <th>Thuộc tính</th>
+            <th>Ý nghĩa & counter</th>
+          </tr>
+          <tr>
+            <td>🥷 Camo</td>
+            <td>
+              Vô hình với tower không có camo detect. Counter: Ninja, Village
+              2-0-0, Sub 0-4-0, Etienne, Sauda, Psi, Silas.
+            </td>
+          </tr>
+          <tr>
+            <td>🔩 Lead</td>
+            <td>
+              Miễn Sharp (dart/tack/spike thường). Counter: Explosive (Bomb),
+              Magic/Fire (Wizard), Acid (Alchemist), Dartling.
+            </td>
+          </tr>
+          <tr>
+            <td>⚫ Black</td>
+            <td>
+              Miễn Explosive (bom, mortar). Counter: Sharp, Magic, Cold, Glue,
+              Sniper, Dartling.
+            </td>
+          </tr>
+          <tr>
+            <td>⚪ White</td>
+            <td>
+              Miễn Cold/Freeze. Counter: damage thường, tránh đóng băng, Glue
+              Gunner (nhưng tách đôi khi gặp glue).
+            </td>
+          </tr>
+          <tr>
+            <td>💜 Purple</td>
+            <td>
+              Miễn Magic/Plasma/Energy. Counter: Dart, Bomb, Ice, Glue, Sniper,
+              Ninja, Tack, Boomerang.
+            </td>
+          </tr>
+          <tr>
+            <td>🦓 Zebra</td>
+            <td>
+              Black + White. Cần damage không Explosive lẫn không Cold thuần.
+            </td>
+          </tr>
+          <tr>
+            <td>🏺 Ceramic</td>
+            <td>
+              10 hit (20 nếu Fortified), chứa 2 Rainbow. Cần AoE cao hoặc DOT.
+            </td>
+          </tr>
+          <tr>
+            <td>💪 Fortified</td>
+            <td>
+              Nhân đôi máu layer (Lead Fortified = ×4). Cần damage cao, Bomb
+              Shooter/Glue DOT tốt nhất.
+            </td>
+          </tr>
+          <tr>
+            <td>💚 Regrow</td>
+            <td>
+              Tự hồi layer theo thời gian. Cần DOT liên tục hoặc damage dứt
+              điểm, Glue DOT rất tốt.
+            </td>
+          </tr>
+        </table>
+
+        <div class="sec-header sub"><h2>🚀 MOAB-Class</h2></div>
+        <table class="prop-table">
+          <tr>
+            <th>Tên</th>
+            <th>Round / Máu / Nội dung / Counter</th>
+          </tr>
+          <tr>
+            <td>MOAB</td>
+            <td>
+              R40 · 200 hit · Chứa 4 Ceramic. Counter: Bomb, Pop and Awe,
+              Dartling.
+            </td>
+          </tr>
+          <tr>
+            <td>BFB</td>
+            <td>
+              R60 · 700 hit · Chứa 4 MOAB. Counter: Tier 4–5 AoE, Pirate Lord.
+            </td>
+          </tr>
+          <tr>
+            <td>ZOMG</td>
+            <td>
+              R80 · 4.000 hit · Chứa nhiều BFB. Counter: True Sun God, Ninja
+              Paragon, Perma-Spike stack.
+            </td>
+          </tr>
+          <tr>
+            <td>DDT</td>
+            <td>
+              R90 · 400 hit · <b>Camo+Lead+Black+tốc độ cao</b>. Khó nhất
+              midgame. Counter: Sub 0-4-0 decamo → dùng Glue strip Lead → AoE
+              dọn.
+            </td>
+          </tr>
+          <tr>
+            <td>B.A.D.</td>
+            <td>
+              R100 · 20.000 hit · Miễn slow/knockback/instakill. Chứa MOAB/BFB.
+              Counter: full DPS thuần (M.A.D, True Sun God, Ascended Shadow).
+            </td>
+          </tr>
+        </table>
+
+        <div class="sec-header sub"><h2>👑 Boss Bloon (Event Riêng)</h2></div>
+        <div class="mode-grid">
+          <div class="mini-card">
+            <h3>🌋 Bloonarius</h3>
+            <p>
+              Sinh reinforcement khi bị damage. Counter: dùng DOT nhỏ thay vì
+              burst lớn.
+            </p>
+          </div>
+          <div class="mini-card">
+            <h3>💀 Lych (v54 rework)</h3>
+            <p>
+              Ăn cắp buff tower + tự hồi máu theo thời gian. Counter: tắt buff
+              hoặc damage liên tục.
+            </p>
+          </div>
+          <div class="mini-card">
+            <h3>🌀 Vortex</h3>
+            <p>
+              EMP disable tower diện rộng định kỳ. Counter: phân tán tower, có
+              thêm tower ngoài vùng EMP.
+            </p>
+          </div>
+          <div class="mini-card">
+            <h3>☠️ Dreadbloon</h3>
+            <p>
+              Skull miễn nhiễm xoay vòng. Counter: đa dạng damage type liên tục.
+            </p>
+          </div>
+          <div class="mini-card">
+            <h3>🔥 Blastapopoulos</h3>
+            <p>
+              AoE damage quanh boss. Counter: hero + tower có range cao, tránh
+              đặt trong vùng AoE.
+            </p>
+          </div>
+          <div class="mini-card">
+            <h3>🌌 Phayze</h3>
+            <p>
+              Dịch chuyển + tạo camo cho bloon quanh. Counter: camo detect toàn
+              map (Etienne, Psi).
+            </p>
+          </div>
+          <div class="mini-card">
+            <h3>🐍 Diamondback <span class="tag tag-new">v54</span></h3>
+            <p>
+              Cơ chế rắn quấn track — mới trong main game 4/2026, meta vẫn đang
+              được khám phá.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== HERO ========== -->
+      <div class="section" id="heroes">
+        <div class="sec-header">
+          <span class="sec-icon">🦸</span>
+          <h2>Tier List 18 Hero — Meta 6/2026</h2>
+        </div>
+        <div class="tip-box blue" style="margin-bottom: 16px">
+          <strong>💡 Lưu ý</strong>
+          <p>
+            Mỗi ván chỉ dùng 1 hero. Hero tự lên cấp, max 20. Đặt từ R1 để lên
+            cấp nhanh nhất. Mua bằng Monkey Money.
+          </p>
+        </div>
+
+        <table class="tier-table">
+          <thead>
+            <tr>
+              <th>Tier</th>
+              <th>Hero</th>
+              <th>Phong cách</th>
+              <th>Chi tiết</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tier-badge tier-s">S</span></td>
+              <td><b>🛒 Geraldo</b></td>
+              <td>Shop item linh hoạt</td>
+              <td>
+                Không nhược điểm rõ. Mạnh mọi mode/map. Contract = thu nhập vĩnh
+                viễn. MOAB Eliminator = cứu nguy. Paragon Power Totem = cách DUY
+                NHẤT đạt Degree 100 solo. Meta pick số 1 cho cả CHIMPS lẫn
+                farming.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-s">S</span></td>
+              <td><b>⚔️ Sauda</b></td>
+              <td>Carry early–mid</td>
+              <td>
+                Pierce cao, tốc độ cao, camo detect sẵn từ cấp thấp. Dễ chơi
+                nhất S-tier. Nhược: range ngắn, cần Village hỗ trợ. Lý tưởng cho
+                người mới + CHIMPS.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-s">S</span></td>
+              <td><b>🧠 Psi</b></td>
+              <td>CC + damage tầm xa</td>
+              <td>
+                Range "vô hạn", camo detect sẵn, xử lý được MOAB-class. Cần đầu
+                tư nâng cấp liên tục để giữ sức mạnh. Cao skill ceiling.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-s">S</span></td>
+              <td><b>🏹 Adora</b></td>
+              <td>Combo Ninja+Alch</td>
+              <td>
+                Nhìn xuyên tường, Blood Sacrifice bù điểm yếu lên cấp chậm. Yếu
+                ở CHIMPS/Co-op (chia XP). Xài với combo Ninja+Alchemist rất
+                mạnh.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-s">S</span></td>
+              <td>
+                <b>❄️ Silas <span class="tag tag-new">v52</span></b>
+              </td>
+              <td>Buff Ice + CC</td>
+              <td>
+                Đóng băng/làm chậm diện rộng, buff Ice Monkey quanh nó. Ultimate
+                freeze toàn màn hình. Lý tưởng cho build Ice + Bomb.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-a">A</span></td>
+              <td><b>💻 Benjamin</b></td>
+              <td>Kinh tế số 1</td>
+              <td>
+                Sinh cash+lives tự động, lên cấp nhanh nhất game. Rất hợp người
+                mới & build farming nặng. Ít dùng cho CHIMPS.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-a">A</span></td>
+              <td><b>🌿 Obyn</b></td>
+              <td>Druid synergy</td>
+              <td>
+                Hero free mạnh nhất, buff Druid +pierce cực khủng. Lý tưởng cho
+                build Avatar of Wrath + Poplust.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-a">A</span></td>
+              <td><b>🚀 Rosalia</b></td>
+              <td>Jetpack di động</td>
+              <td>
+                Tự di chuyển, CC + freeze tốt. Hợp build Heli/Ace. Linh hoạt
+                trên nhiều loại map.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-a">A</span></td>
+              <td><b>🐻 Pat Fusty</b></td>
+              <td>Buff + stun</td>
+              <td>
+                Rallying Roar buff attack speed toàn dàn, knockback/stun câu giờ
+                tốt. Rẻ, dễ dùng.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-a">A</span></td>
+              <td><b>🐦‍⬛ Corvus</b></td>
+              <td>Dark magic AoE</td>
+              <td>
+                Damage "sóng" cực tốt nhưng yếu đơn lẻ. Cần micro nhiều, lên cấp
+                chậm. Cao skill ceiling nhất game. Mua sau khi quen game.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-a">A</span></td>
+              <td>
+                <b>🐵 Dan D'Monke <span class="tag tag-new">v55</span></b>
+              </td>
+              <td>Dual-form</td>
+              <td>
+                Form support chém kiếm + form "Masqued Macaque" damage sấm sét.
+                Skin He-Man collab Mattel.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-b">B</span></td>
+              <td><b>🔥 Gwendolin</b></td>
+              <td>Jack of all trades</td>
+              <td>
+                Ổn định, không xuất sắc. Firecracker Gwen skin (v53) có gameplay
+                khác — AoE pháo hoa.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-b">B</span></td>
+              <td><b>💣 Striker Jones</b></td>
+              <td>Buff Explosive</td>
+              <td>
+                Buff Bomb/Mortar cực mạnh. Combo Pop and Awe + Striker = stun vô
+                hạn. Chỉ tỏa sáng trong build explosive chuyên biệt.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-b">B</span></td>
+              <td><b>🌊 Brickell</b></td>
+              <td>Water specialist</td>
+              <td>Buff Sub/Boat, Mega Mine mạnh. Cần map có nước.</td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-b">B</span></td>
+              <td><b>🕵️ Etienne</b></td>
+              <td>Camo toàn map</td>
+              <td>
+                Camo detection toàn map — tiện nhất để giải quyết DDT mà không
+                cần Sub. DPS thấp.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-c">C</span></td>
+              <td><b>🏹 Quincy</b></td>
+              <td>Hero đầu tiên</td>
+              <td>Tốt early, falls off nhanh cuối game.</td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-c">C</span></td>
+              <td><b>💀 Ezili</b></td>
+              <td>MOAB curse</td>
+              <td>Rất yếu đến khi lên cấp cao. Không đề xuất cho người mới.</td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-c">C</span></td>
+              <td><b>🚂 Churchill</b></td>
+              <td>Straight-lane DPS</td>
+              <td>
+                Damage cao nhưng cần đường thẳng dài, đắt, lên cấp chậm nhất
+                game.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="sec-header" style="margin-top: 24px">
+          <span class="sec-icon">🎯</span>
+          <h2>Nên Chọn Hero Nào?</h2>
+        </div>
+        <div class="grid2">
+          <div class="card">
+            <h3>🆕 Mới bắt đầu</h3>
+            <ul>
+              <li><b>Sauda</b> — đặt là mạnh ngay, không cần micro</li>
+              <li><b>Geraldo</b> — shop item giải mọi tình huống</li>
+              <li><b>Benjamin</b> — học farming từ sớm</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>🏆 CHIMPS Mode</h3>
+            <ul>
+              <li><b>Geraldo</b> — item giải mọi vấn đề</li>
+              <li><b>Sauda</b> — carry early game</li>
+              <li><b>Psi</b> — CC mạnh, camo detect sẵn</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>💰 Farming / Boss Event</h3>
+            <ul>
+              <li><b>Benjamin</b> — sinh cash nhiều nhất</li>
+              <li><b>Geraldo</b> — Paragon Totem + Contract</li>
+              <li><b>Corvus</b> — scale damage boss tốt (cần skill)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>🌊 Map nước / Cao skill</h3>
+            <ul>
+              <li><b>Brickell</b> — buff Sub/Boat, Mega Mine</li>
+              <li><b>Corvus / Psi</b> — cho người thích combo phức tạp</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== PRIMARY ========== -->
+      <div class="section" id="primary">
+        <div class="sec-header">
+          <span class="sec-icon">🕐</span>
+          <h2>Primary Monkey — Chi Tiết Đầy Đủ</h2>
+        </div>
+        <div class="tip-box" style="margin-bottom: 16px">
+          <strong>📝 Cách đọc path</strong>
+          <p>
+            5-2-0 = Path 1 Tier 5, Path 2 Tier 2, Path 3 không nâng. Ví dụ:
+            Ninja 5-0-2 = Grandmaster Ninja + Caltrops. Nhánh 1 tối đa Tier 5,
+            nhánh 2 tối đa Tier 2.
+          </p>
+        </div>
+
+        <!-- DART MONKEY -->
+        <div class="tower-card" id="tc-dart">
+          <div class="tower-header" onclick="toggleCard('dart')">
+            <span class="tier-badge tier-c">C</span>
+            <h3>🎯 Dart Monkey</h3>
+            <span class="stage-tag st-early">Early filler</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-dart">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$200</b></div>
+              <div class="meta-pill"><span>Damage type</span><b>Sharp</b></div>
+              <div class="meta-pill">
+                <span>Giai đoạn tốt</span><b>Early · Freeplay (Paragon)</b>
+              </div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>Rẻ nhất game</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>5-0-0</b>
+                <span>Crossbow Master — tấn công cực nhanh, pierce cao</span>
+              </div>
+              <div class="path-chip">
+                <b>0-5-0</b>
+                <span
+                  >Super Monkey Fan Club — tạm thời biến nhiều Dart thành Super
+                  Monkey (4 lần/round)</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-0-5</b>
+                <span
+                  >Ultra-Juggernaut — juggernaut chia vỡ thành nhiều viên
+                  nhỏ</span
+                >
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> R1–10 để survive khi chưa đủ tiền. Bán ngay
+              khi có tower tốt hơn. Chỉ đầu tư sâu nếu cần Paragon
+              <b>Apex Plasma Master</b> (cần đủ 3 bản Tier 5).
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                x-4-x Plasma Monkey Fan Club buff tất cả Dart Monkey trong tầm
+                thành laser — combo tốt nếu có nhiều Dart. Paragon Apex Plasma
+                Master là 1 trong những Paragon mạnh nhất nhưng đòi hỏi đầu tư
+                lớn. Đừng đầu tư sâu ở build bình thường.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-dmg">Low damage</span
+              ><span class="tag tag-sup">Paragon carry</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOOMERANG -->
+        <div class="tower-card" id="tc-boom">
+          <div class="tower-header" onclick="toggleCard('boom')">
+            <span class="tier-badge tier-b">B</span>
+            <h3>🪃 Boomerang Monkey</h3>
+            <span class="stage-tag st-early">Early–Mid</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-boom">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$325</b></div>
+              <div class="meta-pill">
+                <span>Damage type</span><b>Sharp (lưỡi)</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn tốt</span><b>Early–Mid · Paragon</b>
+              </div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>Pierce cực cao, lưỡi lượn vòng</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>0-4-0</b>
+                <span>MOAB Press — stun MOAB-class, knockback</span>
+              </div>
+              <div class="path-chip">
+                <b>0-5-0</b>
+                <span>MOAB Domination — stun + damage MOAB cực cao</span>
+              </div>
+              <div class="path-chip">
+                <b>0-0-5</b>
+                <span
+                  >Glaive Lord — glaive lớn quay liên tục xung quanh tower</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>5-0-0</b>
+                <span>Perma-MOAB Shredder — dot damage MOAB liên tục</span>
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Tốt từ đầu ván đến cuối game. Glaive lượn
+              vòng → trúng bloon nhiều lần/lượt. Paragon
+              <b>Glaive Dominus</b> là 1 trong những Paragon mạnh nhất chống
+              boss.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                0-4-0 MOAB Press + Striker Jones = stun MOAB-class liên tục. Đặt
+                ở khúc cua để glaive lượn qua nhiều bloon nhất. Paragon Glaive
+                Dominus cần 3 bản Tier 5 (0-5-0, 0-0-5, 5-0-0) — combo cực mạnh
+                với knockback diện rộng.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-dmg">Pierce cao</span
+              ><span class="tag tag-cc">MOAB stun</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOMB SHOOTER -->
+        <div class="tower-card" id="tc-bomb">
+          <div class="tower-header" onclick="toggleCard('bomb')">
+            <span class="tier-badge tier-a">A</span>
+            <h3>💣 Bomb Shooter</h3>
+            <span class="stage-tag st-mid">Mid–Late</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-bomb">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$525</b></div>
+              <div class="meta-pill">
+                <span>Damage type</span><b>Explosive</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn tốt</span><b>R30–R100</b>
+              </div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>AoE, stun MOAB</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>5-0-2</b>
+                <span
+                  >Pop and Awe — stun toàn màn hình liên tục, ability mạnh nhất
+                  game</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-0-5</b>
+                <span
+                  >MOAB Eliminator — missile home MOAB, 1 lần dùng = damage cực
+                  lớn</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-5-0</b>
+                <span
+                  >Bloon Crush — damage AoE cực cao, phá Fortified cực tốt</span
+                >
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Đặt 0-2-0 trước R40 để có MOAB damage cơ bản.
+              Pop and Awe là lý do chính đầu tư — stun toàn màn kéo dài ~
+              ability mạnh nhất game.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                <b>Pop and Awe + Striker Jones</b> = ability reset gần vô hạn,
+                không bloon nào lọt. <b>Pop and Awe + Engineer Overclock</b> =
+                thêm reset cooldown. Nhớ rằng Explosive <b>không</b> damage
+                Black Bloon — cần Alchemist hoặc Village MIB để cover.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-dmg">AoE stun</span
+              ><span class="tag tag-lead">Counter Lead</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TACK SHOOTER -->
+        <div class="tower-card" id="tc-tack">
+          <div class="tower-header" onclick="toggleCard('tack')">
+            <span class="tier-badge tier-b">B</span>
+            <h3>📌 Tack Shooter</h3>
+            <span class="stage-tag st-early">Early–Mid (map-dependent)</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-tack">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$360</b></div>
+              <div class="meta-pill">
+                <span>Damage type</span><b>Sharp (8 hướng)</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn tốt</span><b>Map có cua hẹp</b>
+              </div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>Khúc cua = A-tier</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>0-0-5</b>
+                <span>Inferno Ring — vòng lửa liên tục, DOT cực cao</span>
+              </div>
+              <div class="path-chip">
+                <b>0-5-0</b>
+                <span
+                  >Super Maelstrom — lưỡi quay khổng lồ, pierce cực cao</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>3-0-0</b> <span>Ring of Fire — vòng lửa đốt bloon</span>
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Đây là tower "map-dependent" điển hình. Ở
+              khúc cua 90° hẹp, Tack bắn 8 hướng → gần như mọi viên đều trúng
+              bloon → damage hiệu quả tăng 4–6× so với đường thẳng. Trên đường
+              thẳng thì khá yếu.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                Kiểm tra map có khúc cua trước khi đặt. Inferno Ring + Ice
+                Monkey (đóng băng nhóm bloon ở cua) = combo cực mạnh. Silas
+                (hero Ice) buff Inferno Ring nếu có buff Cold resistance từ
+                path.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-dmg">Map-dependent</span
+              ><span class="tag tag-dmg">DOT lửa</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ICE MONKEY -->
+        <div class="tower-card" id="tc-ice">
+          <div class="tower-header" onclick="toggleCard('ice')">
+            <span class="tier-badge tier-b">B</span>
+            <h3>❄️ Ice Monkey</h3>
+            <span class="stage-tag st-early">Early–Mid (Support)</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-ice">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$500</b></div>
+              <div class="meta-pill">
+                <span>Damage type</span><b>Cold (freeze/slow)</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn tốt</span><b>Support mọi giai đoạn</b>
+              </div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>CC + strip armor</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>5-0-0</b>
+                <span
+                  >Super Brittle — tháo Fortified + khiến Ceramic nhận double
+                  damage</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-5-0</b>
+                <span
+                  >Absolute Zero — freeze diện rộng cả màn hình, gián đoạn round
+                  lớn</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-0-4</b>
+                <span>Cryo Cannon — đóng băng + DOT Cold kết hợp</span>
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Support tower đặt để nhóm bloon lại và làm
+              chậm cho tower AoE dọn sạch. White bloon và Purple bloon miễn Cold
+              — cần biết để không phụ thuộc hoàn toàn vào Ice. Hero Silas buff
+              Ice Monkey trong tầm đáng kể.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                <b>Ice Monkey + Bomb Shooter</b> — Classic Combo: Ice đóng băng
+                nhóm bloon, Bomb AoE dọn sạch. Super Brittle + bất kỳ tower nào
+                damage Ceramic = counter Fortified Ceramic hiệu quả nhất. Silas
+                hero buff Ice Monkey + ability freeze toàn màn, cực phối hợp.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-cc">Freeze/Slow</span
+              ><span class="tag tag-sup">Strip Fortified</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- GLUE GUNNER -->
+        <div class="tower-card" id="tc-glue">
+          <div class="tower-header" onclick="toggleCard('glue')">
+            <span class="tier-badge tier-s">S</span>
+            <h3>🧴 Glue Gunner</h3>
+            <span class="stage-tag st-mid">Mid–Late (Must-have)</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-glue">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$300</b></div>
+              <div class="meta-pill">
+                <span>Damage type</span><b>Glue (slow + DOT)</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn tốt</span><b>Mid → R100+</b>
+              </div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>Slow vĩnh viễn + strip Lead</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>0-2-5</b>
+                <span
+                  >Super Glue / Glue Strike — slow -90%, ability phủ toàn màn
+                  hình</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>5-0-0</b> <span>Corrosive Glue — DOT damage cao + slow</span>
+              </div>
+              <div class="path-chip">
+                <b>0-5-0</b> <span>Bloon Liquefier — DOT AoE cực cao</span>
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Nên có ít nhất 1 cái trong mọi build nghiêm
+              túc. Làm chậm vĩnh viễn mọi bloon, đồng thời strip Lead tạm thời
+              (giúp tower Sharp dính Lead trong vài giây). Cực cần thiết cho DDT
+              (R90).
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                <b>0-2-5 Super Glue + Sub 0-4-0 decamo</b> = counter DDT R90 tốt
+                nhất: decamo DDT → Glue slow -90% + strip Lead → dàn damage dọn
+                sạch. <b>Glue + Spike Factory</b> = bloon chậm lại → dính spike
+                lâu hơn nhiều. Glue Strike ability phủ toàn màn → dùng khi
+                MOAB/BFB rush đông.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-cc">Slow -90%</span
+              ><span class="tag tag-lead">Strip Lead</span
+              ><span class="tag tag-dmg">DOT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== MILITARY ========== -->
+      <div class="section" id="military">
+        <div class="sec-header">
+          <span class="sec-icon">🪖</span>
+          <h2>Military Monkey — Chi Tiết Đầy Đủ</h2>
+        </div>
+
+        <!-- SNIPER -->
+        <div class="tower-card" id="tc-snip">
+          <div class="tower-header" onclick="toggleCard('snip')">
+            <span class="tier-badge tier-b">B</span>
+            <h3>🎯 Sniper Monkey</h3>
+            <span class="stage-tag st-mid">Mid–Late (Any position)</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-snip">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$350</b></div>
+              <div class="meta-pill">
+                <span>Damage type</span><b>Normal (pierce 1)</b>
+              </div>
+              <div class="meta-pill">
+                <span>Đặc điểm</span><b>Không cần thấy track</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn tốt</span><b>Mọi giai đoạn</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>0-2-5</b>
+                <span
+                  >Cripple MOAB — curse MOAB nhận thêm 5× damage từ mọi
+                  attack</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>5-0-0</b>
+                <span>Elite Sniper — tấn công cực nhanh, camo detect</span>
+              </div>
+              <div class="path-chip">
+                <b>0-5-0</b>
+                <span>Supply Drop — nhả supply tiền mỗi round (farm!)</span>
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Đặt bất kỳ đâu trên map (không cần cạnh
+              track). Cực tốt để dọn bloon sắp leak hoặc xử lý mục tiêu đơn
+              (targeting: Last). Path 0-2-0 cho camo detect rẻ nhất khi chưa đủ
+              tiền cho Village.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                Cripple MOAB (0-2-5) + bất kỳ tower damage MOAB nào = DPS nhân
+                lên 5×. 0-5-0 Supply Drop có thể dùng làm source farm phụ ngoài
+                Banana Farm. Chỉnh targeting "Last" để không bao giờ bỏ lọt
+                bloon cuối đường.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-sup">Vị trí tự do</span
+              ><span class="tag tag-camo">Camo detect</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUB -->
+        <div class="tower-card" id="tc-sub">
+          <div class="tower-header" onclick="toggleCard('sub')">
+            <span class="tier-badge tier-s">S</span>
+            <h3>🤿 Monkey Sub</h3>
+            <span class="stage-tag st-mid">Mid (Decamo king)</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-sub">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$325</b></div>
+              <div class="meta-pill"><span>Yêu cầu</span><b>Nước</b></div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>Decamo tốt nhất game</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn</span><b>Cần trước R90</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>0-4-0</b>
+                <span
+                  >Submerge & Support — decamo trong tầm, làm chậm bloon
+                  camo</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-0-5</b>
+                <span
+                  >Energizer — buff hero XP +50%, giảm cooldown ability toàn
+                  dàn</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>5-0-0</b>
+                <span
+                  >Pre-Emptive Strike — phát hiện và missile MOAB trước khi xuất
+                  hiện</span
+                >
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Bắt buộc nếu map có nước. 0-4-0 Submerge =
+              decamo tốt nhất game với giá cực rẻ — nên có trước R90 (DDT).
+              Energizer buff hero lên cấp nhanh hơn 50% — rất hữu ích giai đoạn
+              đầu.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                <b>Sub 0-4-0 + Glue 0-2-5</b> = counter DDT hoàn hảo.
+                <b>Energizer + Geraldo/Sauda</b> = hero lên cấp nhanh hơn nhiều,
+                phát huy sớm hơn. Pre-Emptive Strike cực mạnh ở Boss Event —
+                detect boss trước khi ra màn.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-camo">Decamo</span
+              ><span class="tag tag-sup">Hero buff</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BUCCANEER -->
+        <div class="tower-card" id="tc-buck">
+          <div class="tower-header" onclick="toggleCard('buck')">
+            <span class="tier-badge tier-a">A</span>
+            <h3>🏴‍☠️ Monkey Buccaneer</h3>
+            <span class="stage-tag st-mid">Mid–Late (map có nước)</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-buck">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$500</b></div>
+              <div class="meta-pill"><span>Yêu cầu</span><b>Nước</b></div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>Hook MOAB gần instakill</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn</span><b>Mid → R100</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>5-0-2</b>
+                <span
+                  >Pirate Lord — hook MOAB/BFB/ZOMG, gần như instakill (không
+                  hook BAD)</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-3-2</b>
+                <span
+                  >Merchantman — farm tiền mỗi round, vừa combat vừa tạo thu
+                  nhập</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-0-5</b>
+                <span
+                  >Navarch of the Seas — Paragon: hook tức thì + triển khai tàu
+                  sân bay</span
+                >
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Cần map có nước. Pirate Lord là 1 trong những
+              counter MOAB-class tốt nhất game — hook kéo MOAB lại và damage rất
+              cao. Merchantman vừa là tower vừa là farm nhẹ.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                Đặt giữa 2 đoạn track để hook ảnh hưởng cả 2 phía. Hero Brickell
+                buff Buccaneer cực mạnh. Paragon <b>Navarch of the Seas</b> là
+                Paragon duy nhất cho tower nước — hook MOAB tức thì không
+                cooldown.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-dmg">MOAB hook</span
+              ><span class="tag tag-eco">Farm</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACE -->
+        <div class="tower-card" id="tc-ace">
+          <div class="tower-header" onclick="toggleCard('ace')">
+            <span class="tier-badge tier-b">B</span>
+            <h3>✈️ Monkey Ace</h3>
+            <span class="stage-tag st-mid">Mid (cần micro)</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-ace">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$800</b></div>
+              <div class="meta-pill">
+                <span>Damage type</span><b>Normal + Explosive</b>
+              </div>
+              <div class="meta-pill">
+                <span>Đặc điểm</span><b>Bay theo vòng/đường</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn</span><b>Mid với micro</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>0-0-5</b>
+                <span>Sky Shredder — rocket diện rộng, pierce cao</span>
+              </div>
+              <div class="path-chip">
+                <b>5-0-0</b>
+                <span>Fighter Plane Pro — bắn nhanh, attack speed cao</span>
+              </div>
+              <div class="path-chip">
+                <b>0-5-0</b>
+                <span>Flying Fortress — HP cao, sống sót tốt ở round khó</span>
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Damage tiềm năng cao nhưng hay "lãng phí" đạn
+              khi bay ra ngoài track. Cần chỉnh flight path liên tục. Paragon
+              <b>Goliath Doomship</b> là Paragon bay mạnh nhất game.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                Chuyển Flight Path giữa Circle/Figure-8/Infinite để điểm target
+                luôn gần track nhất. Đổi target point bằng cách click trên map.
+                Hợp nhất với Rosalia hero — cô ấy buff Ace/Heli. Paragon Goliath
+                Doomship rải bom cực mạnh ở Freeplay.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-dmg">AoE bomb</span
+              ><span class="tag tag-sup">Cần micro</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- HELI -->
+        <div class="tower-card" id="tc-heli">
+          <div class="tower-header" onclick="toggleCard('heli')">
+            <span class="tier-badge tier-a">A</span>
+            <h3>🚁 Heli Pilot</h3>
+            <span class="stage-tag st-mid">Mid–Late</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-heli">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$1.200</b></div>
+              <div class="meta-pill">
+                <span>Đặc điểm</span><b>Bay theo bloon, không LOS</b>
+              </div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>Linh hoạt, synergy Alch</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn</span><b>Mid → Paragon</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>5-0-0</b>
+                <span>Apache Prime — minigun + rocket cực mạnh</span>
+              </div>
+              <div class="path-chip">
+                <b>0-0-5</b>
+                <span
+                  >Comanche Commander — triển khai nhiều Comanche nhỏ hỗ
+                  trợ</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-5-0</b>
+                <span
+                  >Special Poperations — chiến thuật đặc biệt, buff chiến
+                  đấu</span
+                >
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Bay theo dõi bloon, không bị Line of Sight
+              cản. Synergy rất tốt với Alchemist vì luôn bay gần track. Paragon
+              <b>The Final Frontier</b> cực mạnh ở Freeplay.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                <b>Heli "Follow" mode + Alchemist Berserker Brew</b> — Alch buff
+                luôn đổ đầy vì Heli không bao giờ rời track. Rosalia hero buff
+                Heli/Ace trực tiếp. Di chuyển Heli thủ công khi round khó để tối
+                ưu vị trí.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-dmg">Linh hoạt</span
+              ><span class="tag tag-sup">Alch synergy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- MORTAR -->
+        <div class="tower-card" id="tc-mort">
+          <div class="tower-header" onclick="toggleCard('mort')">
+            <span class="tier-badge tier-b">B</span>
+            <h3>💥 Mortar Monkey</h3>
+            <span class="stage-tag st-early">Early–Mid (cần micro)</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-mort">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$700</b></div>
+              <div class="meta-pill">
+                <span>Damage type</span><b>Explosive + Fire</b>
+              </div>
+              <div class="meta-pill">
+                <span>Đặc điểm</span><b>AoE không cần LOS</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn</span><b>Dùng được từ đầu CHIMPS</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>0-0-5</b>
+                <span>Blooncineration — phá Fortified, AoE lửa liên tục</span>
+              </div>
+              <div class="path-chip">
+                <b>0-0-4</b> <span>Burny Stuff — DOT lửa diện rộng</span>
+              </div>
+              <div class="path-chip">
+                <b>5-0-0</b>
+                <span>The Biggest One — bom khổng lồ, stun lớn</span>
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> AoE tầm xa không bị LOS chặn. Dùng được trong
+              CHIMPS từ round đầu. Cần micro liên tục — chỉnh reticle trước khúc
+              cua nơi bloon dừng lại. Hero gợi ý: Striker Jones.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                <b>Mortar + Striker Jones</b> = buff tốc độ bắn + Black-popping
+                power. Chỉnh reticle liên tục ngay trước khúc cua. Thích hợp map
+                cua hẹp như Dark Path, Glacial Trail. Không dùng trên đường
+                thẳng dài.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-dmg">AoE không LOS</span
+              ><span class="tag tag-sup">CHIMPS viable</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DARTLING -->
+        <div class="tower-card" id="tc-dart2">
+          <div class="tower-header" onclick="toggleCard('dart2')">
+            <span class="tier-badge tier-a">A</span>
+            <h3>🔫 Dartling Gunner</h3>
+            <span class="stage-tag st-mid">Mid–Late (CHIMPS meta)</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-dart2">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$1.600</b></div>
+              <div class="meta-pill">
+                <span>Đặc điểm</span><b>Player-controlled target</b>
+              </div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>DPS cao nhất midgame</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn</span><b>Mid → Freeplay</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>5-0-2</b>
+                <span>Ray of Doom — tia đỏ damage liên tục, pierce vô hạn</span>
+              </div>
+              <div class="path-chip">
+                <b>0-2-5</b>
+                <span
+                  >M.A.D — rocket MOAB-class, DPS thuần cao nhất game
+                  R150+</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-5-0</b> <span>Hyper Acceleration — bắn cực nhanh</span>
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Range toàn map, người chơi tự target — 1
+              trong những tower mạnh nhất cho CHIMPS. M.A.D là DPS thuần cao
+              nhất game ở Freeplay R150+. Cần "ngồi" target liên tục — không tự
+              động.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                Đặt ở trung tâm map để nhìn được nhiều đoạn track nhất. Ray of
+                Doom cần được aim thẳng vào track. M.A.D để auto-target
+                MOAB-class. Không hợp người mới vì cần micro nhiều — nhưng DPS
+                rất cao khi được target đúng.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-dmg">DPS cao nhất</span
+              ><span class="tag tag-sup">CHIMPS meta</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== MAGIC ========== -->
+      <div class="section" id="magic">
+        <div class="sec-header">
+          <span class="sec-icon">🔮</span>
+          <h2>Magic Monkey — Chi Tiết Đầy Đủ</h2>
+        </div>
+
+        <!-- WIZARD -->
+        <div class="tower-card" id="tc-wiz">
+          <div class="tower-header" onclick="toggleCard('wiz')">
+            <span class="tier-badge tier-a">A</span>
+            <h3>🧙 Wizard Monkey</h3>
+            <span class="stage-tag st-mid">Mid–Late</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-wiz">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$475</b></div>
+              <div class="meta-pill">
+                <span>Damage type</span><b>Magic + Fire</b>
+              </div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>Counter Lead tự nhiên</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn</span><b>Mid → Paragon</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>2-0-5</b>
+                <span
+                  >Prince of Darkness — hồi sinh zombie bloon làm "lá chắn" tự
+                  nhiên</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>5-2-0</b>
+                <span>Archmage — bão phép thuật liên tục, damage rất cao</span>
+              </div>
+              <div class="path-chip">
+                <b>0-5-0</b> <span>Arcane Mastery — Arcane Spike DOT mạnh</span>
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Counter Lead tự nhiên (fire damage). Prince
+              of Darkness hồi sinh zombie bloon làm lá chắn tự nhiên — bloon
+              zombie chặn bloon thật lại. Paragon <b>Magus Perfectus</b> dùng
+              Mana resource — cần quản lý tài nguyên hợp lý.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                Prince of Darkness đặt ở cuối track — zombie bloon sẽ đi ngược
+                lại, chặn bloon thật từ đầu track. Archmage + Alchemist
+                Berserker Brew = DPS rất cao mid-game. Nhớ rằng Wizard
+                <b>bị counter bởi Purple bloon</b> (Magic immune) — cần
+                Dart/Bomb/Glue hỗ trợ.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-dmg">Magic DPS</span
+              ><span class="tag tag-lead">Counter Lead</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUPER MONKEY -->
+        <div class="tower-card" id="tc-super">
+          <div class="tower-header" onclick="toggleCard('super')">
+            <span class="tier-badge tier-s">S</span>
+            <h3>☀️ Super Monkey</h3>
+            <span class="stage-tag st-late">Late–Freeplay (God tier)</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-super">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$2.500</b></div>
+              <div class="meta-pill">
+                <span>Damage type</span><b>Energy/Plasma</b>
+              </div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>Damage cao nhất cuối game</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn</span><b>R80 → Freeplay</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>5-2-0</b>
+                <span
+                  >True Sun God — cần sacrifice tiền từ 4 category, damage khủng
+                  nhất game</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-2-5</b>
+                <span>Legend of the Night — damage + global range về đêm</span>
+              </div>
+              <div class="path-chip">
+                <b>3-0-0</b>
+                <span>Sun Avatar — stepping stone để build TSG</span>
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> God-tier late game. True Sun God cần
+              "sacrifice" tiền từ Primary/Military/Magic/Support — càng nhiều
+              tiền sacrifice, damage càng cao (tối đa ~$65.000+ sacrifice). Cần
+              kinh tế rất vững trước khi build.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                Sacrifice đa dạng category để tối ưu damage TSG. Dùng Banana
+                Farm gom tiền trước. Combo tốt với Geraldo (mua thêm item buff).
+                <b>Purple bloon miễn Plasma</b> — cần Dart/Bomb/Ice hỗ trợ khi
+                gặp Purple. Một True Sun God đủ sacrifice = carry toàn bộ
+                R80–100.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-dmg">Damage cao nhất</span
+              ><span class="tag tag-sup">Cần sacrifice</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NINJA -->
+        <div class="tower-card" id="tc-ninja">
+          <div class="tower-header" onclick="toggleCard('ninja')">
+            <span class="tier-badge tier-s">S</span>
+            <h3>🥷 Ninja Monkey</h3>
+            <span class="stage-tag st-early">Early → Paragon</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-ninja">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$500</b></div>
+              <div class="meta-pill">
+                <span>Damage type</span><b>Normal (shurikens)</b>
+              </div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>Camo detect sẵn, cheap S-tier</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn</span><b>R1 → Freeplay</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>5-0-2</b>
+                <span
+                  >Grandmaster Ninja — bắn cực nhanh, Distraction khiến bloon
+                  lùi 1 layer</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-4-0</b>
+                <span
+                  >Bloon Sabotage — slow 50% toàn màn 15s, counter DDT/MOAB cực
+                  tốt</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-0-5</b>
+                <span
+                  >Ascended Shadow (Paragon) — slow toàn màn + shuriken
+                  homing</span
+                >
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Đặt từ R1 — camo detect sẵn không cần đầu tư
+              thêm. Distraction (path 0-0-x) khiến bloon bị bắn trúng lùi 1 lớp
+              = nhân damage hiệu quả. Paragon Ascended Shadow = slow toàn màn +
+              shuriken homing cực mạnh vs BAD.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                <b>Ninja + Alchemist (NA Combo)</b> — combo kinh điển nhất game.
+                Alch Berserker Brew buff liên tục damage/pierce/speed. Stack 2–3
+                Alch cho 1 Ninja chính. Hero Adora hoặc Obyn hỗ trợ tốt nhất.
+                Bloon Sabotage dùng ngay R90 khi DDT xuất hiện.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-camo">Camo detect</span
+              ><span class="tag tag-cc">Slow 50%</span
+              ><span class="tag tag-dmg">NA Combo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ALCHEMIST -->
+        <div class="tower-card" id="tc-alch">
+          <div class="tower-header" onclick="toggleCard('alch')">
+            <span class="tier-badge tier-s">S</span>
+            <h3>🧪 Alchemist</h3>
+            <span class="stage-tag st-early"
+              >Early → Freeplay (Support #1)</span
+            >
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-alch">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$550</b></div>
+              <div class="meta-pill">
+                <span>Damage type</span><b>Acid + Buff</b>
+              </div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>Support số 1 toàn game</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn</span><b>R1 → Freeplay</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>0-4-2</b>
+                <span
+                  >Berserker Brew — buff dmg+speed+pierce cho 1 tower, uptime
+                  ~50%</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>4-2-0</b>
+                <span
+                  >Stronger Stimulant — buff mạnh hơn, thời gian lâu hơn</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-2-0</b>
+                <span
+                  >Acid Puddles — tạo vũng Acid giúp tower Sharp dính Lead</span
+                >
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Đặt sớm nhất có thể — càng sớm buff càng
+              nhiều. Acid Puddles giúp TOÀN BỘ tower Sharp dính Lead khi đi qua
+              — giải quyết Lead bloon rẻ nhất. Stack 2–3 Alch lên 1 tower chính
+              = buff gần như 100% uptime.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                <b>2–3 Alch Berserker Brew → 1 Ninja Grandmaster</b> = NA Combo,
+                main damage carry nhất game. Alch + Heli Pilot = Alch luôn buff
+                được vì Heli bay sát track. Alch + Super Monkey = True Sun God
+                có thêm buff từ Alch. Luôn đặt Alch trong range của tower chính
+                cần buff.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-sup">Buff số 1</span
+              ><span class="tag tag-lead">Counter Lead</span
+              ><span class="tag tag-dmg">NA Combo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DRUID -->
+        <div class="tower-card" id="tc-druid">
+          <div class="tower-header" onclick="toggleCard('druid')">
+            <span class="tier-badge tier-a">A</span>
+            <h3>🌿 Druid Monkey</h3>
+            <span class="stage-tag st-mid">Mid–Freeplay</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-druid">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$425</b></div>
+              <div class="meta-pill">
+                <span>Damage type</span><b>Magic + Lightning</b>
+              </div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>Scale theo lượng bloon</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn</span><b>Mid → Freeplay</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>0-0-5</b>
+                <span
+                  >Avatar of Wrath — damage tăng theo tổng RBE trên màn,
+                  Freeplay = đỉnh cao</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-5-0</b>
+                <span
+                  >Spirit of the Forest — dây leo tự lan track + tự sinh tiền
+                  nhỏ</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-0-3</b>
+                <span
+                  >Poplust — buff tốc độ bắn cho mọi Druid trong tầm, stack
+                  nhiều cái</span
+                >
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Avatar of Wrath damage tăng theo tổng RBE
+              (lượng bloon) trên màn — càng đông bloon càng mạnh. Đặt nhiều
+              Poplust (0-0-3) xung quanh để buff lẫn nhau. Cần Village MIB để
+              dính Lead/Black.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                <b
+                  >Avatar of Wrath × nhiều cái + Poplust × nhiều cái + Village
+                  MIB + Hero Obyn</b
+                >
+                = build scale vô hạn ở Freeplay. Paragon
+                <b>Root of All Nature (v54)</b> kết hợp cả 3 path. Avatar cực
+                mạnh ở round rush Ceramic (R63/76/78).
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-dmg">Scale bloon count</span
+              ><span class="tag tag-sup">Poplust buff</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== SUPPORT ========== -->
+      <div class="section" id="support">
+        <div class="sec-header">
+          <span class="sec-icon">🛡️</span>
+          <h2>Support Monkey — Chi Tiết Đầy Đủ</h2>
+        </div>
+
+        <!-- VILLAGE -->
+        <div class="tower-card" id="tc-vil">
+          <div class="tower-header" onclick="toggleCard('vil')">
+            <span class="tier-badge tier-s">S</span>
+            <h3>🏘️ Monkey Village</h3>
+            <span class="stage-tag st-mid">Mid → R100 (Must-have)</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-vil">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$1.200</b></div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>Buff toàn dàn + camo area</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn</span><b>Có mặt mọi build cạnh tranh</b>
+              </div>
+              <div class="meta-pill">
+                <span>Đặc điểm</span><b>Không bắn, chỉ buff</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>2-0-0</b>
+                <span
+                  >Radar Scanner — camo detect toàn vùng cho mọi tower trong
+                  tầm</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-2-3</b>
+                <span
+                  >MIB — Monkey Intelligence Bureau: mọi tower dính
+                  Lead+Black+Camo</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>2-3-0</b>
+                <span
+                  >Jungle Drums — buff attack speed +10% cho mọi tower trong
+                  tầm</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-5-0</b>
+                <span>Primary Expertise — buff Primary Monkey cực mạnh</span>
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Gần như không thể thiếu trong build cạnh
+              tranh. Đặt ở trung tâm để phủ nhiều tower nhất. MIB là cách rẻ
+              nhất giúp toàn dàn tower dính Lead+Black+Camo cùng lúc — không
+              phải dùng nếu đã có Sub decamo + Alch strip Lead riêng.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                Đặt Village ở vị trí phủ được nhiều tower nhất — không nhất
+                thiết cạnh track. MIB cực quan trọng từ R59 (Camo+Lead). Jungle
+                Drums + nhiều tower = buff attack speed tổng thể đáng kể. Đặt
+                sớm hơn tốt hơn.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-sup">Buff area</span
+              ><span class="tag tag-camo">Camo detect</span
+              ><span class="tag tag-lead">MIB: Lead+Black</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SPIKE FACTORY -->
+        <div class="tower-card" id="tc-spike">
+          <div class="tower-header" onclick="toggleCard('spike')">
+            <span class="tier-badge tier-s">S</span>
+            <h3>🌵 Spike Factory</h3>
+            <span class="stage-tag st-mid">Mid → R100 (Safety net)</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-spike">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$1.000</b></div>
+              <div class="meta-pill">
+                <span>Damage type</span><b>Sharp → tất cả (Perma)</b>
+              </div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>"Đặt và quên", safety net</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn</span><b>Mid → Freeplay</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>2-0-5</b>
+                <span
+                  >Perma-Spike — rải spike toàn đường, spike tồn tại vĩnh viễn,
+                  MOAB damage</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-5-0</b>
+                <span
+                  >Carpet of Spikes — spike storm toàn map-wide mỗi 15s</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>3-0-0</b> <span>Long Reach — spike trải xa hơn</span>
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Perma-Spike "busted" — spike trải dọc cả
+              đường, tồn tại vĩnh viễn, không cần micro. Build từ giữa game để
+              có sẵn an toàn lưới khi vào R63, 76, 78, 90, 100. Cực hợp người
+              mới và mọi chế độ (trừ CHIMPS vì tốn nhiều tiền).
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                <b>Glue Gunner 0-2-5 + Perma-Spike</b> — Glue làm chậm bloon →
+                bloon dính spike lâu hơn → damage tăng nhiều lần. Perma-Spike
+                đặt ở cuối đường track ngay trước exit = safety net tốt nhất.
+                Không cần micro sau khi đặt.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-dmg">Safety net</span
+              ><span class="tag tag-sup">Đặt và quên</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BANANA FARM -->
+        <div class="tower-card" id="tc-farm">
+          <div class="tower-header" onclick="toggleCard('farm')">
+            <span class="tier-badge tier-s">S</span>
+            <h3>🍌 Banana Farm</h3>
+            <span class="stage-tag st-early"
+              >Early → Freeplay (Non-CHIMPS)</span
+            >
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-farm">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$1.250</b></div>
+              <div class="meta-pill">
+                <span>Vô hiệu trong</span><b>CHIMPS</b>
+              </div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>In tiền số 1 game</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn</span><b>R14–15 sớm nhất</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>0-2-4</b>
+                <span
+                  >Marketplace — tự thu tiền cuối round, không cần click, lý
+                  tưởng</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>4-2-0</b>
+                <span
+                  >IMF Loan — cho vay $10.000, trừ dần 25% thu nhập, Boss Event
+                  meta</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-0-5</b>
+                <span
+                  >Monkey Wall Street — sinh tiền cao ổn định cuối round</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>5-0-0</b>
+                <span
+                  >Banana Central — nhiều banana nhất nhưng cần thu tay</span
+                >
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Đặt sớm nhất có thể (R14–15). Mục tiêu 4–6
+              farm trước R40. Sau R40 đổ tiền tích lũy vào defense. Không dùng
+              trong CHIMPS. Benjamin hero tăng hiệu quả farm đáng kể.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                0-2-4 Marketplace = tự thu, lý tưởng cho mọi game không muốn
+                micro farm. IMF Loan cực mạnh ở Boss Event (vay tiền → mua
+                item/tower mạnh → trả dần). Hero Benjamin sinh thêm cash mỗi
+                round bên cạnh farm. Mục tiêu R14 đặt farm đầu tiên.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-eco">In tiền #1</span
+              ><span class="tag tag-sup">Auto-collect</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ENGINEER -->
+        <div class="tower-card" id="tc-eng">
+          <div class="tower-header" onclick="toggleCard('eng')">
+            <span class="tier-badge tier-a">A</span>
+            <h3>🔧 Engineer Monkey</h3>
+            <span class="stage-tag st-mid">Mid–Late (Overclock)</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-eng">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$500</b></div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>Overclock + Sentry turret</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn</span><b>Mid → Paragon</b>
+              </div>
+              <div class="meta-pill">
+                <span>Đặc điểm</span><b>Buff cooldown ability</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>5-0-0</b>
+                <span
+                  >Sentry Champion — Sentry liên tục, damage cao, nhiều loại
+                  sentry</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-5-0</b>
+                <span
+                  >XXXL Trap — bẫy MOAB-class khổng lồ, 1 lần dùng = damage rất
+                  lớn</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>0-0-4</b>
+                <span
+                  >Overclock — buff attack speed × 2 cho 1 tower trong 1 thời
+                  gian</span
+                >
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Overclock cực hữu dụng để spam lại ability
+              quan trọng (Pop and Awe, Glue Strike...). Paragon
+              <b>Master Builder</b> triển khai Mega-Sentry nhiều loại damage —
+              càng nhiều tower trên map, Paragon càng mạnh.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                <b>Engineer Overclock + Bomb Pop and Awe</b> = stun liên tục gần
+                như vô hạn. Overclock + bất kỳ Tier 5 nào có ability quan trọng
+                = tăng DPS đáng kể. Paragon Master Builder + nhiều tower =
+                Freeplay carry.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-sup">Overclock buff</span
+              ><span class="tag tag-dmg">Sentry turret</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BEAST HANDLER -->
+        <div class="tower-card" id="tc-beast">
+          <div class="tower-header" onclick="toggleCard('beast')">
+            <span class="tier-badge tier-a">A</span>
+            <h3>🦅 Beast Handler</h3>
+            <span class="stage-tag st-mid">Mid–Late (Flexible)</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="tower-body" id="tb-beast">
+            <div class="tower-meta">
+              <div class="meta-pill"><span>Giá cơ bản</span><b>$500</b></div>
+              <div class="meta-pill">
+                <span>Điểm mạnh</span><b>Linh hoạt đất + nước + không</b>
+              </div>
+              <div class="meta-pill">
+                <span>Giai đoạn</span><b>Mid → Paragon</b>
+              </div>
+              <div class="meta-pill">
+                <span>Đặc điểm</span><b>3 loại thú khác nhau</b>
+              </div>
+            </div>
+            <div class="path-row">
+              <div class="path-chip">
+                <b>Path Nước</b>
+                <span
+                  >Megalodon — cá mập khổng lồ, MOAB damage cao (cần nước)</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>Path Đất</b>
+                <span
+                  >Giganotosaurus — khủng long damage cao nhất trong 3 thú</span
+                >
+              </div>
+              <div class="path-chip">
+                <b>Path Chim</b>
+                <span>Pouakai — chim bay, có camo detect, flexible nhất</span>
+              </div>
+            </div>
+            <p style="margin-bottom: 8px">
+              <b>Khi nào dùng:</b> Tower mới nhất Support — kết hợp nhiều loại
+              thú để cover cả track trên đất và nước. Paragon
+              <b>Apex Predator</b> kết hợp cả 3 thú. Cộng đồng vẫn đang khám phá
+              build tối ưu nhưng đã top-tier ngay từ đầu.
+            </p>
+            <div class="combo-box">
+              <b>💡 Mẹo & Combo</b>
+              <p>
+                Kết hợp Pouakai (camo detect, bay) + Giganotosaurus (đất damage)
+                để cover mọi loại bloon. Cần nhiều Beast Handler khác nhau để
+                merge thành thú to hơn. Paragon Apex Predator = merge mọi thú
+                thành siêu thú.
+              </p>
+            </div>
+            <div style="margin-top: 10px">
+              <span class="tag tag-dmg">Multi-type</span
+              ><span class="tag tag-camo">Camo detect (Pouakai)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== COMBO ========== -->
+      <div class="section" id="combos">
+        <div class="sec-header">
+          <span class="sec-icon">🔗</span>
+          <h2>Combo Mạnh Nhất — Đầy Đủ</h2>
+        </div>
+
+        <div class="card">
+          <h3>🥷🧪 Ninja + Alchemist (NA Combo)</h3>
+          <p style="margin-bottom: 8px">
+            Combo kinh điển nhất game. S-tier mọi mode. Alch buff liên tục
+            damage/pierce/speed cho Ninja.
+          </p>
+          <ul>
+            <li>
+              <b>Setup cơ bản:</b> Ninja 5-0-2 Grandmaster + 2× Alch 0-4-2
+              Berserker Brew
+            </li>
+            <li>
+              <b>Setup nâng cao:</b> + Ninja 0-2-3 Shinobi Tactics × nhiều cái
+              (buff Distraction)
+            </li>
+            <li>
+              <b>Hero phối hợp:</b> Adora (Blood Sacrifice buff) hoặc Obyn (buff
+              pierce)
+            </li>
+            <li>
+              <b>Lưu ý:</b> Alch cần đặt trong range của Ninja để buff liên tục.
+              Stack 3 Alch = buff ~100% uptime
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>💣❄️ Bomb Shooter + Ice Monkey</h3>
+          <p style="margin-bottom: 8px">
+            Combo AoE kinh điển từ btd4. Ice nhóm bloon lại, Bomb dọn sạch cụm.
+          </p>
+          <ul>
+            <li>
+              <b>Setup:</b> Ice 0-5-0 Absolute Zero + Bomb 5-0-2 Pop and Awe
+            </li>
+            <li>
+              <b>Hero:</b> Silas buff Ice, Striker Jones buff Bomb — combo hero
+              + tower cực mạnh
+            </li>
+            <li>
+              <b>Thêm vào:</b> Village MIB để dính Lead+Black khi Ice đóng băng
+            </li>
+            <li><b>Thích hợp:</b> Mọi map, cực mạnh early–mid game</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>🌵🧴 Perma-Spike + Glue Gunner</h3>
+          <p style="margin-bottom: 8px">
+            Safety net combo. Glue làm chậm → bloon dính spike lâu hơn.
+          </p>
+          <ul>
+            <li>
+              <b>Setup:</b> Spike Factory 2-0-5 Perma-Spike + Glue 0-2-5 Super
+              Glue
+            </li>
+            <li><b>Vị trí:</b> Glue đầu đường, Spike cuối đường</li>
+            <li>
+              <b>DDT counter:</b> Sub 0-4-0 decamo + Glue strip Lead + Spike dọn
+            </li>
+            <li><b>Ưu điểm:</b> Không cần micro, tự động hoàn toàn</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>☀️🍌 True Sun God Setup</h3>
+          <p style="margin-bottom: 8px">
+            Late game carry. Cần sacrifice tiền từ 4 category.
+          </p>
+          <ul>
+            <li>
+              <b>Chuẩn bị:</b> 4–6 Banana Farm → gom tiền → sacrifice mỗi
+              category $30.000+
+            </li>
+            <li>
+              <b>Sacrifice order:</b> Bán tower Primary/Military/Magic/Support
+              trước khi upgrade lên TSG
+            </li>
+            <li>
+              <b>Hero:</b> Geraldo (mua item buff) hoặc Benjamin (sinh tiền)
+            </li>
+            <li>
+              <b>Counter:</b> Thêm Dart/Bomb để handle Purple bloon miễn Plasma
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>⚡🔧 Pop and Awe + Overclock + Striker Jones</h3>
+          <p style="margin-bottom: 8px">
+            Stun lock combo — không bloon nào lọt qua khi setup đúng.
+          </p>
+          <ul>
+            <li>
+              <b>Setup:</b> Bomb 5-0-2 Artillery Battery (Pop and Awe) +
+              Engineer 0-0-4 Overclock + Hero Striker Jones
+            </li>
+            <li>
+              <b>Cơ chế:</b> Striker reset cooldown → Pop and Awe stun →
+              Overclock giảm cooldown thêm
+            </li>
+            <li>
+              <b>Thêm:</b> 2nd Bomb 0-0-5 MOAB Eliminator để bonus damage MOAB
+            </li>
+            <li>
+              <b>Điểm yếu:</b> Black bloon miễn Explosive — cần Village MIB hoặc
+              Alch
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>🌿🏘️🌿 Avatar of Wrath + MIB + Poplust</h3>
+          <p style="margin-bottom: 8px">
+            Scale combo — càng đông bloon càng mạnh, Freeplay là đỉnh cao.
+          </p>
+          <ul>
+            <li>
+              <b>Setup:</b> Druid 0-0-5 Avatar of Wrath × 2–3 cái + Druid 0-0-3
+              Poplust × nhiều cái quanh
+            </li>
+            <li><b>Village:</b> 0-2-3 MIB để dính Lead+Black</li>
+            <li><b>Hero:</b> Obyn Greenfoot buff pierce cho mọi Druid</li>
+            <li>
+              <b>Paragon:</b> Root of All Nature (v54) kết hợp tất cả — cực mạnh
+              Freeplay
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>🤿🌊 Water Map Combo (Buccaneer + Sub + Brickell)</h3>
+          <p style="margin-bottom: 8px">
+            Map có nước — triệt để khai thác tower nước.
+          </p>
+          <ul>
+            <li>
+              <b>Setup:</b> Buccaneer 5-0-2 Pirate Lord + Sub 0-0-5 Energizer +
+              Sub 0-4-0 decamo
+            </li>
+            <li><b>Hero:</b> Brickell — buff toàn dàn nước + Mega Mine</li>
+            <li><b>Thêm:</b> Sniper 0-2-5 Cripple MOAB để nhân damage</li>
+            <li>
+              <b>Paragon:</b> Navarch of the Seas (Buccaneer) — hook MOAB không
+              cooldown
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ========== CHẾ ĐỘ ========== -->
+      <div class="section" id="modes">
+        <div class="sec-header">
+          <span class="sec-icon">🎮</span>
+          <h2>Chế Độ Chơi</h2>
+        </div>
+        <div class="mode-grid">
+          <div class="mini-card">
+            <span class="diff diff-easy">Dễ</span>
+            <h3>🟢 Easy/Medium</h3>
+            <p>
+              Nhiều lives, dễ recover. Medium tốt nhất farm Player XP đầu game.
+            </p>
+          </div>
+          <div class="mini-card">
+            <span class="diff diff-hard">Khó</span>
+            <h3>🔴 Hard Standard</h3>
+            <p>Tiền/lives ít hơn, MM thưởng cao hơn. Win khi clear R100.</p>
+          </div>
+          <div class="mini-card">
+            <span class="diff diff-hard">Khó</span>
+            <h3>💀 Impoppable</h3>
+            <p>
+              1 life duy nhất, giá tower tăng, cashback giảm. MM/thời gian tốt
+              nhất.
+            </p>
+          </div>
+          <div class="mini-card">
+            <span class="diff diff-hard">Khó nhất</span>
+            <h3>🏆 CHIMPS</h3>
+            <p>
+              <b>C</b>ash Drop tắt – <b>H</b>earts 1 – <b>I</b>nsta tắt –
+              <b>M</b>K tắt – <b>P</b>owers tắt – <b>S</b>elling tắt. Phần
+              thưởng Black Border.
+            </p>
+          </div>
+          <div class="mini-card">
+            <span class="diff diff-special">Đặc biệt</span>
+            <h3>🌪️ Apopalypse</h3>
+            <p>
+              Bloon spawn liên tục, không round rõ ràng. Cần build ổn định ngay
+              đầu.
+            </p>
+          </div>
+          <div class="mini-card">
+            <span class="diff diff-special">Đặc biệt</span>
+            <h3>🔄 Reverse</h3>
+            <p>Bloon đi ngược hướng track thông thường.</p>
+          </div>
+          <div class="mini-card">
+            <span class="diff diff-special">Đặc biệt</span>
+            <h3>💸 Deflation</h3>
+            <p>Tiền cố định từ đầu, không kiếm thêm trong ván.</p>
+          </div>
+          <div class="mini-card">
+            <span class="diff diff-special">Đặc biệt</span>
+            <h3>🎯 Half Cash</h3>
+            <p>
+              Thu nhập giảm 50% — tối ưu từng đồng, hợp build farming hiệu quả
+              cao.
+            </p>
+          </div>
+          <div class="mini-card">
+            <span class="diff diff-special">Sự kiện</span>
+            <h3>👑 Boss Event</h3>
+            <p>
+              2 tuần/lần. v54: clear Normal 1 lần → Elite mở vĩnh viễn cho lần
+              sau.
+            </p>
+          </div>
+          <div class="mini-card">
+            <span class="diff diff-special">Sự kiện</span>
+            <h3>🏁 Race Event</h3>
+            <p>Đua tốc độ clear map, xếp hạng toàn cầu, hàng tuần.</p>
+          </div>
+          <div class="mini-card">
+            <span class="diff diff-special">Sự kiện</span>
+            <h3>🗺️ Contested Territory</h3>
+            <p>Nhóm tranh lãnh thổ, 2 tuần/lần, Trophy Store độc quyền.</p>
+          </div>
+          <div class="mini-card">
+            <span class="diff diff-special">Sự kiện</span>
+            <h3>⚔️ Odyssey</h3>
+            <p>
+              Chuỗi map liên tiếp dùng chung tower, tower có thể hao mòn/chết
+              vĩnh viễn.
+            </p>
+          </div>
+          <div class="mini-card">
+            <span class="diff diff-special">IAP mới</span>
+            <h3>🏝️ Frontier Legends</h3>
+            <p>
+              Roguelite: khám phá đảo, Fishing, Quick Draw, 4 độ khó đổi được
+              giữa game, 2 save slot.
+            </p>
+          </div>
+          <div class="mini-card">
+            <span class="diff diff-special">v55 mới</span>
+            <h3>🌍 Social Season Event</h3>
+            <p>Global + Team goals, Perk buff passive, cosmetic độc quyền.</p>
+          </div>
+          <div class="mini-card">
+            <span class="diff diff-easy">Hợp tác</span>
+            <h3>🤝 Co-op</h3>
+            <p>
+              Nhiều người chung map, chia hero/tower/XP. Phối hợp: 1 farm – 1
+              defense.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== FARMING ========== -->
+      <div class="section" id="farming">
+        <div class="sec-header">
+          <span class="sec-icon">💰</span>
+          <h2>Hướng Dẫn Cày / Farm</h2>
+        </div>
+        <div class="grid2">
+          <div class="tip-box green">
+            <strong>📊 Player XP nhanh nhất</strong>
+            <p>
+              Hard Standard trên Expert Map (+30% XP). Không cần freeplay vì XP
+              rate giảm sau R100.
+            </p>
+          </div>
+          <div class="tip-box blue">
+            <strong>🗺️ Monkey Money</strong>
+            <p>
+              Lần đầu clear mỗi map × difficulty. Impoppable cho MM/thời gian
+              tốt nhất.
+            </p>
+          </div>
+          <div class="tip-box">
+            <strong>🎯 Tower XP</strong>
+            <p>
+              Đặt nhiều tower cùng loại + đổ tiền vào loại đó → mở Tier
+              5/Paragon nhanh hơn.
+            </p>
+          </div>
+          <div class="tip-box purple">
+            <strong>👑 Trophy</strong>
+            <p>
+              Race Event tuần, Boss Event 2 tuần, Contested Territory 2 tuần,
+              Social Season Event.
+            </p>
+          </div>
+        </div>
+
+        <div class="sec-header sub">
+          <h2>🗓️ Quy Trình Farm Tiền Tiêu Chuẩn</h2>
+        </div>
+        <div class="card">
+          <ul>
+            <li>
+              <b>R1–13:</b> Hero (Sauda/Geraldo/Benjamin) + 1–2 Ninja/Dart tối
+              thiểu. Tiết kiệm tối đa.
+            </li>
+            <li>
+              <b>R14–15:</b> Đặt Banana Farm đầu tiên (0-2-0), nâng dần lên
+              0-3-0 Marketplace tự thu.
+            </li>
+            <li>
+              <b>R16–39:</b> Spam 4–6 Banana Farm. Tiếp tục nâng defense vừa đủ
+              survive.
+            </li>
+            <li>
+              <b>R36–39:</b> Chuẩn bị MOAB defense (Bomb Shooter 0-2-0 tối thiểu
+              cho R40).
+            </li>
+            <li>
+              <b>R40–65:</b> Đổ tiền tích lũy vào Tier 4–5. Nâng Alch, Village.
+              Chuẩn bị Sub decamo trước R90.
+            </li>
+            <li>
+              <b>R66–79:</b> Perma-Spike làm safety net. Bắt đầu sacrifice cho
+              True Sun God nếu dùng.
+            </li>
+            <li>
+              <b>R80–100:</b> Full defense. Giữ lại tiền để xử lý bất ngờ.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ========== UPDATE ========== -->
+      <div class="section" id="updates">
+        <div class="sec-header">
+          <span class="sec-icon">🆕</span>
+          <h2>Update Mới Nhất 2025–2026</h2>
+        </div>
+        <div class="tip-box green" style="margin-bottom: 16px">
+          <strong>📌 Phiên bản hiện tại: 55.1 (6/2026)</strong>
+          <p>Update lớn mỗi ~6–8 tuần. Gần 8 năm sau ra mắt (6/2018).</p>
+        </div>
+
+        <div class="update-item">
+          <span class="update-version">v55.0<br />5/2026</span>
+          <div class="update-content">
+            <h4>🗡️ "Update of Power!" — Dan D'Monke + He-Man Collab</h4>
+            <p>
+              Hero mới <b>Dan D'Monke</b> (Dual-form: kiếm support + Masqued
+              Macaque sấm sét). Skin IAP giới hạn
+              <b>He-Man (Prince Adam)</b> collab Mattel. Map Beginner mới
+              <b>Skull Tweak</b> (remake BTD5). 3 quest mới + He-Man Quest. Cải
+              tiến Social Season Events thêm Perk.
+            </p>
+          </div>
+        </div>
+
+        <div class="update-item">
+          <span class="update-version">v54.0<br />4/2026</span>
+          <div class="update-content">
+            <h4>
+              🌿 "Friends and Nature" — Druid Paragon + Frontier Legends rework
+            </h4>
+            <p>
+              Paragon mới <b>Root of All Nature</b> (Druid). Map Advanced
+              <b>Mushroom Grotto</b>. Boss <b>Diamondback</b> vào main game.
+              Rework lớn <b>Lych</b> (ăn cắp buff thay vì heal). Rework Teams
+              cho Social Season Events. 2 Power Pro mới. Frontier Legends: 4 độ
+              khó đổi được, 2 save slot, Fishing/Quick Draw rework.
+            </p>
+          </div>
+        </div>
+
+        <div class="update-item">
+          <span class="update-version">v53.0<br />2/2026</span>
+          <div class="update-content">
+            <h4>🎆 "New Year Update" — Firecracker Gwen</h4>
+            <p>
+              Skin <b>Firecracker Gwen</b> (gameplay khác hẳn — AoE pháo hoa).
+              Map Advanced <b>Party Parade</b>. 3 quest mới. Sandbox nhận thêm
+              Powers.
+            </p>
+          </div>
+        </div>
+
+        <div class="update-item">
+          <span class="update-version">v52.0<br />12/2025</span>
+          <div class="update-content">
+            <h4>❄️ Silas the Ice Shaper ra mắt</h4>
+            <p>Hero S-tier mới chuyên buff Ice + crowd control diện rộng.</p>
+          </div>
+        </div>
+
+        <div class="update-item">
+          <span class="update-version">v51.0<br />10/2025</span>
+          <div class="update-content">
+            <h4>⚖️ Balance Patch lớn + Halloween</h4>
+            <p>Nhiều thay đổi ảnh hưởng meta, nội dung sự kiện Halloween.</p>
+          </div>
+        </div>
+
+        <div class="update-item">
+          <span class="update-version">v50.0<br />10/2025</span>
+          <div class="update-content">
+            <h4>🏝️ Frontier Legends ra mắt (Roguelite, IAP)</h4>
+            <p>
+              Chế độ roguelite hoàn toàn mới: khám phá đảo, upgrade tower giữa
+              các map, boss đặc biệt.
+            </p>
+          </div>
+        </div>
+
+        <div class="sec-header" style="margin-top: 24px">
+          <span class="sec-icon">📅</span>
+          <h2>Sự Kiện Định Kỳ Nên Tham Gia</h2>
+        </div>
+        <div class="grid2">
+          <div class="card">
+            <h3>🏁 Weekly Race</h3>
+            <p>Mỗi tuần 1 lần. Speed clear map, thưởng Trophy theo rank.</p>
+          </div>
+          <div class="card">
+            <h3>👹 Boss Event</h3>
+            <p>
+              2 tuần/lần. Normal → Elite unlock vĩnh viễn. Dùng IMF Loan +
+              Powers.
+            </p>
+          </div>
+          <div class="card">
+            <h3>🗺️ Contested Territory</h3>
+            <p>2 tuần/lần. Vào Team để tận dụng tối đa Trophy.</p>
+          </div>
+          <div class="card">
+            <h3>🌍 Social Season</h3>
+            <p>Global + Team goals. Perk buff passive trong game (mới v55).</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      Tổng hợp từ Ninja Kiwi, Blooncyclopedia, Bloons Wiki & community tier
+      lists — v55.1 (6/2026). Meta thay đổi theo từng patch.
+    </footer>
+
+    <script>
+      function showSection(id, btn) {
+        document
+          .querySelectorAll(".section")
+          .forEach((s) => s.classList.remove("active"));
+        document
+          .querySelectorAll(".nav-btn")
+          .forEach((b) => b.classList.remove("active"));
+        document.getElementById(id).classList.add("active");
+        btn.classList.add("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function toggleCard(id) {
+        const card = document.getElementById("tc-" + id);
+        const body = document.getElementById("tb-" + id);
+        card.classList.toggle("open");
+        body.classList.toggle("open");
+      }
+    </script>
+  </body>
+</html>
