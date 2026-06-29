@@ -1,0 +1,2304 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bloons TD 6 – Hero | Hướng Dẫn 2026</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600;700&display=swap");
+      :root {
+        --bg: #0c1016;
+        --bg2: #151b24;
+        --bg3: #1d2533;
+        --accent: #f7b731;
+        --accent-dim: #5c4a1c;
+        --red: #ff6b6b;
+        --orange: #ffa94d;
+        --blue: #74c0fc;
+        --green: #69db7c;
+        --purple: #da77f2;
+        --text: #e8eaf0;
+        --muted: #8c96aa;
+        --border: #262f40;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        line-height: 1.65;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Rajdhani", sans-serif;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+          animation: none !important;
+        }
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
+      nav {
+        position: sticky;
+        top: 0;
+        background: rgba(12, 16, 22, 0.96);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+        z-index: 100;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        height: 54px;
+      }
+      nav::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-logo {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--accent);
+        white-space: nowrap;
+        margin-right: 10px;
+      }
+      .nav-btn {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        padding: 6px 13px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 13px;
+        white-space: nowrap;
+        transition:
+          background 0.15s,
+          color 0.15s,
+          border-color 0.15s;
+        font-family: "Inter", sans-serif;
+      }
+      .nav-btn:hover {
+        border-color: var(--accent);
+        color: var(--text);
+      }
+      a.nav-btn {
+        text-decoration: none;
+        display: inline-block;
+      }
+      .nav-btn.active {
+        background: var(--accent);
+        color: #000;
+        border-color: var(--accent);
+        font-weight: 600;
+      }
+
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 28px 18px 90px;
+      }
+      .page-content {
+        animation: fadeIn 0.25s ease;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(4px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .hero-banner {
+        background: linear-gradient(
+          135deg,
+          #1a2540 0%,
+          #0c1016 55%,
+          #1c1530 100%
+        );
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 36px 28px;
+        margin-bottom: 28px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-banner::before {
+        content: "🎈";
+        position: absolute;
+        right: 22px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 74px;
+        opacity: 0.12;
+      }
+      .hero-banner h1 {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--accent);
+        line-height: 1.2;
+      }
+      .hero-banner p {
+        color: var(--muted);
+        margin-top: 8px;
+        max-width: 520px;
+        font-size: 14px;
+      }
+      .version-badge {
+        display: inline-block;
+        background: var(--accent);
+        color: #000;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 4px 11px;
+        border-radius: 20px;
+        margin-top: 14px;
+        letter-spacing: 0.4px;
+      }
+
+      .sec-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+      }
+      .sec-header h2 {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .sec-header.sub {
+        border-bottom: none;
+        margin-top: 28px;
+        margin-bottom: 10px;
+      }
+      .sec-header.sub h2 {
+        font-size: 16px;
+        color: var(--accent);
+      }
+      .sec-icon {
+        font-size: 20px;
+      }
+
+      .card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 18px;
+        margin-bottom: 12px;
+        transition: border-color 0.15s;
+      }
+      .card:hover {
+        border-color: var(--accent-dim);
+      }
+      .card h3 {
+        font-size: 17px;
+        font-weight: 700;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .card p {
+        color: var(--muted);
+        font-size: 13.5px;
+      }
+      .card ul {
+        list-style: none;
+        margin-top: 8px;
+      }
+      .card ul li {
+        padding: 4px 0;
+        font-size: 13.5px;
+        color: var(--text);
+        border-bottom: 1px solid var(--border);
+      }
+      .card ul li:last-child {
+        border-bottom: none;
+      }
+      .card ul li::before {
+        content: "▸ ";
+        color: var(--accent);
+      }
+
+      .grid2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .grid3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 12px;
+      }
+      @media (max-width: 680px) {
+        .grid2,
+        .grid3 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .tier-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 14px;
+        font-size: 13.5px;
+      }
+      .tier-table th {
+        background: var(--bg3);
+        padding: 9px 12px;
+        text-align: left;
+        font-size: 11px;
+        letter-spacing: 0.5px;
+        color: var(--muted);
+        text-transform: uppercase;
+      }
+      .tier-table td {
+        padding: 11px 12px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+      }
+      .tier-table tr:last-child td {
+        border-bottom: none;
+      }
+      .tier-table tr:hover td {
+        background: var(--bg3);
+      }
+
+      .tier-badge {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        text-align: center;
+        line-height: 32px;
+        font-weight: 700;
+        font-size: 15px;
+        flex-shrink: 0;
+      }
+      .tier-s {
+        background: var(--red);
+        color: #fff;
+      }
+      .tier-a {
+        background: var(--orange);
+        color: #000;
+      }
+      .tier-b {
+        background: var(--blue);
+        color: #000;
+      }
+      .tier-c {
+        background: #868e96;
+        color: #fff;
+      }
+
+      .tip-box {
+        background: var(--bg2);
+        border-left: 4px solid var(--accent);
+        border-radius: 0 10px 10px 0;
+        padding: 14px 16px;
+        margin-bottom: 10px;
+      }
+      .tip-box.green {
+        border-left-color: var(--green);
+      }
+      .tip-box.red {
+        border-left-color: var(--red);
+      }
+      .tip-box.blue {
+        border-left-color: var(--blue);
+      }
+      .tip-box.purple {
+        border-left-color: var(--purple);
+      }
+      .tip-box.orange {
+        border-left-color: var(--orange);
+      }
+      .tip-box strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 13.5px;
+        color: var(--text);
+      }
+      .tip-box p {
+        color: var(--muted);
+        font-size: 13.5px;
+      }
+
+      /* TOWER DETAIL CARD */
+      .tower-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 0;
+        margin-bottom: 14px;
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
+      .tower-card:hover {
+        border-color: var(--accent-dim);
+      }
+      .tower-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 18px;
+        background: var(--bg3);
+        border-bottom: 1px solid var(--border);
+        cursor: pointer;
+        user-select: none;
+      }
+      .tower-header h3 {
+        font-size: 16px;
+        font-weight: 700;
+        flex: 1;
+        margin: 0;
+      }
+      .tower-body {
+        padding: 16px 18px;
+        display: none;
+      }
+      .tower-body.open {
+        display: block;
+      }
+      .tower-card.open .tower-header {
+        border-bottom-color: var(--border);
+      }
+
+      .tower-meta {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      .meta-pill {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 7px 11px;
+        font-size: 12px;
+      }
+      .meta-pill span {
+        color: var(--muted);
+        display: block;
+        font-size: 10.5px;
+        margin-bottom: 2px;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+      }
+      .meta-pill b {
+        color: var(--text);
+      }
+
+      .path-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+      }
+      .path-chip {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 4px 10px;
+        font-size: 11.5px;
+      }
+      .path-chip b {
+        color: var(--accent);
+      }
+      .path-chip span {
+        color: var(--muted);
+      }
+
+      .stage-tag {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 2px 7px;
+        border-radius: 10px;
+        margin-right: 4px;
+        margin-bottom: 3px;
+      }
+      .st-early {
+        background: #1e4d2b;
+        color: var(--green);
+      }
+      .st-mid {
+        background: #4d3a00;
+        color: #ffd43b;
+      }
+      .st-late {
+        background: #4d1a1a;
+        color: var(--red);
+      }
+      .st-free {
+        background: #2a1a4d;
+        color: var(--purple);
+      }
+
+      .tag {
+        display: inline-block;
+        font-size: 10.5px;
+        font-weight: 600;
+        padding: 2px 8px;
+        border-radius: 10px;
+        margin-right: 4px;
+        margin-top: 4px;
+      }
+      .tag-dmg {
+        background: #4d1a1a;
+        color: var(--red);
+      }
+      .tag-sup {
+        background: #1a3a4d;
+        color: var(--blue);
+      }
+      .tag-eco {
+        background: #1e3a1e;
+        color: var(--green);
+      }
+      .tag-cc {
+        background: #3a1e4d;
+        color: var(--purple);
+      }
+      .tag-new {
+        background: var(--accent);
+        color: #000;
+      }
+      .tag-camo {
+        background: #152235;
+        color: #74c0fc;
+      }
+      .tag-lead {
+        background: #2e2e10;
+        color: #ffd43b;
+      }
+
+      .combo-box {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px 14px;
+        margin-top: 8px;
+        font-size: 13px;
+      }
+      .combo-box b {
+        color: var(--accent);
+        display: block;
+        margin-bottom: 4px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+      }
+      .combo-box p {
+        color: var(--muted);
+      }
+
+      .warn-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 14px;
+        border-radius: 8px;
+        background: var(--bg3);
+        margin-bottom: 7px;
+        border: 1px solid var(--border);
+      }
+      .warn-num {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--accent);
+        min-width: 52px;
+      }
+      .warn-desc {
+        font-size: 12.5px;
+        color: var(--muted);
+      }
+
+      .tier-label {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-right: 6px;
+      }
+
+      .phase-block {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px 18px;
+        margin-bottom: 12px;
+        background: var(--bg2);
+      }
+      .phase-block h3 {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .phase-block ul {
+        list-style: none;
+      }
+      .phase-block ul li {
+        padding: 5px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 13.5px;
+        color: var(--text);
+      }
+      .phase-block ul li:last-child {
+        border-bottom: none;
+      }
+      .phase-block ul li::before {
+        content: "▸ ";
+        color: var(--accent);
+      }
+
+      .prop-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+        margin-top: 10px;
+      }
+      .prop-table th {
+        background: var(--bg3);
+        padding: 8px 10px;
+        text-align: left;
+        font-size: 11px;
+        color: var(--muted);
+        text-transform: uppercase;
+      }
+      .prop-table td {
+        padding: 9px 10px;
+        border-bottom: 1px solid var(--border);
+        color: var(--muted);
+      }
+      .prop-table td:first-child {
+        color: var(--text);
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .prop-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .mini-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px;
+      }
+      .mini-card h3 {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .mini-card p {
+        font-size: 12.5px;
+        color: var(--muted);
+      }
+      .mode-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+        gap: 12px;
+      }
+      .diff {
+        display: inline-block;
+        font-size: 10.5px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 10px;
+        margin-bottom: 7px;
+      }
+      .diff-easy {
+        background: #1e4d2b;
+        color: var(--green);
+      }
+      .diff-med {
+        background: #4d3a00;
+        color: #ffd43b;
+      }
+      .diff-hard {
+        background: #4d1a1a;
+        color: var(--red);
+      }
+      .diff-special {
+        background: #2a1a4d;
+        color: var(--purple);
+      }
+
+      .update-item {
+        display: flex;
+        gap: 14px;
+        padding: 15px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .update-item:last-child {
+        border-bottom: none;
+      }
+      .update-version {
+        background: var(--accent);
+        color: #000;
+        font-weight: 700;
+        font-size: 12px;
+        padding: 4px 9px;
+        border-radius: 8px;
+        height: fit-content;
+        white-space: nowrap;
+      }
+      .update-content h4 {
+        font-weight: 600;
+        margin-bottom: 3px;
+        font-size: 14.5px;
+        font-family: "Inter", sans-serif;
+      }
+      .update-content p {
+        font-size: 12.5px;
+        color: var(--muted);
+      }
+
+      .toggle-arrow {
+        transition: transform 0.2s;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .tower-card.open .toggle-arrow {
+        transform: rotate(180deg);
+      }
+
+      footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: 11.5px;
+        padding: 24px 18px 50px;
+      }
+
+      .upgrade-block {
+        margin-top: 12px;
+        margin-bottom: 8px;
+      }
+      .upgrade-block-title,
+      .skin-block-title {
+        display: block;
+        font-size: 12px;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        margin-bottom: 8px;
+      }
+      .upgrade-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 8px;
+      }
+      .upgrade-col {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 8px 10px;
+      }
+      .path-label {
+        display: block;
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--purple);
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+      .upgrade-tier {
+        font-size: 11.5px;
+        margin-bottom: 5px;
+        line-height: 1.35;
+      }
+      .upgrade-tier b {
+        color: var(--accent);
+        margin-right: 4px;
+      }
+      .upgrade-tier .en-name {
+        color: var(--text);
+        font-weight: 600;
+        display: block;
+      }
+      .upgrade-tier .vi-desc {
+        color: var(--muted);
+        font-size: 11px;
+        display: block;
+      }
+      .skin-block {
+        margin-top: 10px;
+      }
+      .skin-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .skin-chip {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 4px 10px;
+        font-size: 11.5px;
+        color: var(--text);
+      }
+      .skin-chip small {
+        color: var(--muted);
+      }
+      .hero-detail-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        margin-bottom: 12px;
+        overflow: hidden;
+      }
+      .hero-detail-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 16px;
+        background: var(--bg3);
+        cursor: pointer;
+        user-select: none;
+      }
+      .hero-detail-header h3 {
+        flex: 1;
+        margin: 0;
+        font-size: 15px;
+      }
+      .hero-cost {
+        font-size: 12px;
+        color: var(--green);
+        font-weight: 700;
+      }
+      .hero-detail-body {
+        display: none;
+        padding: 14px 16px;
+      }
+      .hero-detail-body.open {
+        display: block;
+      }
+      .hero-detail-card.open .hero-detail-header {
+        border-bottom: 1px solid var(--border);
+      }
+      .hero-detail-card.open .toggle-arrow {
+        transform: rotate(180deg);
+      }
+      .skill-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .skill-row {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 7px 10px;
+        font-size: 12px;
+      }
+      .skill-row b {
+        color: var(--accent);
+        display: block;
+        margin-bottom: 2px;
+        font-size: 11.5px;
+      }
+      .skill-row span {
+        color: var(--muted);
+      }
+
+      .hero-thumb { width: 48px; height: 48px; border-radius: 10px; object-fit: cover; background: var(--bg); }
+      .hero-portrait { width: 120px; height: auto; border-radius: 12px; float: left; margin: 0 14px 8px 0; }
+      .hero-intro { overflow: hidden; margin-bottom: 12px; }
+      .bio-en { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 6px; }
+      .bio-vi { font-size: 13px; color: var(--text); }
+      .skill-text .en-full { display: block; font-size: 11px; color: var(--muted); margin: 2px 0; }
+      .skill-text .vi-full { display: block; font-size: 12.5px; color: var(--text); }
+      .skin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+      .skin-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; text-align: center; }
+      .skin-card img { width: 100%; height: 100px; object-fit: contain; background: #0d1117; }
+      .skin-card-text { padding: 8px; font-size: 11px; }
+      .skin-card-text b { display: block; color: var(--accent); margin-bottom: 2px; }
+      .skin-card-text p { color: var(--muted); font-size: 10.5px; margin-top: 4px; }
+      .skin-placeholder { font-size: 48px; display: block; padding: 24px; }
+      .tower-thumb { width: 40px; height: 40px; border-radius: 8px; object-fit: contain; background: var(--bg); }
+      .upg-icon { width: 32px; height: 32px; float: left; margin-right: 8px; border-radius: 4px; }
+      .upg-text .en-desc { display: block; font-size: 10.5px; color: var(--muted); margin-top: 2px; line-height: 1.35; }
+      .upgrade-tier { overflow: hidden; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+      .upgrade-tier:last-child { border-bottom: none; }
+      .upgrade-block a { color: var(--blue); }
+    </style>
+  </head>
+  <body>
+    <nav aria-label="Điều hướng">
+      <a class="nav-logo" href="index.html">🐒 BTD6 Guide</a>
+      <a class="nav-btn" href="index.html">Tổng Quan</a>
+      <a class="nav-btn" href="phase.html">Theo Giai Đoạn</a>
+      <a class="nav-btn" href="bloons.html">Kẻ Địch</a>
+      <a class="nav-btn active" href="heroes.html">Hero</a>
+      <a class="nav-btn" href="primary.html">Primary</a>
+      <a class="nav-btn" href="military.html">Military</a>
+      <a class="nav-btn" href="magic.html">Magic</a>
+      <a class="nav-btn" href="support.html">Support</a>
+      <a class="nav-btn" href="combos.html">Combo</a>
+      <a class="nav-btn" href="modes.html">Chế Độ</a>
+      <a class="nav-btn" href="farming.html">Cày / Farm</a>
+      <a class="nav-btn" href="updates.html">Update</a>
+    </nav>
+
+    <main>
+      <div class="page-content" id="heroes">
+<div class="sec-header">
+          <span class="sec-icon">🦸</span>
+          <h2>Tier List 18 Hero — Meta 6/2026</h2>
+        </div>
+        <div class="tip-box blue" style="margin-bottom: 16px">
+          <strong>💡 Lưu ý</strong>
+          <p>
+            Mỗi ván chỉ dùng 1 hero. Hero tự lên cấp, max 20. Đặt từ R1 để lên
+            cấp nhanh nhất. Mua bằng Monkey Money.
+          </p>
+        </div>
+
+        <table class="tier-table">
+          <thead>
+            <tr>
+              <th>Tier</th>
+              <th>Hero</th>
+              <th>Phong cách</th>
+              <th>Chi tiết</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tier-badge tier-s">S</span></td>
+              <td><b>🛒 Geraldo</b></td>
+              <td>Shop item linh hoạt</td>
+              <td>
+                Không nhược điểm rõ. Mạnh mọi mode/map. Contract = thu nhập vĩnh
+                viễn. MOAB Eliminator = cứu nguy. Paragon Power Totem = cách DUY
+                NHẤT đạt Degree 100 solo. Meta pick số 1 cho cả CHIMPS lẫn
+                farming.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-s">S</span></td>
+              <td><b>⚔️ Sauda</b></td>
+              <td>Carry early–mid</td>
+              <td>
+                Pierce cao, tốc độ cao, camo detect sẵn từ cấp thấp. Dễ chơi
+                nhất S-tier. Nhược: range ngắn, cần Village hỗ trợ. Lý tưởng cho
+                người mới + CHIMPS.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-s">S</span></td>
+              <td><b>🧠 Psi</b></td>
+              <td>CC + damage tầm xa</td>
+              <td>
+                Range "vô hạn", camo detect sẵn, xử lý được MOAB-class. Cần đầu
+                tư nâng cấp liên tục để giữ sức mạnh. Cao skill ceiling.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-s">S</span></td>
+              <td><b>🏹 Adora</b></td>
+              <td>Combo Ninja+Alch</td>
+              <td>
+                Nhìn xuyên tường, Blood Sacrifice bù điểm yếu lên cấp chậm. Yếu
+                ở CHIMPS/Co-op (chia XP). Xài với combo Ninja+Alchemist rất
+                mạnh.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-s">S</span></td>
+              <td>
+                <b>❄️ Silas <span class="tag tag-new">v52</span></b>
+              </td>
+              <td>Buff Ice + CC</td>
+              <td>
+                Đóng băng/làm chậm diện rộng, buff Ice Monkey quanh nó. Ultimate
+                freeze toàn màn hình. Lý tưởng cho build Ice + Bomb.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-a">A</span></td>
+              <td><b>💻 Benjamin</b></td>
+              <td>Kinh tế số 1</td>
+              <td>
+                Sinh cash+lives tự động, lên cấp nhanh nhất game. Rất hợp người
+                mới & build farming nặng. Ít dùng cho CHIMPS.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-a">A</span></td>
+              <td><b>🌿 Obyn</b></td>
+              <td>Druid synergy</td>
+              <td>
+                Hero free mạnh nhất, buff Druid +pierce cực khủng. Lý tưởng cho
+                build Avatar of Wrath + Poplust.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-a">A</span></td>
+              <td><b>🚀 Rosalia</b></td>
+              <td>Jetpack di động</td>
+              <td>
+                Tự di chuyển, CC + freeze tốt. Hợp build Heli/Ace. Linh hoạt
+                trên nhiều loại map.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-a">A</span></td>
+              <td><b>🐻 Pat Fusty</b></td>
+              <td>Buff + stun</td>
+              <td>
+                Rallying Roar buff attack speed toàn dàn, knockback/stun câu giờ
+                tốt. Rẻ, dễ dùng.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-a">A</span></td>
+              <td><b>🐦‍⬛ Corvus</b></td>
+              <td>Dark magic AoE</td>
+              <td>
+                Damage "sóng" cực tốt nhưng yếu đơn lẻ. Cần micro nhiều, lên cấp
+                chậm. Cao skill ceiling nhất game. Mua sau khi quen game.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-a">A</span></td>
+              <td>
+                <b>🐵 Dan D'Monke <span class="tag tag-new">v55</span></b>
+              </td>
+              <td>Dual-form</td>
+              <td>
+                Form support chém kiếm + form "Masqued Macaque" damage sấm sét.
+                Skin He-Man collab Mattel.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-b">B</span></td>
+              <td><b>🔥 Gwendolin</b></td>
+              <td>Jack of all trades</td>
+              <td>
+                Ổn định, không xuất sắc. Firecracker Gwen skin (v53) có gameplay
+                khác — AoE pháo hoa.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-b">B</span></td>
+              <td><b>💣 Striker Jones</b></td>
+              <td>Buff Explosive</td>
+              <td>
+                Buff Bomb/Mortar cực mạnh. Combo Pop and Awe + Striker = stun vô
+                hạn. Chỉ tỏa sáng trong build explosive chuyên biệt.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-b">B</span></td>
+              <td><b>🌊 Brickell</b></td>
+              <td>Water specialist</td>
+              <td>Buff Sub/Boat, Mega Mine mạnh. Cần map có nước.</td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-b">B</span></td>
+              <td><b>🕵️ Etienne</b></td>
+              <td>Camo toàn map</td>
+              <td>
+                Camo detection toàn map — tiện nhất để giải quyết DDT mà không
+                cần Sub. DPS thấp.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-c">C</span></td>
+              <td><b>🏹 Quincy</b></td>
+              <td>Hero đầu tiên</td>
+              <td>Tốt early, falls off nhanh cuối game.</td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-c">C</span></td>
+              <td><b>💀 Ezili</b></td>
+              <td>MOAB curse</td>
+              <td>Rất yếu đến khi lên cấp cao. Không đề xuất cho người mới.</td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge tier-c">C</span></td>
+              <td><b>🚂 Churchill</b></td>
+              <td>Straight-lane DPS</td>
+              <td>
+                Damage cao nhưng cần đường thẳng dài, đắt, lên cấp chậm nhất
+                game.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="sec-header" style="margin-top: 28px">
+          <span class="sec-icon">⚡</span>
+          <h2>Kỹ Năng &amp; Trang Phục — 18 Hero</h2>
+        </div>
+        <div class="tip-box" style="margin-bottom: 14px">
+          <strong>📖 Cách đọc</strong>
+          <p>
+            <b>Kỹ năng</b> mở ở Lv3 / Lv7 / Lv10 (Geraldo &amp; Corvus đặc
+            biệt). Lv20 thường nâng cấp ability Lv10. <b>Trang phục</b> mua bằng
+            Monkey Money, Trophy Store hoặc IAP — hầu hết chỉ đổi ngoại hình
+            (trừ Firecracker Gwen &amp; Prince Adam có gameplay khác).
+          </p>
+        </div>
+        <div class="hero-detail-card" id="hero-quincy">
+          <div class="hero-detail-header" onclick="toggleHero('quincy')">
+            <img class="hero-thumb" src="assets/heroes/BTD6_round_HeroIconQuincy.png" alt="Quincy" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="tier-badge tier-c">C</span>
+            <h3>🏹 Quincy</h3>
+            <span class="hero-cost">$540</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-quincy">
+            <div class="hero-intro">
+              <img class="hero-portrait" src="assets/heroes/BTD6_round_HeroIconQuincy.png" alt="Quincy" loading="lazy" referrerpolicy="no-referrer" />
+              <div>
+                <p class="bio-en"><i>Nguồn: Blooncyclopedia</i> — Proud, strong and intelligent, Quincy uses his bow to perform feats of amazing skill.</p>
+                <p class="bio-vi">Tự hào, mạnh mẽ và thông minh — Quincy dùng cung bắn tên nảy qua nhiều bloon, dần mạnh hơn theo cấp.</p>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title">⚡ Kỹ năng — Bản dịch đầy đủ</b>
+              <div class="skill-list"><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Rapid Shot (Lv3)</b>
+                <span class="en-full">Rapid Shot unlocks at level 3. It triples Quincy's attack speed for 8 seconds, with a 60-second cooldown. At level 13, duration increases to 12 seconds. At level 15, it quadruples attack speed instead of tripling, and cooldown reduces to 45 seconds.</span>
+                <span class="vi-full">Rapid Shot mở khóa ở cấp 3. Tăng gấp 3 tốc độ tấn công của Quincy trong 8 giây, hồi chiêu 60 giây. Cấp 13: thời gian kéo dài 12 giây. Cấp 15: tăng gấp 4 tốc độ tấn công thay vì gấp 3, hồi chiêu còn 45 giây.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Storm of Arrows (Lv10)</b>
+                <span class="en-full">Storm of Arrows unlocks at level 10. Quincy targets a Bloon anywhere on the map and fires a shower of arrows in a 100-unit radius for 3 seconds. The storm deals 6 sharp damage per hit, +6 to MOAB-class Bloons, with 70-second cooldown. Level 18: +18 damage to Ceramics, 7.5% hit rate, 55s cooldown. Level 20: 10 base damage, +10 MOAB, +24 Ceramic, 10% hit rate.</span>
+                <span class="vi-full">Storm of Arrows mở khóa ở cấp 10. Quincy chọn một Bloon bất kỳ trên map và bắn mưa tên bán kính 100 đơn vị trong 3 giây. Mỗi hit gây 6 sát thương Sharp, +6 với MOAB-class, hồi 70 giây. Cấp 18: +18 dmg Ceramic, tỷ lệ trúng 7.5%, CD 55s. Cấp 20: 10 dmg cơ bản, +10 MOAB, +24 Ceramic, 10% hit rate.</span>
+              </div>
+            </div></div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-grid"><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconQuincyCyber.png" alt="Cyber Quincy" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Cyber Quincy</b>
+                <small>MM</small>
+                <p>Skin tương lai — đổi ngoại hình + hiệu ứng.</p>
+              </div>
+            </div><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconWolfpackQuincy.png" alt="Wolfpack Quincy" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Wolfpack Quincy</b>
+                <small>MM</small>
+                <p>Tổ tiên hoang dã của Quincy — giọng trầm hơn, cosmetic.</p>
+              </div>
+            </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-gwendolin">
+          <div class="hero-detail-header" onclick="toggleHero('gwendolin')">
+            <img class="hero-thumb" src="assets/heroes/BTD6_round_HeroIconGwendolin.png" alt="Gwendolin" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="tier-badge tier-b">B</span>
+            <h3>🔥 Gwendolin</h3>
+            <span class="hero-cost">$900</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-gwendolin">
+            <div class="hero-intro">
+              <img class="hero-portrait" src="assets/heroes/BTD6_round_HeroIconGwendolin.png" alt="Gwendolin" loading="lazy" referrerpolicy="no-referrer" />
+              <div>
+                <p class="bio-en"><i>Nguồn: Blooncyclopedia</i> — Gwendolin the Pyromaniac hurls fire at Bloons and buffs nearby Monkeys.</p>
+                <p class="bio-vi">Nhà lửa học — ném lửa, buff tower gần phá Lead và +1 sát thương.</p>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title">⚡ Kỹ năng — Bản dịch đầy đủ</b>
+              <div class="skill-list"><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Cocktail of Fire (Lv3)</b>
+                <span class="en-full">Cocktail of Fire unlocks at level 3. Gwendolin throws a flaming cocktail that leaves a fire trail on the track, dealing damage over time to Bloons that pass through. Stronger than the Wizard's Wall of Fire and has no pop limit.</span>
+                <span class="vi-full">Cocktail of Fire mở khóa ở cấp 3. Gwendolin ném chai lửa tạo vệt lửa trên đường, gây sát thương theo thời gian cho Bloon đi qua. Mạnh hơn Wall of Fire của Wizard và không giới hạn số lần pop.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Firestorm (Lv10)</b>
+                <span class="en-full">Firestorm unlocks at level 10. Sets the entire screen on fire, popping all Bloons before round 80 including Ceramics, and buffs attack speed of nearby towers for a short time.</span>
+                <span class="vi-full">Firestorm mở khóa ở cấp 10. Thiêu toàn màn hình, pop mọi Bloon trước vòng 80 kể cả Ceramic, đồng thời buff tốc độ đánh tower lân cận trong thời gian ngắn.</span>
+              </div>
+            </div></div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-grid"><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconGwendolinScientist.png" alt="Scientist Gwendolin" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Scientist Gwendolin</b>
+                <small>MM</small>
+                <p>Nhà khoa học điên.</p>
+              </div>
+            </div><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconGwendolinCircus.png" alt="Harlegwen" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Harlegwen</b>
+                <small>MM</small>
+                <p>Chú hề xiếc.</p>
+              </div>
+            </div><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconGwendolinFirecracker.png" alt="Firecracker Gwen" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Firecracker Gwen</b>
+                <small>IAP v53</small>
+                <p>Gameplay khác — AoE pháo hoa.</p>
+              </div>
+            </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-striker">
+          <div class="hero-detail-header" onclick="toggleHero('striker')">
+            <img class="hero-thumb" src="assets/heroes/BTD6_round_HeroIconStrikerJones.png" alt="Striker Jones" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="tier-badge tier-b">B</span>
+            <h3>💣 Striker Jones</h3>
+            <span class="hero-cost">$750</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-striker">
+            <div class="hero-intro">
+              <img class="hero-portrait" src="assets/heroes/BTD6_round_HeroIconStrikerJones.png" alt="Striker Jones" loading="lazy" referrerpolicy="no-referrer" />
+              <div>
+                <p class="bio-en"><i>Nguồn: Blooncyclopedia</i> — Artillery Commander buffing Bomb Shooters and Mortar Monkeys.</p>
+                <p class="bio-vi">Chỉ huy pháo binh — buff Bomb/Mortar, cho explosive phá Black bloon.</p>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title">⚡ Kỹ năng — Bản dịch đầy đủ</b>
+              <div class="skill-list"><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Concussive Shell (Lv3)</b>
+                <span class="en-full">Concussive Shell unlocks at level 3. Fires a stunning shell that stuns all Bloon types except BAD; MOAB-class Bloons are stunned longer at higher levels.</span>
+                <span class="vi-full">Concussive Shell mở khóa ở cấp 3. Bắn đạn choáng làm choáng mọi loại Bloon trừ BAD; MOAB-class bị choáng lâu hơn theo cấp.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Target Focus (Lv7)</b>
+                <span class="en-full">Target Focus unlocks at level 7. All Bomb Shooters and Mortar Monkeys focus fire on a single target for increased damage.</span>
+                <span class="vi-full">Target Focus mở khóa ở cấp 7. Mọi Bomb Shooter và Mortar Monkey tập trung hỏa lực vào một mục tiêu để tăng sát thương.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Artillery Command (Lv10)</b>
+                <span class="en-full">Artillery Command unlocks at level 10. Resets the ability cooldown of every Bomb Shooter and Mortar Monkey on the map.</span>
+                <span class="vi-full">Artillery Command mở khóa ở cấp 10. Reset hồi chiêu kỹ năng của mọi Bomb Shooter và Mortar Monkey trên map.</span>
+              </div>
+            </div></div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-grid"><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconStrikerJonesBikerBones.png" alt="Biker Bones" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Biker Bones</b>
+                <small>MM</small>
+                <p>Biker xương.</p>
+              </div>
+            </div><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconStrikerJonesOctoJones.png" alt="Octojones" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Octojones</b>
+                <small>Trophy</small>
+                <p>Đầu bạch tuộc.</p>
+              </div>
+            </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-obyn">
+          <div class="hero-detail-header" onclick="toggleHero('obyn')">
+            <img class="hero-thumb" src="assets/heroes/BTD6_round_HeroIconObynGreenFoot.png" alt="Obyn Greenfoot" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="tier-badge tier-a">A</span>
+            <h3>🌿 Obyn Greenfoot</h3>
+            <span class="hero-cost">$650</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-obyn">
+            <div class="hero-intro">
+              <img class="hero-portrait" src="assets/heroes/BTD6_round_HeroIconObynGreenFoot.png" alt="Obyn Greenfoot" loading="lazy" referrerpolicy="no-referrer" />
+              <div>
+                <p class="bio-en"><i>Nguồn: Blooncyclopedia</i> — Forest Guardian buffing magic Monkeys and Druids.</p>
+                <p class="bio-vi">Thần rừng — buff pierce phép thuật, range và charge Druid of Wrath.</p>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title">⚡ Kỹ năng — Bản dịch đầy đủ</b>
+              <div class="skill-list"><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Brambles (Lv3)</b>
+                <span class="en-full">Brambles unlocks at level 3. Creates brambles on the track that pop 50 Bloons at level 3, scaling up to 500 at higher levels.</span>
+                <span class="vi-full">Brambles mở khóa ở cấp 3. Tạo gai trên đường pop 50 Bloon ở cấp 3, tăng dần đến 500 ở cấp cao.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Wall of Trees (Lv10)</b>
+                <span class="en-full">Wall of Trees unlocks at level 10. Summons a wall of trees that absorbs 3000–5000 Bloons and buffs nearby Druids.</span>
+                <span class="vi-full">Wall of Trees mở khóa ở cấp 10. Triệu hồi hàng cây hấp thụ 3000–5000 Bloon và buff Druid lân cận.</span>
+              </div>
+            </div></div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-grid"><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconObynOceanGuardian.png" alt="Ocean Guardian" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Ocean Guardian</b>
+                <small>MM</small>
+                <p>Thần đại dương.</p>
+              </div>
+            </div><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconMountainObyn.png" alt="Mountain Guardian" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Mountain Guardian</b>
+                <small>MM</small>
+                <p>Thần núi.</p>
+              </div>
+            </div><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconObynSkeletor.png" alt="Skeletor Obyn" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Skeletor Obyn</b>
+                <small>Halloween</small>
+                <p>Xương — collab.</p>
+              </div>
+            </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-churchill">
+          <div class="hero-detail-header" onclick="toggleHero('churchill')">
+            <img class="hero-thumb" src="assets/heroes/BTD6_round_HeroIconChurchill.png" alt="Captain Churchill" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="tier-badge tier-c">C</span>
+            <h3>🚂 Captain Churchill</h3>
+            <span class="hero-cost">$2,000</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-churchill">
+            <div class="hero-intro">
+              <img class="hero-portrait" src="assets/heroes/BTD6_round_HeroIconChurchill.png" alt="Captain Churchill" loading="lazy" referrerpolicy="no-referrer" />
+              <div>
+                <p class="bio-en"><i>Nguồn: Blooncyclopedia</i> — A monkey in a tank with cannon, machine gun and MOAB missiles.</p>
+                <p class="bio-vi">Khỉ lái xe tăng — đắt, lên cấp chậm nhất nhưng sát thương đường thẳng khủng.</p>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title">⚡ Kỹ năng — Bản dịch đầy đủ</b>
+              <div class="skill-list"><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Armor Piercing Shells (Lv3)</b>
+                <span class="en-full">Armor Piercing Shells unlocks at level 3. Temporarily allows Churchill to pop Black Bloons and deals bonus damage to Ceramic and MOAB-class Bloons.</span>
+                <span class="vi-full">Armor Piercing Shells mở khóa ở cấp 3. Tạm thời cho phép Churchill phá Black Bloon và gây thêm sát thương lên Ceramic và MOAB-class.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>MOAB Barrage (Lv10)</b>
+                <span class="en-full">MOAB Barrage unlocks at level 10. Fires 10 missiles dealing 100 damage each at up to 10 MOAB-class Bloons (10,000 total). Level 20: 25,000 total damage.</span>
+                <span class="vi-full">MOAB Barrage mở khóa ở cấp 10. Bắn 10 tên lửa, mỗi viên 100 dmg vào tối đa 10 MOAB-class (tổng 10.000). Cấp 20: tổng 25.000 dmg.</span>
+              </div>
+            </div></div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-grid"><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconChurchillSentai.png" alt="Sentai Churchill" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Sentai Churchill</b>
+                <small>MM</small>
+                <p>Siêu nhân Nhật.</p>
+              </div>
+            </div><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconChurchillSleigh.png" alt="Sleigh Churchill" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Sleigh Churchill</b>
+                <small>MM</small>
+                <p>Xe trượt tuyết.</p>
+              </div>
+            </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-benjamin">
+          <div class="hero-detail-header" onclick="toggleHero('benjamin')">
+            <img class="hero-thumb" src="assets/heroes/BTD6_round_HeroIconBenjamin.png" alt="Benjamin" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="tier-badge tier-a">A</span>
+            <h3>💻 Benjamin</h3>
+            <span class="hero-cost">$1,200</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-benjamin">
+            <div class="hero-intro">
+              <img class="hero-portrait" src="assets/heroes/BTD6_round_HeroIconBenjamin.png" alt="Benjamin" loading="lazy" referrerpolicy="no-referrer" />
+              <div>
+                <p class="bio-en"><i>Nguồn: Blooncyclopedia</i> — Code Monkey generating cash and hacking Bloons.</p>
+                <p class="bio-vi">Khỉ lập trình — sinh tiền, Skimming, Bloon Trojan; yếu combat.</p>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title">⚡ Kỹ năng — Bản dịch đầy đủ</b>
+              <div class="skill-list"><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Biohack (Lv3)</b>
+                <span class="en-full">Biohack unlocks at level 3. Buffs attack speed and pierce of nearby towers and regenerates lives over time.</span>
+                <span class="vi-full">Biohack mở khóa ở cấp 3. Buff tốc độ đánh và pierce tower lân cận, đồng thời hồi máu theo thời gian.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Syphon Funding (Lv10)</b>
+                <span class="en-full">Syphon Funding unlocks at level 10. Downgrades newly spawned Bloons and grants bonus cash when they are popped.</span>
+                <span class="vi-full">Syphon Funding mở khóa ở cấp 10. Hạ cấp Bloon mới spawn và cho thêm tiền khi pop.</span>
+              </div>
+            </div></div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-grid"><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconBenJammin.png" alt="Benjammin DJ" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Benjammin DJ</b>
+                <small>MM</small>
+                <p>DJ tiệc.</p>
+              </div>
+            </div><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconSushiBento.png" alt="Sushi Bento" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Sushi Bento</b>
+                <small>Trophy</small>
+                <p>Hộp cơm Nhật.</p>
+              </div>
+            </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-ezili">
+          <div class="hero-detail-header" onclick="toggleHero('ezili')">
+            <img class="hero-thumb" src="assets/heroes/BTD6_round_HeroIconEzili.png" alt="Ezili" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="tier-badge tier-c">C</span>
+            <h3>💀 Ezili</h3>
+            <span class="hero-cost">$600</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-ezili">
+            <div class="hero-intro">
+              <img class="hero-portrait" src="assets/heroes/BTD6_round_HeroIconEzili.png" alt="Ezili" loading="lazy" referrerpolicy="no-referrer" />
+              <div>
+                <p class="bio-en"><i>Nguồn: Blooncyclopedia</i> — Voodoo Monkey cursing Bloons and MOABs.</p>
+                <p class="bio-vi">Phù thủy voodoo — mạnh chống MOAB/DDT khi lên cấp cao.</p>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title">⚡ Kỹ năng — Bản dịch đầy đủ</b>
+              <div class="skill-list"><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Sacrificial Totem (Lv3)</b>
+                <span class="en-full">Sacrificial Totem unlocks at level 3. Places a totem that buffs nearby towers at the cost of 10 lives per round (disabled in CHIMPS).</span>
+                <span class="vi-full">Sacrificial Totem mở khóa ở cấp 3. Đặt totem buff tower lân cận, tốn 10 máu mỗi vòng (không dùng được trong CHIMPS).</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Hex (Lv7)</b>
+                <span class="en-full">Hex unlocks at level 7. Curses the strongest MOAB-class Bloon, draining 10% HP per second; destroyed Bloons do not spawn children.</span>
+                <span class="vi-full">Hex mở khóa ở cấp 7. Nguyền MOAB-class mạnh nhất, mất 10% HP/giây; Bloon chết không spawn con.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>MOAB Domination (Lv10)</b>
+                <span class="en-full">MOAB Domination unlocks at level 10. Instantly destroys the strongest MOAB-class Bloon on screen (except BAD).</span>
+                <span class="vi-full">MOAB Domination mở khóa ở cấp 10. Tiêu diệt ngay MOAB-class mạnh nhất trên màn (trừ BAD).</span>
+              </div>
+            </div></div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-grid"><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconEziliSmudgeCatt.png" alt="Smudge Catt Ezili" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Smudge Catt Ezili</b>
+                <small>MM</small>
+                <p>Mèo hoạt hình.</p>
+              </div>
+            </div><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconEziliGalaxili.png" alt="Galaxili" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Galaxili</b>
+                <small>Trophy</small>
+                <p>Vũ trụ.</p>
+              </div>
+            </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-pat">
+          <div class="hero-detail-header" onclick="toggleHero('pat')">
+            <img class="hero-thumb" src="assets/heroes/BTD6_round_HeroIconPatFusty.png" alt="Pat Fusty" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="tier-badge tier-a">A</span>
+            <h3>🐻 Pat Fusty</h3>
+            <span class="hero-cost">$800</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-pat">
+            <div class="hero-intro">
+              <img class="hero-portrait" src="assets/heroes/BTD6_round_HeroIconPatFusty.png" alt="Pat Fusty" loading="lazy" referrerpolicy="no-referrer" />
+              <div>
+                <p class="bio-en"><i>Nguồn: Blooncyclopedia</i> — Giant Monkey with slap attacks and team buffs.</p>
+                <p class="bio-vi">Khỉ khổng lồ — buff + stun/knockback MOAB; hỗ trợ chứ không carry solo.</p>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title">⚡ Kỹ năng — Bản dịch đầy đủ</b>
+              <div class="skill-list"><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Rallying Roar (Lv3)</b>
+                <span class="en-full">Rallying Roar unlocks at level 3. Grants +1 damage to all towers in range. Level 14: +3 damage with map-wide range.</span>
+                <span class="vi-full">Rallying Roar mở khóa ở cấp 3. +1 sát thương cho mọi tower trong tầm. Cấp 14: +3 dmg, tầm toàn map.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Big Squeeze (Lv10)</b>
+                <span class="en-full">Big Squeeze unlocks at level 10. Crushes one layer off the strongest MOAB-class Bloon. Level 20: can crush Fortified ZOMG layers.</span>
+                <span class="vi-full">Big Squeeze mở khóa ở cấp 10. Nghiền 1 lớp MOAB-class mạnh nhất. Cấp 20: nghiền được lớp Fortified ZOMG.</span>
+              </div>
+            </div></div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-grid"><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconFustyTheSnowman.png" alt="Fusty the Snowman" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Fusty the Snowman</b>
+                <small>MM</small>
+                <p>Người tuyết.</p>
+              </div>
+            </div><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconKaijuPat.png" alt="Kaiju Pat" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Kaiju Pat</b>
+                <small>Trophy</small>
+                <p>Quái vật Kaiju.</p>
+              </div>
+            </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-adora">
+          <div class="hero-detail-header" onclick="toggleHero('adora')">
+            <img class="hero-thumb" src="assets/heroes/BTD6_round_HeroIconAdora.png" alt="Adora" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="tier-badge tier-s">S</span>
+            <h3>🏹 Adora</h3>
+            <span class="hero-cost">$1,000</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-adora">
+            <div class="hero-intro">
+              <img class="hero-portrait" src="assets/heroes/BTD6_round_HeroIconAdora.png" alt="Adora" loading="lazy" referrerpolicy="no-referrer" />
+              <div>
+                <p class="bio-en"><i>Nguồn: Blooncyclopedia</i> — High Priestess firing divine energy through walls.</p>
+                <p class="bio-vi">Nữ tư tế — bắn xuyên tường; Blood Sacrifice đẩy nhanh lên cấp.</p>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title">⚡ Kỹ năng — Bản dịch đầy đủ</b>
+              <div class="skill-list"><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>The Long Arm of Light (Lv3)</b>
+                <span class="en-full">The Long Arm of Light unlocks at level 3. Doubles pierce and range for a duration (~25–33% uptime).</span>
+                <span class="vi-full">The Long Arm of Light mở khóa ở cấp 3. Gấp đôi pierce và tầm trong một khoảng thời gian (~25–33% uptime).</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Blood Sacrifice (Lv7)</b>
+                <span class="en-full">Blood Sacrifice unlocks at level 7. Sacrifices a tower for 4× XP (6× with Energizer); allows selling in CHIMPS.</span>
+                <span class="vi-full">Blood Sacrifice mở khóa ở cấp 7. Hy sinh một tower lấy 4× XP (6× với Energizer); cho phép bán tower trong CHIMPS.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>The Ball of Light (Lv10)</b>
+                <span class="en-full">The Ball of Light unlocks at level 10. Summons a giant laser orb. Level 20: 100 pierce with greatly increased damage.</span>
+                <span class="vi-full">The Ball of Light mở khóa ở cấp 10. Triệu hồi quả cầu laser khổng lồ. Cấp 20: 100 pierce, sát thương tăng mạnh.</span>
+              </div>
+            </div></div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-grid"><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconJoanOfArc.png" alt="Joan of Arc Adora" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Joan of Arc Adora</b>
+                <small>MM</small>
+                <p>Nữ anh hùng Pháp.</p>
+              </div>
+            </div><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconVoidora.png" alt="Voidora" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Voidora</b>
+                <small>MM</small>
+                <p>Bóng tối.</p>
+              </div>
+            </div><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconAdoraSheRa.png" alt="She-Ra" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>She-Ra</b>
+                <small>IAP</small>
+                <p>Collab Mattel.</p>
+              </div>
+            </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-brickell">
+          <div class="hero-detail-header" onclick="toggleHero('brickell')">
+            <img class="hero-thumb" src="assets/heroes/BTD6_round_HeroIconAdmiralBrickell.png" alt="Admiral Brickell" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="tier-badge tier-b">B</span>
+            <h3>🌊 Admiral Brickell</h3>
+            <span class="hero-cost">$750</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-brickell">
+            <div class="hero-intro">
+              <img class="hero-portrait" src="assets/heroes/BTD6_round_HeroIconAdmiralBrickell.png" alt="Admiral Brickell" loading="lazy" referrerpolicy="no-referrer" />
+              <div>
+                <p class="bio-en"><i>Nguồn: Blooncyclopedia</i> — Naval Commander — must be placed in water.</p>
+                <p class="bio-vi">Đô đốc — bắt buộc đặt trên nước; buff Sub/Boat cực mạnh.</p>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title">⚡ Kỹ năng — Bản dịch đầy đủ</b>
+              <div class="skill-list"><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Naval Tactics (Lv3)</b>
+                <span class="en-full">Naval Tactics unlocks at level 3. +60% fire rate to water towers; level 5 adds pierce and Lead/Black/Purple popping; level 8 adds camo detection.</span>
+                <span class="vi-full">Naval Tactics mở khóa ở cấp 3. +60% tốc độ bắn tower trên nước; cấp 5 thêm pierce và phá Lead/Black/Purple; cấp 8 thêm phát hiện camo.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Mega Mine (Lv10)</b>
+                <span class="en-full">Mega Mine unlocks at level 10. Places a mine dealing 4000–15000 damage; cooldown decreases with level.</span>
+                <span class="vi-full">Mega Mine mở khóa ở cấp 10. Đặt mìn gây 4000–15000 dmg; hồi chiêu giảm theo cấp.</span>
+              </div>
+            </div></div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-grid"><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconAdmiralBrickellDreadPirateBrickell.png" alt="Dread Pirate Brickell" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Dread Pirate Brickell</b>
+                <small>MM</small>
+                <p>Cướp biển.</p>
+              </div>
+            </div><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconAdmiralBrickellLifeguardBrickell.png" alt="Lifeguard Brickell" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Lifeguard Brickell</b>
+                <small>Trophy</small>
+                <p>Cứu hộ.</p>
+              </div>
+            </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-etienne">
+          <div class="hero-detail-header" onclick="toggleHero('etienne')">
+            <img class="hero-thumb" src="assets/heroes/BTD6_round_HeroIconEtienne.png" alt="Etienne" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="tier-badge tier-b">B</span>
+            <h3>🕵️ Etienne</h3>
+            <span class="hero-cost">$850</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-etienne">
+            <div class="hero-intro">
+              <img class="hero-portrait" src="assets/heroes/BTD6_round_HeroIconEtienne.png" alt="Etienne" loading="lazy" referrerpolicy="no-referrer" />
+              <div>
+                <p class="bio-en"><i>Nguồn: Blooncyclopedia</i> — Drone Operator with global camo detection via UCAV.</p>
+                <p class="bio-vi">Điều khiển drone — camo toàn map khi UCAV active; DPS trung bình.</p>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title">⚡ Kỹ năng — Bản dịch đầy đủ</b>
+              <div class="skill-list"><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Drone Swarm (Lv3)</b>
+                <span class="en-full">Drone Swarm unlocks at level 3. Summons 4 additional drones; uptime increases from 25% to 50% at higher levels.</span>
+                <span class="vi-full">Drone Swarm mở khóa ở cấp 3. Triệu hồi thêm 4 drone; thời gian hoạt động tăng từ 25% lên 50%.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>UCAV (Lv10)</b>
+                <span class="en-full">UCAV unlocks at level 10. Deploys a combat drone with global camo detection. Level 20: permanent UCAV with overcharge.</span>
+                <span class="vi-full">UCAV mở khóa ở cấp 10. Triển khai drone chiến đấu phát hiện camo toàn map. Cấp 20: UCAV vĩnh viễn kèm overcharge.</span>
+              </div>
+            </div></div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-grid"><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconETn.png" alt="ETn" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>ETn</b>
+                <small>Trophy</small>
+                <p>Alien ET style.</p>
+              </div>
+            </div><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconEtienneBookWyrm.png" alt="Book Wyrm" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Book Wyrm</b>
+                <small>Trophy</small>
+                <p>Rồng sách.</p>
+              </div>
+            </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-sauda">
+          <div class="hero-detail-header" onclick="toggleHero('sauda')">
+            <img class="hero-thumb" src="assets/heroes/BTD6_round_HeroIconSauda.png" alt="Sauda" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="tier-badge tier-s">S</span>
+            <h3>⚔️ Sauda</h3>
+            <span class="hero-cost">$750</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-sauda">
+            <div class="hero-intro">
+              <img class="hero-portrait" src="assets/heroes/BTD6_round_HeroIconSauda.png" alt="Sauda" loading="lazy" referrerpolicy="no-referrer" />
+              <div>
+                <p class="bio-en"><i>Nguồn: Blooncyclopedia</i> — Swordmaster with twin blades, camo from start, lead at Lv3.</p>
+                <p class="bio-vi">Kiếm sĩ song đao — camo sẵn, phá Lead Lv3; carry early–mid cực mạnh.</p>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title">⚡ Kỹ năng — Bản dịch đầy đủ</b>
+              <div class="skill-list"><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Leaping Sword (Lv3)</b>
+                <span class="en-full">Leaping Sword unlocks at level 3. Sauda leaps to a target and slashes in an area, leaving a sword wave. ~35 second cooldown.</span>
+                <span class="vi-full">Leaping Sword mở khóa ở cấp 3. Sauda nhảy tới mục tiêu chém AoE, để lại sóng kiếm. Hồi ~35 giây.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Sword Charge (Lv10)</b>
+                <span class="en-full">Sword Charge unlocks at level 10. Spawns a clone that sweeps all lanes backward, dealing 30 damage per Bloon with 400 pierce. 45 second cooldown.</span>
+                <span class="vi-full">Sword Charge mở khóa ở cấp 10. Tạo bản sao quét ngược mọi lane, 30 dmg/Bloon, 400 pierce. Hồi 45 giây.</span>
+              </div>
+            </div></div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-grid"><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconSaudaViking.png" alt="Viking Sauda" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Viking Sauda</b>
+                <small>MM</small>
+                <p>Chiến binh Bắc Âu.</p>
+              </div>
+            </div><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconSaudaJiangshi.png" alt="Jiangshi Sauda" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Jiangshi Sauda</b>
+                <small>MM</small>
+                <p>Cương thi.</p>
+              </div>
+            </div><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconSaudaRed.png" alt="Red Sauda" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Red Sauda</b>
+                <small>Gift code</small>
+                <p>Đỏ — giới hạn.</p>
+              </div>
+            </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-psi">
+          <div class="hero-detail-header" onclick="toggleHero('psi')">
+            <img class="hero-thumb" src="assets/heroes/BTD6_round_HeroIconPsi.png" alt="Psi" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="tier-badge tier-s">S</span>
+            <h3>🧠 Psi</h3>
+            <span class="hero-cost">$925</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-psi">
+            <div class="hero-intro">
+              <img class="hero-portrait" src="assets/heroes/BTD6_round_HeroIconPsi.png" alt="Psi" loading="lazy" referrerpolicy="no-referrer" />
+              <div>
+                <p class="bio-en"><i>Nguồn: Blooncyclopedia</i> — Psionic Monkey destroying Bloons at infinite range.</p>
+                <p class="bio-vi">Tâm linh — tầm vô hạn, camo sẵn; phá nhiều bloon cùng lúc theo level.</p>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title">⚡ Kỹ năng — Bản dịch đầy đủ</b>
+              <div class="skill-list"><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Psychic Blast (Lv3)</b>
+                <span class="en-full">Psychic Blast unlocks at level 3. Stuns up to 200 Bloons in a 70-radius for 6 seconds (1.5s for MOAB-class). 40 second cooldown.</span>
+                <span class="vi-full">Psychic Blast mở khóa ở cấp 3. Choáng tối đa 200 Bloon bán kính 70 trong 6 giây (MOAB-class 1.5s). Hồi 40 giây.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Psionic Scream (Lv10)</b>
+                <span class="en-full">Psionic Scream unlocks at level 10. Destroys many Bloons on screen and knocks back the rest.</span>
+                <span class="vi-full">Psionic Scream mở khóa ở cấp 10. Phá nhiều Bloon trên màn và đẩy lùi phần còn lại.</span>
+              </div>
+            </div></div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-grid"><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconPsiPsimbals.png" alt="Psimbals" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Psimbals</b>
+                <small>Trophy</small>
+                <p>Nhạc cụ.</p>
+              </div>
+            </div><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconPsiDreamstate.png" alt="Dreamstate Psi" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Dreamstate Psi</b>
+                <small>MM</small>
+                <p>Giấc mơ.</p>
+              </div>
+            </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-geraldo">
+          <div class="hero-detail-header" onclick="toggleHero('geraldo')">
+            <img class="hero-thumb" src="assets/heroes/BTD6_round_HeroIconGeraldo.png" alt="Geraldo" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="tier-badge tier-s">S</span>
+            <h3>🛒 Geraldo</h3>
+            <span class="hero-cost">$700</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-geraldo">
+            <div class="hero-intro">
+              <img class="hero-portrait" src="assets/heroes/BTD6_round_HeroIconGeraldo.png" alt="Geraldo" loading="lazy" referrerpolicy="no-referrer" />
+              <div>
+                <p class="bio-en"><i>Nguồn: Blooncyclopedia</i> — Mystic Shopkeeper — Geraldo's Shop instead of traditional abilities.</p>
+                <p class="bio-vi">Thương nhân huyền bí — cửa hàng item thay ability; meta toàn diện.</p>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title">⚡ Kỹ năng — Bản dịch đầy đủ</b>
+              <div class="skill-list"><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Geraldo's Shop (Lv1+)</b>
+                <span class="en-full">Instead of traditional abilities, Geraldo runs a shop. Items are purchased with cash, have per-game stock limits, and grow stronger as Geraldo levels up.</span>
+                <span class="vi-full">Thay vì kỹ năng thường, Geraldo mở cửa hàng. Mua item bằng tiền, giới hạn số lượng mỗi ván, mạnh hơn khi Geraldo lên cấp.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Shooty Turret (Lv1)</b>
+                <span class="en-full">Places a small turret that attacks Bloons.</span>
+                <span class="vi-full">Đặt tháp phụ nhỏ tấn công Bloon.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Stack of Old Nails (Lv2)</b>
+                <span class="en-full">Buffs pierce of nearby towers.</span>
+                <span class="vi-full">Buff pierce tower lân cận.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Creepy Idol (Lv4)</b>
+                <span class="en-full">Idol slows Bloons around it.</span>
+                <span class="vi-full">Tượng làm chậm Bloon xung quanh.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Jar of Pickles (Lv5)</b>
+                <span class="en-full">Buffs attack speed of nearby towers.</span>
+                <span class="vi-full">Buff tốc độ đánh tower lân cận.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Rare Quincy Action Figure (Lv6)</b>
+                <span class="en-full">Buffs hero XP gain.</span>
+                <span class="vi-full">Buff tốc độ lên cấp hero.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>See Invisibility Potion (Lv8)</b>
+                <span class="en-full">Grants camo detection in a small area.</span>
+                <span class="vi-full">Cho phép phát hiện camo trong vùng nhỏ.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Tube of Amaz-o-Glue (Lv9)</b>
+                <span class="en-full">Slows and debuffs Bloons with glue.</span>
+                <span class="vi-full">Keo làm chậm và debuff Bloon.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Sharpening Stone (Lv11)</b>
+                <span class="en-full">Permanently buffs tower damage.</span>
+                <span class="vi-full">Buff sát thương tower vĩnh viễn.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Worn Hero's Cape (Lv13)</b>
+                <span class="en-full">Strong hero buff item.</span>
+                <span class="vi-full">Item buff hero mạnh.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Blade Trap (Lv14)</b>
+                <span class="en-full">Places blade traps on the track.</span>
+                <span class="vi-full">Đặt bẫy lưỡi trên đường.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Bottle of Gerry's Fire (Lv16)</b>
+                <span class="en-full">Creates a fire trail on the track.</span>
+                <span class="vi-full">Tạo vệt lửa trên đường.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Fertilizer (Lv17)</b>
+                <span class="en-full">Buffs Banana Farm income.</span>
+                <span class="vi-full">Buff thu nhập Banana Farm.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Pet Rabbit (Lv18)</b>
+                <span class="en-full">Rabbit generates bonus cash.</span>
+                <span class="vi-full">Thỏ sinh thêm tiền.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Rejuv Potion (Lv19)</b>
+                <span class="en-full">Heals lives and buffs towers.</span>
+                <span class="vi-full">Hồi máu và buff tower.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Genie Bottle (Lv20)</b>
+                <span class="en-full">Random powerful wish effect.</span>
+                <span class="vi-full">Điều ước ngẫu nhiên mạnh.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Paragon Power Totem (Lv20)</b>
+                <span class="en-full">Buffs a Paragon to Degree 100 in solo.</span>
+                <span class="vi-full">Buff Paragon lên Degree 100 trong solo.</span>
+              </div>
+            </div></div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-grid"><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconGeraldoGentlemanGadgeteer.png" alt="Gentlemonkey Gadgeteer" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Gentlemonkey Gadgeteer</b>
+                <small>Trophy</small>
+                <p>Nhà phát minh.</p>
+              </div>
+            </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-corvus">
+          <div class="hero-detail-header" onclick="toggleHero('corvus')">
+            <img class="hero-thumb" src="assets/heroes/BTD6_round_HeroIconCorvus.png" alt="Corvus" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="tier-badge tier-a">A</span>
+            <h3>🐦‍⬛ Corvus</h3>
+            <span class="hero-cost">$7,000</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-corvus">
+            <div class="hero-intro">
+              <img class="hero-portrait" src="assets/heroes/BTD6_round_HeroIconCorvus.png" alt="Corvus" loading="lazy" referrerpolicy="no-referrer" />
+              <div>
+                <p class="bio-en"><i>Nguồn: Blooncyclopedia</i> — Spirit Walker with Spellbook powered by Mana.</p>
+                <p class="bio-vi">Pháp sư bóng tối — Spellbook 16 phép + Mana từ bloon bị haunt.</p>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title">⚡ Kỹ năng — Bản dịch đầy đủ</b>
+              <div class="skill-list"><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Soul Harvest (Lv3)</b>
+                <span class="en-full">Soul Harvest unlocks at level 3. Destroys 20 Bloons and restores 100+ Mana. Cooldown decreases with level.</span>
+                <span class="vi-full">Soul Harvest mở khóa ở cấp 3. Phá 20 Bloon và hồi 100+ Mana. Hồi chiêu giảm theo cấp.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Spirit Walk (Lv7)</b>
+                <span class="en-full">Spirit Walk unlocks at level 7. Teleports Corvus instantly, similar to Darkshift.</span>
+                <span class="vi-full">Spirit Walk mở khóa ở cấp 7. Dịch chuyển tức thì Corvus, giống Darkshift.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Dark Ritual (Lv10)</b>
+                <span class="en-full">Dark Ritual unlocks at level 10. Aura deals plasma damage and drains Mana for 10s; level 12 also drains Necromancer Mana.</span>
+                <span class="vi-full">Dark Ritual mở khóa ở cấp 10. Aura plasma dmg và hút Mana 10s; cấp 12 hút cả Mana Necromancer.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Spear (Spell Lv1)</b>
+                <span class="en-full">Energy spear with chain lightning; consumes Mana per second.</span>
+                <span class="vi-full">Giáo năng lượng kèm sét lan; tiêu Mana mỗi giây.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Repel (Spell Lv1)</b>
+                <span class="en-full">Shield that knocks Bloons touching the Spirit.</span>
+                <span class="vi-full">Khiên đẩy Bloon chạm Spirit.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Echo (Spell Lv3)</b>
+                <span class="en-full">Splits the Spirit into two.</span>
+                <span class="vi-full">Chia Spirit thành hai.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Ancestral Might (Spell Lv7)</b>
+                <span class="en-full">Ancestral hand deals massive damage.</span>
+                <span class="vi-full">Bàn tay Cổ Nhân gây sát thương khổng lồ.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Overload (Spell Lv13)</b>
+                <span class="en-full">Spirit self-destructs then respawns.</span>
+                <span class="vi-full">Spirit tự nổ rồi tái tạo.</span>
+              </div>
+            </div></div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-grid"><div class="skin-card">
+              <img src="assets/heroes/BTD6_round_HeroIconCorvus.png" alt="Default Corvus" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Default Corvus</b>
+                <small>Mặc định</small>
+                <p></p>
+              </div>
+            </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-rosalia">
+          <div class="hero-detail-header" onclick="toggleHero('rosalia')">
+            <img class="hero-thumb" src="assets/heroes/BTD6_round_HeroIconRosalia.png" alt="Rosalia" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="tier-badge tier-a">A</span>
+            <h3>🚀 Rosalia</h3>
+            <span class="hero-cost">$850</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-rosalia">
+            <div class="hero-intro">
+              <img class="hero-portrait" src="assets/heroes/BTD6_round_HeroIconRosalia.png" alt="Rosalia" loading="lazy" referrerpolicy="no-referrer" />
+              <div>
+                <p class="bio-en"><i>Nguồn: Blooncyclopedia</i> — Tinkerer with jetpack workshop deploying missiles.</p>
+                <p class="bio-vi">Thợ máy jetpack — missile, buff Ace/Heli; linh hoạt mọi map.</p>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title">⚡ Kỹ năng — Bản dịch đầy đủ</b>
+              <div class="skill-list"><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Scatter Missile (Lv3)</b>
+                <span class="en-full">Scatter Missile unlocks at level 3. Fires 20 missiles over 5 seconds at a target; 5 damage each, 1s stun. 45s cooldown.</span>
+                <span class="vi-full">Scatter Missile mở khóa ở cấp 3. Bắn 20 tên lửa trong 5 giây; 5 dmg/viên, choáng 1s. Hồi 45s.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Flight Boost (Lv7)</b>
+                <span class="en-full">Flight Boost unlocks at level 7. Rosalia chases Bloons and buffs flying Ace/Heli speed.</span>
+                <span class="vi-full">Flight Boost mở khóa ở cấp 7. Rosalia đuổi Bloon và buff tốc độ Ace/Heli bay.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Kinetic Charge (Lv10)</b>
+                <span class="en-full">Kinetic Charge unlocks at level 10. Drone attaches to a MOAB and explodes for damage based on missing HP.</span>
+                <span class="vi-full">Kinetic Charge mở khóa ở cấp 10. Drone gắn MOAB và nổ theo % máu đã mất.</span>
+              </div>
+            </div></div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-grid"><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconRosaliaTinkerfairy.png" alt="Tinkerfairy" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Tinkerfairy</b>
+                <small>MM</small>
+                <p>Tiên thợ máy.</p>
+              </div>
+            </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-silas">
+          <div class="hero-detail-header" onclick="toggleHero('silas')">
+            <img class="hero-thumb" src="assets/heroes/BTD6_round_HeroIconSilas.png" alt="Silas" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="tier-badge tier-s">S</span>
+            <h3>❄️ Silas</h3>
+            <span class="hero-cost">$850</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-silas">
+            <div class="hero-intro">
+              <img class="hero-portrait" src="assets/heroes/BTD6_round_HeroIconSilas.png" alt="Silas" loading="lazy" referrerpolicy="no-referrer" />
+              <div>
+                <p class="bio-en"><i>Nguồn: Blooncyclopedia</i> — Ice Shaper buffing Ice Monkeys and freezing Bloons.</p>
+                <p class="bio-vi">Điêu khắc băng — buff Ice Monkey, đóng băng diện rộng, Ice Wall.</p>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title">⚡ Kỹ năng — Bản dịch đầy đủ</b>
+              <div class="skill-list"><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Frostbite (Lv3)</b>
+                <span class="en-full">Frostbite unlocks at level 3. Attacks explode frozen Bloons for bonus damage based on remaining freeze time.</span>
+                <span class="vi-full">Frostbite mở khóa ở cấp 3. Đòn đánh nổ Bloon đóng băng, dmg theo thời gian freeze còn lại.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Frozen Cascade (Lv7)</b>
+                <span class="en-full">Frozen Cascade unlocks at level 7. Chain freeze explosions around Silas and 9 nearest Ice Monkeys.</span>
+                <span class="vi-full">Frozen Cascade mở khóa ở cấp 7. Chuỗi nổ băng quanh Silas và 9 Ice Monkey gần nhất.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Frozen Burial (Lv10)</b>
+                <span class="en-full">Frozen Burial unlocks at level 10. Freezes entire screen and creates Ice Walls on the track.</span>
+                <span class="vi-full">Frozen Burial mở khóa ở cấp 10. Đóng băng toàn màn và tạo Ice Wall trên đường.</span>
+              </div>
+            </div></div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-grid"><div class="skin-card">
+              <img src="assets/heroes/BTD6_round_HeroIconSilas.png" alt="Default Silas" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Default Silas</b>
+                <small>Mặc định</small>
+                <p></p>
+              </div>
+            </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-dan">
+          <div class="hero-detail-header" onclick="toggleHero('dan')">
+            <img class="hero-thumb" src="assets/heroes/BTD6_round_HeroIconDanDMonke.png" alt="Dan D'Monke" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="tier-badge tier-a">A</span>
+            <h3>🐵 Dan D'Monke</h3>
+            <span class="hero-cost">$7,000</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-dan">
+            <div class="hero-intro">
+              <img class="hero-portrait" src="assets/heroes/BTD6_round_HeroIconDanDMonke.png" alt="Dan D'Monke" loading="lazy" referrerpolicy="no-referrer" />
+              <div>
+                <p class="bio-en"><i>Nguồn: Blooncyclopedia</i> — Courtly Monkey with dual form — Dan and Masqued Macaque (v55).</p>
+                <p class="bio-vi">Hai hình thái — kiếm support (Dan) và sấm sét (Masqued Macaque).</p>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title">⚡ Kỹ năng — Bản dịch đầy đủ</b>
+              <div class="skill-list"><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Transformation (Lv3)</b>
+                <span class="en-full">Transformation unlocks at level 3. Switches between Dan and Masqued Macaque forms with lightning AoE and +attack speed for 9 seconds.</span>
+                <span class="vi-full">Transformation mở khóa ở cấp 3. Đổi form Dan/Masqued Macaque, sét AoE và +tốc độ đánh 9 giây.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Reposition (Lv7 Dan)</b>
+                <span class="en-full">Reposition unlocks at level 7 (Dan form). Teleports any tower including himself, like Chinook.</span>
+                <span class="vi-full">Reposition mở khóa cấp 7 (form Dan). Dịch chuyển mọi tower kể cả bản thân, như Chinook.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Volant Strike (Lv7 Macaque)</b>
+                <span class="en-full">Volant Strike unlocks at level 7 (Macaque form). Jumps to a location for 75 AoE damage and stun.</span>
+                <span class="vi-full">Volant Strike mở khóa cấp 7 (form Macaque). Nhảy tới vị trí, 75 dmg AoE và choáng.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Rabble Rouser (Lv10 Dan)</b>
+                <span class="en-full">Rabble Rouser unlocks at level 10 (Dan). Buffs damage ×1.5 but slows attack; triggers passive on leak.</span>
+                <span class="vi-full">Rabble Rouser mở khóa cấp 10 (Dan). Buff dmg ×1.5 nhưng chậm đánh; kích passive khi leak.</span>
+              </div>
+            </div><div class="skill-row">
+              <img class="skill-icon" src="" alt="" hidden />
+              <div class="skill-text">
+                <b>Berserk Frenzy (Lv10 Macaque)</b>
+                <span class="en-full">Berserk Frenzy unlocks at level 10 (Macaque). Charges and slashes all Bloons on screen for 12 seconds.</span>
+                <span class="vi-full">Berserk Frenzy mở khóa cấp 10 (Macaque). Lao chém mọi Bloon trên màn trong 12 giây.</span>
+              </div>
+            </div></div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-grid"><div class="skin-card">
+              <img src="assets/skins/BTD6_round_HeroIconDanDMonkeHeMan.png" alt="Prince Adam / He-Man" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="skin-card-text">
+                <b>Prince Adam / He-Man</b>
+                <small>IAP v55</small>
+                <p>Collab Mattel — gameplay khác.</p>
+              </div>
+            </div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sec-header" style="margin-top: 24px">
+          <span class="sec-icon">🎯</span>
+          <h2>Nên Chọn Hero Nào?</h2>
+        </div>
+        <div class="grid2">
+          <div class="card">
+            <h3>🆕 Mới bắt đầu</h3>
+            <ul>
+              <li><b>Sauda</b> — đặt là mạnh ngay, không cần micro</li>
+              <li><b>Geraldo</b> — shop item giải mọi tình huống</li>
+              <li><b>Benjamin</b> — học farming từ sớm</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>🏆 CHIMPS Mode</h3>
+            <ul>
+              <li><b>Geraldo</b> — item giải mọi vấn đề</li>
+              <li><b>Sauda</b> — carry early game</li>
+              <li><b>Psi</b> — CC mạnh, camo detect sẵn</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>💰 Farming / Boss Event</h3>
+            <ul>
+              <li><b>Benjamin</b> — sinh cash nhiều nhất</li>
+              <li><b>Geraldo</b> — Paragon Totem + Contract</li>
+              <li><b>Corvus</b> — scale damage boss tốt (cần skill)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>🌊 Map nước / Cao skill</h3>
+            <ul>
+              <li><b>Brickell</b> — buff Sub/Boat, Mega Mine</li>
+              <li><b>Corvus / Psi</b> — cho người thích combo phức tạp</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== PRIMARY ========== -->
+      </div>
+    </main>
+
+    <footer>
+      Tổng hợp từ Ninja Kiwi, Blooncyclopedia, Bloons Wiki & community tier
+      lists — v55.1 (6/2026). Meta thay đổi theo từng patch.
+    </footer>
+    <script>
+      function toggleHero(id) {
+        const card = document.getElementById("hero-" + id);
+        const body = document.getElementById("hb-" + id);
+        card.classList.toggle("open");
+        body.classList.toggle("open");
+      }
+
+      function toggleCard(id) {
+        const card = document.getElementById("tc-" + id);
+        const body = document.getElementById("tb-" + id);
+        card.classList.toggle("open");
+        body.classList.toggle("open");
+      }
+    </script>
+  </body>
+</html>

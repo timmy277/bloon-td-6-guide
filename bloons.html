@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bloons TD 6 – Tổng Quan | Hướng Dẫn 2026</title>
+    <title>Bloons TD 6 – Kẻ Địch | Hướng Dẫn 2026</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600;700&display=swap");
       :root {
@@ -854,9 +854,9 @@
   <body>
     <nav aria-label="Điều hướng">
       <a class="nav-logo" href="index.html">🐒 BTD6 Guide</a>
-      <a class="nav-btn active" href="index.html">Tổng Quan</a>
+      <a class="nav-btn" href="index.html">Tổng Quan</a>
       <a class="nav-btn" href="phase.html">Theo Giai Đoạn</a>
-      <a class="nav-btn" href="bloons.html">Kẻ Địch</a>
+      <a class="nav-btn active" href="bloons.html">Kẻ Địch</a>
       <a class="nav-btn" href="heroes.html">Hero</a>
       <a class="nav-btn" href="primary.html">Primary</a>
       <a class="nav-btn" href="military.html">Military</a>
@@ -869,127 +869,186 @@
     </nav>
 
     <main>
-      <div class="page-content" id="overview">
-<div class="hero-banner">
-          <h1>Bloons TD 6<br />Hướng Dẫn Toàn Tập</h1>
+      <div class="page-content" id="bloons">
+<div class="sec-header">
+          <span class="sec-icon">🎈</span>
+          <h2>Bloon — Kẻ Địch</h2>
+        </div>
+        <div class="tip-box blue">
+          <strong>Thứ tự bloon thường</strong>
           <p>
-            Tier list, combo, lối chơi từng giai đoạn, tất cả hero + 23 monkey +
-            11 paragon — cập nhật v55.1 tháng 6/2026.
+            Red → Blue → Green → Yellow → Pink (mỗi lớp nhanh hơn, vỡ ra thành
+            lớp yếu hơn). Sau đó: Black, White, Lead, Zebra, Rainbow, Ceramic,
+            Purple.
           </p>
-          <div class="version-badge">🆕 Version 55.1 · Cập nhật 6/2026</div>
         </div>
 
-        <div class="sec-header">
-          <span class="sec-icon">📋</span>
-          <h2>Cơ Bản Cần Biết</h2>
-        </div>
-        <div class="grid2">
-          <div class="tip-box green">
-            <strong>🎯 Mục tiêu</strong>
-            <p>
-              Ngăn Bloon đi hết đường bằng cách đặt Monkey Tower + 1 Hero để
-              tiêu diệt chúng.
-            </p>
-          </div>
-          <div class="tip-box blue">
-            <strong>💰 3 loại tiền</strong>
-            <p>
-              <b>Cash</b>: tiền ván (mua tower). <b>Monkey Money</b>: tiền
-              "thật" (mở hero/skin/map). <b>Trophy</b>: từ event.
-            </p>
-          </div>
-          <div class="tip-box purple">
-            <strong>🦸 Hero — chỉ 1/ván</strong>
-            <p>
-              Tự lên cấp theo XP tích lũy, max level 20. Đặt hero từ round 1 để
-              tối đa thời gian lên cấp.
-            </p>
-          </div>
-          <div class="tip-box">
-            <strong>🐒 3 nhánh upgrade</strong>
-            <p>
-              Mỗi tower có 3 path. Chỉ 1 nhánh được tối đa Tier 5, nhánh 2 tối
-              đa Tier 2 (vd 5-2-0).
-            </p>
-          </div>
-        </div>
+        <div class="sec-header sub"><h2>🏷️ Thuộc Tính & Cách Counter</h2></div>
+        <table class="prop-table">
+          <tr>
+            <th>Thuộc tính</th>
+            <th>Ý nghĩa & counter</th>
+          </tr>
+          <tr>
+            <td>🥷 Camo</td>
+            <td>
+              Vô hình với tower không có camo detect. Counter: Ninja, Village
+              2-0-0, Sub 0-4-0, Etienne, Sauda, Psi, Silas.
+            </td>
+          </tr>
+          <tr>
+            <td>🔩 Lead</td>
+            <td>
+              Miễn Sharp (dart/tack/spike thường). Counter: Explosive (Bomb),
+              Magic/Fire (Wizard), Acid (Alchemist), Dartling.
+            </td>
+          </tr>
+          <tr>
+            <td>⚫ Black</td>
+            <td>
+              Miễn Explosive (bom, mortar). Counter: Sharp, Magic, Cold, Glue,
+              Sniper, Dartling.
+            </td>
+          </tr>
+          <tr>
+            <td>⚪ White</td>
+            <td>
+              Miễn Cold/Freeze. Counter: damage thường, tránh đóng băng, Glue
+              Gunner (nhưng tách đôi khi gặp glue).
+            </td>
+          </tr>
+          <tr>
+            <td>💜 Purple</td>
+            <td>
+              Miễn Magic/Plasma/Energy. Counter: Dart, Bomb, Ice, Glue, Sniper,
+              Ninja, Tack, Boomerang.
+            </td>
+          </tr>
+          <tr>
+            <td>🦓 Zebra</td>
+            <td>
+              Black + White. Cần damage không Explosive lẫn không Cold thuần.
+            </td>
+          </tr>
+          <tr>
+            <td>🏺 Ceramic</td>
+            <td>
+              10 hit (20 nếu Fortified), chứa 2 Rainbow. Cần AoE cao hoặc DOT.
+            </td>
+          </tr>
+          <tr>
+            <td>💪 Fortified</td>
+            <td>
+              Nhân đôi máu layer (Lead Fortified = ×4). Cần damage cao, Bomb
+              Shooter/Glue DOT tốt nhất.
+            </td>
+          </tr>
+          <tr>
+            <td>💚 Regrow</td>
+            <td>
+              Tự hồi layer theo thời gian. Cần DOT liên tục hoặc damage dứt
+              điểm, Glue DOT rất tốt.
+            </td>
+          </tr>
+        </table>
 
-        <div class="sec-header" style="margin-top: 26px">
-          <span class="sec-icon">⚠️</span>
-          <h2>Timeline Round Nguy Hiểm</h2>
-        </div>
-        <div class="warn-row">
-          <span class="warn-num">R24</span
-          ><span class="warn-desc"
-            >Camo Bloon đầu tiên — cần tower thấy camo: Ninja, Village 2-0-0,
-            Sub 0-4-0, Etienne, Sauda, Psi...</span
-          >
-        </div>
-        <div class="warn-row">
-          <span class="warn-num">R28</span
-          ><span class="warn-desc"
-            >Lead Bloon — cần Explosive / Magic / Acid (Alchemist). Glue Gunner
-            strip Lead tạm thời.</span
-          >
-        </div>
-        <div class="warn-row">
-          <span class="warn-num">R40</span
-          ><span class="warn-desc"
-            >MOAB đầu tiên — bắt buộc có MOAB-damage (Bomb Shooter, Dartling,
-            Pirate Lord...)</span
-          >
-        </div>
-        <div class="warn-row">
-          <span class="warn-num">R59</span
-          ><span class="warn-desc"
-            >Camo + Lead cùng lúc — combo nguy hiểm nhất đầu game. Cần Village
-            MIB hoặc Alchemist + decamo.</span
-          >
-        </div>
-        <div class="warn-row">
-          <span class="warn-num">R60</span
-          ><span class="warn-desc"
-            >BFB đầu tiên (chứa 4 MOAB). Cần heavy DPS đã sẵn sàng.</span
-          >
-        </div>
-        <div class="warn-row">
-          <span class="warn-num">R63/76/78</span
-          ><span class="warn-desc"
-            >Rush Ceramic/MOAB dày — test sức mạnh build. Có Perma-Spike sẵn từ
-            round này là chuẩn nhất.</span
-          >
-        </div>
-        <div class="warn-row">
-          <span class="warn-num">R80</span
-          ><span class="warn-desc"
-            >ZOMG đầu tiên — 4.000 hit, chứa nhiều BFB. Cần Tier 5 hoặc
-            Paragon.</span
-          >
-        </div>
-        <div class="warn-row">
-          <span class="warn-num">R90</span
-          ><span class="warn-desc"
-            >DDT — Camo + Lead + Black + tốc độ cao. Khó nhất midgame. Sub 0-4-0
-            / Glue + decamo là key.</span
-          >
-        </div>
-        <div class="warn-row">
-          <span class="warn-num">R100</span
-          ><span class="warn-desc"
-            >B.A.D. — 20.000 hit, miễn slow/knockback/instakill. Cần full DPS
-            build hoàn chỉnh.</span
-          >
-        </div>
-        <div class="warn-row">
-          <span class="warn-num">Freeplay</span
-          ><span class="warn-desc"
-            >Bloon mạnh vô hạn — lúc Paragon + build "1 tower carry" phát huy
-            tối đa.</span
-          >
+        <div class="sec-header sub"><h2>🚀 MOAB-Class</h2></div>
+        <table class="prop-table">
+          <tr>
+            <th>Tên</th>
+            <th>Round / Máu / Nội dung / Counter</th>
+          </tr>
+          <tr>
+            <td>MOAB</td>
+            <td>
+              R40 · 200 hit · Chứa 4 Ceramic. Counter: Bomb, Pop and Awe,
+              Dartling.
+            </td>
+          </tr>
+          <tr>
+            <td>BFB</td>
+            <td>
+              R60 · 700 hit · Chứa 4 MOAB. Counter: Tier 4–5 AoE, Pirate Lord.
+            </td>
+          </tr>
+          <tr>
+            <td>ZOMG</td>
+            <td>
+              R80 · 4.000 hit · Chứa nhiều BFB. Counter: True Sun God, Ninja
+              Paragon, Perma-Spike stack.
+            </td>
+          </tr>
+          <tr>
+            <td>DDT</td>
+            <td>
+              R90 · 400 hit · <b>Camo+Lead+Black+tốc độ cao</b>. Khó nhất
+              midgame. Counter: Sub 0-4-0 decamo → dùng Glue strip Lead → AoE
+              dọn.
+            </td>
+          </tr>
+          <tr>
+            <td>B.A.D.</td>
+            <td>
+              R100 · 20.000 hit · Miễn slow/knockback/instakill. Chứa MOAB/BFB.
+              Counter: full DPS thuần (M.A.D, True Sun God, Ascended Shadow).
+            </td>
+          </tr>
+        </table>
+
+        <div class="sec-header sub"><h2>👑 Boss Bloon (Event Riêng)</h2></div>
+        <div class="mode-grid">
+          <div class="mini-card">
+            <h3>🌋 Bloonarius</h3>
+            <p>
+              Sinh reinforcement khi bị damage. Counter: dùng DOT nhỏ thay vì
+              burst lớn.
+            </p>
+          </div>
+          <div class="mini-card">
+            <h3>💀 Lych (v54 rework)</h3>
+            <p>
+              Ăn cắp buff tower + tự hồi máu theo thời gian. Counter: tắt buff
+              hoặc damage liên tục.
+            </p>
+          </div>
+          <div class="mini-card">
+            <h3>🌀 Vortex</h3>
+            <p>
+              EMP disable tower diện rộng định kỳ. Counter: phân tán tower, có
+              thêm tower ngoài vùng EMP.
+            </p>
+          </div>
+          <div class="mini-card">
+            <h3>☠️ Dreadbloon</h3>
+            <p>
+              Skull miễn nhiễm xoay vòng. Counter: đa dạng damage type liên tục.
+            </p>
+          </div>
+          <div class="mini-card">
+            <h3>🔥 Blastapopoulos</h3>
+            <p>
+              AoE damage quanh boss. Counter: hero + tower có range cao, tránh
+              đặt trong vùng AoE.
+            </p>
+          </div>
+          <div class="mini-card">
+            <h3>🌌 Phayze</h3>
+            <p>
+              Dịch chuyển + tạo camo cho bloon quanh. Counter: camo detect toàn
+              map (Etienne, Psi).
+            </p>
+          </div>
+          <div class="mini-card">
+            <h3>🐍 Diamondback <span class="tag tag-new">v54</span></h3>
+            <p>
+              Cơ chế rắn quấn track — mới trong main game 4/2026, meta vẫn đang
+              được khám phá.
+            </p>
+          </div>
         </div>
       </div>
 
-      <!-- ========== THEO GIAI ĐOẠN ========== -->
+      <!-- ========== HERO ========== -->
       </div>
     </main>
 
