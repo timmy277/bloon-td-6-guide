@@ -697,6 +697,137 @@
         font-size: 11.5px;
         padding: 24px 18px 50px;
       }
+
+      .upgrade-block {
+        margin-top: 12px;
+        margin-bottom: 8px;
+      }
+      .upgrade-block-title,
+      .skin-block-title {
+        display: block;
+        font-size: 12px;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        margin-bottom: 8px;
+      }
+      .upgrade-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 8px;
+      }
+      .upgrade-col {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 8px 10px;
+      }
+      .path-label {
+        display: block;
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--purple);
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+      .upgrade-tier {
+        font-size: 11.5px;
+        margin-bottom: 5px;
+        line-height: 1.35;
+      }
+      .upgrade-tier b {
+        color: var(--accent);
+        margin-right: 4px;
+      }
+      .upgrade-tier .en-name {
+        color: var(--text);
+        font-weight: 600;
+        display: block;
+      }
+      .upgrade-tier .vi-desc {
+        color: var(--muted);
+        font-size: 11px;
+        display: block;
+      }
+      .skin-block {
+        margin-top: 10px;
+      }
+      .skin-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .skin-chip {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 4px 10px;
+        font-size: 11.5px;
+        color: var(--text);
+      }
+      .skin-chip small {
+        color: var(--muted);
+      }
+      .hero-detail-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        margin-bottom: 12px;
+        overflow: hidden;
+      }
+      .hero-detail-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 16px;
+        background: var(--bg3);
+        cursor: pointer;
+        user-select: none;
+      }
+      .hero-detail-header h3 {
+        flex: 1;
+        margin: 0;
+        font-size: 15px;
+      }
+      .hero-cost {
+        font-size: 12px;
+        color: var(--green);
+        font-weight: 700;
+      }
+      .hero-detail-body {
+        display: none;
+        padding: 14px 16px;
+      }
+      .hero-detail-body.open {
+        display: block;
+      }
+      .hero-detail-card.open .hero-detail-header {
+        border-bottom: 1px solid var(--border);
+      }
+      .hero-detail-card.open .toggle-arrow {
+        transform: rotate(180deg);
+      }
+      .skill-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .skill-row {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 7px 10px;
+        font-size: 12px;
+      }
+      .skill-row b {
+        color: var(--accent);
+        display: block;
+        margin-bottom: 2px;
+        font-size: 11.5px;
+      }
+      .skill-row span {
+        color: var(--muted);
+      }
     </style>
   </head>
   <body>
@@ -1404,6 +1535,872 @@
           </tbody>
         </table>
 
+        <div class="sec-header" style="margin-top: 28px">
+          <span class="sec-icon">⚡</span>
+          <h2>Kỹ Năng &amp; Trang Phục — 18 Hero</h2>
+        </div>
+        <div class="tip-box" style="margin-bottom: 14px">
+          <strong>📖 Cách đọc</strong>
+          <p>
+            <b>Kỹ năng</b> mở ở Lv3 / Lv7 / Lv10 (Geraldo &amp; Corvus đặc
+            biệt). Lv20 thường nâng cấp ability Lv10. <b>Trang phục</b> mua bằng
+            Monkey Money, Trophy Store hoặc IAP — hầu hết chỉ đổi ngoại hình
+            (trừ Firecracker Gwen &amp; Prince Adam có gameplay khác).
+          </p>
+        </div>
+        <div class="hero-detail-card" id="hero-geraldo">
+          <div class="hero-detail-header" onclick="toggleHero('geraldo')">
+            <span class="tier-badge tier-s">S</span>
+            <h3>🛒 Geraldo</h3>
+            <span class="hero-cost">$700</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-geraldo">
+            <div class="upgrade-block" style="margin-bottom: 10px">
+              <b class="upgrade-block-title">⚡ Kỹ năng (Ability)</b>
+              <div class="skill-list">
+                <div class="skill-row">
+                  <b>Cửa hàng Geraldo (Lv1+)</b
+                  ><span
+                    >Mở shop mua item bằng cash — không có ability truyền
+                    thống</span
+                  >
+                </div>
+                <div class="skill-row">
+                  <b>Shooty Turret (Lv1)</b
+                  ><span>Tháp phụ bắn bloon — tăng dmg theo level</span>
+                </div>
+                <div class="skill-row">
+                  <b>Stack of Old Nails (Lv2)</b
+                  ><span>Buff pierce tower gần đó</span>
+                </div>
+                <div class="skill-row">
+                  <b>Creepy Idol (Lv4)</b><span>Làm chậm bloon quanh idol</span>
+                </div>
+                <div class="skill-row">
+                  <b>Jar of Pickles (Lv5)</b
+                  ><span>Buff attack speed tower</span>
+                </div>
+                <div class="skill-row">
+                  <b>Rare Quincy Action Figure (Lv6)</b
+                  ><span>Buff hero XP gain</span>
+                </div>
+                <div class="skill-row">
+                  <b>See Invisibility Potion (Lv8)</b
+                  ><span>Decamo bloon vùng nhỏ</span>
+                </div>
+                <div class="skill-row">
+                  <b>Tube of Amaz-o-Glue (Lv9)</b
+                  ><span>Keo làm chậm + debuff</span>
+                </div>
+                <div class="skill-row">
+                  <b>Sharpening Stone (Lv11)</b
+                  ><span>Buff damage vĩnh viễn tower</span>
+                </div>
+                <div class="skill-row">
+                  <b>Worn Hero's Cape (Lv13)</b><span>Buff hero mạnh hơn</span>
+                </div>
+                <div class="skill-row">
+                  <b>Blade Trap (Lv14)</b><span>Bẫy lưỡi trên track</span>
+                </div>
+                <div class="skill-row">
+                  <b>Bottle of Gerry's Fire (Lv16)</b
+                  ><span>Lửa trên track</span>
+                </div>
+                <div class="skill-row">
+                  <b>Fertilizer (Lv17)</b><span>Buff farm income</span>
+                </div>
+                <div class="skill-row">
+                  <b>Pet Rabbit (Lv18)</b><span>Thỏ sinh tiền</span>
+                </div>
+                <div class="skill-row">
+                  <b>Rejuv Potion (Lv19)</b><span>Hồi máu + buff</span>
+                </div>
+                <div class="skill-row">
+                  <b>Genie Bottle (Lv20)</b
+                  ><span>Điều ước ngẫu nhiên mạnh</span>
+                </div>
+                <div class="skill-row">
+                  <b>Paragon Power Totem (Lv20)</b
+                  ><span>Buff Paragon lên Degree 100</span>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Gentlemonkey Gadgeteer <small>(Trophy Store)</small></span
+                >
+                <span class="skin-chip"
+                  >Default Geraldo <small>(Mặc định)</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-sauda">
+          <div class="hero-detail-header" onclick="toggleHero('sauda')">
+            <span class="tier-badge tier-s">S</span>
+            <h3>⚔️ Sauda</h3>
+            <span class="hero-cost">$750</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-sauda">
+            <div class="upgrade-block" style="margin-bottom: 10px">
+              <b class="upgrade-block-title">⚡ Kỹ năng (Ability)</b>
+              <div class="skill-list">
+                <div class="skill-row">
+                  <b>Leaping Sword (Lv3)</b
+                  ><span
+                    >Nhảy tới mục tiêu, chém AoE + sóng kiếm theo thời
+                    gian</span
+                  >
+                </div>
+                <div class="skill-row">
+                  <b>Sword Charge (Lv10)</b
+                  ><span
+                    >Tạo bản sao quét ngược track, 30 dmg/bloon, 400
+                    pierce</span
+                  >
+                </div>
+                <div class="skill-row">
+                  <b>Lv20</b
+                  ><span>Sword Charge +50% dmg; Leaping Sword CD giảm</span>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-list">
+                <span class="skin-chip">Viking Sauda <small>(MM)</small></span>
+                <span class="skin-chip"
+                  >Jiangshi Sauda <small>(MM/Halloween)</small></span
+                >
+                <span class="skin-chip"
+                  >Red Sauda <small>(Gift code)</small></span
+                >
+                <span class="skin-chip"
+                  >Māonǚ Sauda <small>(Bản Trung Quốc)</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-psi">
+          <div class="hero-detail-header" onclick="toggleHero('psi')">
+            <span class="tier-badge tier-s">S</span>
+            <h3>🧠 Psi</h3>
+            <span class="hero-cost">$925</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-psi">
+            <div class="upgrade-block" style="margin-bottom: 10px">
+              <b class="upgrade-block-title">⚡ Kỹ năng (Ability)</b>
+              <div class="skill-list">
+                <div class="skill-row">
+                  <b>Psychic Blast (Lv3)</b
+                  ><span
+                    >Stun 200 bloon trong bán kính 70 (6s thường, 1.5s
+                    MOAB)</span
+                  >
+                </div>
+                <div class="skill-row">
+                  <b>Psionic Scream (Lv10)</b
+                  ><span>Phá nhiều bloon + đẩy lùi phần còn lại</span>
+                </div>
+                <div class="skill-row">
+                  <b>Lv20</b
+                  ><span
+                    >Psychic Blast stun lâu hơn; Psionic Scream mạnh hơn</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Psimbals <small>(Trophy Store)</small></span
+                >
+                <span class="skin-chip"
+                  >Dreamstate Psi <small>(MM)</small></span
+                >
+                <span class="skin-chip"
+                  >Qīnglóng Xiūshì Língjī <small>(Bản Trung Quốc)</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-adora">
+          <div class="hero-detail-header" onclick="toggleHero('adora')">
+            <span class="tier-badge tier-s">S</span>
+            <h3>🏹 Adora</h3>
+            <span class="hero-cost">$1,000</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-adora">
+            <div class="upgrade-block" style="margin-bottom: 10px">
+              <b class="upgrade-block-title">⚡ Kỹ năng (Ability)</b>
+              <div class="skill-list">
+                <div class="skill-row">
+                  <b>The Long Arm of Light (Lv3)</b
+                  ><span>x2 pierce + range, uptime 25%</span>
+                </div>
+                <div class="skill-row">
+                  <b>Blood Sacrifice (Lv7)</b
+                  ><span>Hy sinh tower → XP hero x4 (x6 với Energizer)</span>
+                </div>
+                <div class="skill-row">
+                  <b>The Ball of Light (Lv10)</b
+                  ><span>Quả cầu năng lượng laser khổng lồ</span>
+                </div>
+                <div class="skill-row">
+                  <b>Lv20</b
+                  ><span>Ball of Light pierce 100, dmg tăng mạnh</span>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Joan of Arc Adora <small>(MM)</small></span
+                >
+                <span class="skin-chip">Voidora <small>(MM)</small></span>
+                <span class="skin-chip"
+                  >She-Ra <small>(IAP collab)</small></span
+                >
+                <span class="skin-chip"
+                  >Qīngshé Adora <small>(Bản Trung Quốc)</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-silas">
+          <div class="hero-detail-header" onclick="toggleHero('silas')">
+            <span class="tier-badge tier-s">S</span>
+            <h3>❄️ Silas</h3>
+            <span class="hero-cost">$850</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-silas">
+            <div class="upgrade-block" style="margin-bottom: 10px">
+              <b class="upgrade-block-title">⚡ Kỹ năng (Ability)</b>
+              <div class="skill-list">
+                <div class="skill-row">
+                  <b>Frostbite (Lv3)</b
+                  ><span
+                    >Đòn đánh nổ frozen bloon, dmg theo thời gian freeze còn
+                    lại</span
+                  >
+                </div>
+                <div class="skill-row">
+                  <b>Frozen Cascade (Lv7)</b
+                  ><span>Chuỗi nổ băng quanh hero + 9 Ice Monkey gần nhất</span>
+                </div>
+                <div class="skill-row">
+                  <b>Frozen Burial (Lv10)</b
+                  ><span>Đóng băng toàn màn + dựng Ice Wall trên track</span>
+                </div>
+                <div class="skill-row">
+                  <b>Lv20</b
+                  ><span>Ability mạnh hơn; buff Ice Monkey xung quanh</span>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Default Silas <small>(Mặc định)</small></span
+                >
+                <span class="skin-chip"
+                  >Mǎnián Silas <small>(Bản Trung Quốc — Năm Ngựa)</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-benjamin">
+          <div class="hero-detail-header" onclick="toggleHero('benjamin')">
+            <span class="tier-badge tier-a">A</span>
+            <h3>💻 Benjamin</h3>
+            <span class="hero-cost">$1,200</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-benjamin">
+            <div class="upgrade-block" style="margin-bottom: 10px">
+              <b class="upgrade-block-title">⚡ Kỹ năng (Ability)</b>
+              <div class="skill-list">
+                <div class="skill-row">
+                  <b>Biohack (Lv3)</b
+                  ><span>Buff attack speed + pierce tower gần, hồi máu</span>
+                </div>
+                <div class="skill-row">
+                  <b>Syphon Funding (Lv10)</b
+                  ><span>Downgrade bloon mới spawn → thêm cash khi pop</span>
+                </div>
+                <div class="skill-row">
+                  <b>Passive</b
+                  ><span>Skimming $/bloon + Bloon Trojan chặn spawn con</span>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-list">
+                <span class="skin-chip">Benjammin DJ <small>(MM)</small></span>
+                <span class="skin-chip"
+                  >Sushi Bento Benjamin <small>(Trophy Store)</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-obyn">
+          <div class="hero-detail-header" onclick="toggleHero('obyn')">
+            <span class="tier-badge tier-a">A</span>
+            <h3>🌿 Obyn Greenfoot</h3>
+            <span class="hero-cost">$650</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-obyn">
+            <div class="upgrade-block" style="margin-bottom: 10px">
+              <b class="upgrade-block-title">⚡ Kỹ năng (Ability)</b>
+              <div class="skill-list">
+                <div class="skill-row">
+                  <b>Brambles (Lv3)</b
+                  ><span>Gai trên track (50→500 pop theo level)</span>
+                </div>
+                <div class="skill-row">
+                  <b>Wall of Trees (Lv10)</b
+                  ><span>Hàng cây hấp thụ 3000-5000 bloon</span>
+                </div>
+                <div class="skill-row">
+                  <b>Passive</b
+                  ><span>Buff pierce magic monkey + range + Druid charge</span>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Ocean Guardian <small>(MM/BTD Battles 2 Alt)</small></span
+                >
+                <span class="skin-chip"
+                  >Mountain Guardian <small>(MM)</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-rosalia">
+          <div class="hero-detail-header" onclick="toggleHero('rosalia')">
+            <span class="tier-badge tier-a">A</span>
+            <h3>🚀 Rosalia</h3>
+            <span class="hero-cost">$850</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-rosalia">
+            <div class="upgrade-block" style="margin-bottom: 10px">
+              <b class="upgrade-block-title">⚡ Kỹ năng (Ability)</b>
+              <div class="skill-list">
+                <div class="skill-row">
+                  <b>Scatter Missile (Lv3)</b
+                  ><span
+                    >20 tên lửa nổ tại vị trí mục tiêu, stun bloon thường</span
+                  >
+                </div>
+                <div class="skill-row">
+                  <b>Flight Boost (Lv7)</b
+                  ><span>Bay đuổi bloon + buff Ace/Heli tốc độ bay</span>
+                </div>
+                <div class="skill-row">
+                  <b>Kinetic Charge (Lv10)</b
+                  ><span>Drone nổ gắn MOAB, dmg theo % máu đã mất</span>
+                </div>
+                <div class="skill-row">
+                  <b>Lv20</b
+                  ><span
+                    >Kinetic Charge dmg tăng; Scatter Missile mạnh hơn</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Tinkerfairy Rosalia <small>(MM)</small></span
+                >
+                <span class="skin-chip"
+                  >Default Rosalia <small>(Mặc định)</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-pat">
+          <div class="hero-detail-header" onclick="toggleHero('pat')">
+            <span class="tier-badge tier-a">A</span>
+            <h3>🐻 Pat Fusty</h3>
+            <span class="hero-cost">$800</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-pat">
+            <div class="upgrade-block" style="margin-bottom: 10px">
+              <b class="upgrade-block-title">⚡ Kỹ năng (Ability)</b>
+              <div class="skill-list">
+                <div class="skill-row">
+                  <b>Rallying Roar (Lv3)</b
+                  ><span>+1 layer dmg tower trong tầm (uptime 25-33%)</span>
+                </div>
+                <div class="skill-row">
+                  <b>Big Squeeze (Lv10)</b
+                  ><span>Nghiền 1 lớp MOAB mạnh nhất gần đó</span>
+                </div>
+                <div class="skill-row">
+                  <b>Lv20</b
+                  ><span
+                    >Big Squeeze nghiền Fortified ZOMG; Roar +3 dmg toàn
+                    map</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Fusty the Snowman <small>(MM)</small></span
+                >
+                <span class="skin-chip"
+                  >Kaiju Pat <small>(Trophy Store)</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-corvus">
+          <div class="hero-detail-header" onclick="toggleHero('corvus')">
+            <span class="tier-badge tier-a">A</span>
+            <h3>🐦‍⬛ Corvus</h3>
+            <span class="hero-cost">$7,000</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-corvus">
+            <div class="upgrade-block" style="margin-bottom: 10px">
+              <b class="upgrade-block-title">⚡ Kỹ năng (Ability)</b>
+              <div class="skill-list">
+                <div class="skill-row">
+                  <b>Soul Harvest (Lv3)</b
+                  ><span>Nổ dmg 20 bloon + hồi 100+ Mana</span>
+                </div>
+                <div class="skill-row">
+                  <b>Spirit Walk (Lv7)</b
+                  ><span>Dịch chuyển tức thì (như Darkshift)</span>
+                </div>
+                <div class="skill-row">
+                  <b>Dark Ritual (Lv10)</b><span>Aura dmg + hút Mana 10s</span>
+                </div>
+                <div class="skill-row">
+                  <b>Spear (Lv1)</b
+                  ><span>Giáo năng lượng + sét lan — tiêu Mana/giây</span>
+                </div>
+                <div class="skill-row">
+                  <b>Repel (Lv1)</b><span>Khiên đẩy bloon chạm Spirit</span>
+                </div>
+                <div class="skill-row">
+                  <b>Nourishment (Lv1)</b
+                  ><span>Đổi toàn bộ Mana → Hero XP</span>
+                </div>
+                <div class="skill-row">
+                  <b>Echo (Lv3)</b
+                  ><span>Spirit chia đôi, lệnh áp dụng cả hai</span>
+                </div>
+                <div class="skill-row">
+                  <b>Haste (Lv3)</b><span>Spirit bay/xoay nhanh hơn</span>
+                </div>
+                <div class="skill-row">
+                  <b>Aggression (Lv5)</b
+                  ><span>Spirit to hơn, đánh nhanh hơn</span>
+                </div>
+                <div class="skill-row">
+                  <b>Trample (Lv4)</b
+                  ><span>Đàn Spirit lao dọc track nghiền bloon</span>
+                </div>
+                <div class="skill-row">
+                  <b>Frostbound (Lv5)</b><span>Đóng băng bloon bị trúng</span>
+                </div>
+                <div class="skill-row">
+                  <b>Ember (Lv6)</b
+                  ><span>Để giọt lửa trên track thiêu bloon</span>
+                </div>
+                <div class="skill-row">
+                  <b>Malevolence (Lv7)</b
+                  ><span>Sương mù sát thương quanh Corvus</span>
+                </div>
+                <div class="skill-row">
+                  <b>Storm (Lv8)</b><span>Loạt lưỡi năng lượng liên tục</span>
+                </div>
+                <div class="skill-row">
+                  <b>Ancestral Might (Lv7)</b
+                  ><span>Bàn tay Cổ Nhân — dmg khổng lồ</span>
+                </div>
+                <div class="skill-row">
+                  <b>Overload (Lv13)</b><span>Spirit tự nổ rồi hồi sinh</span>
+                </div>
+                <div class="skill-row">
+                  <b>Soul Barrier (Lv4)</b><span>Mana thay máu khi leak</span>
+                </div>
+                <div class="skill-row">
+                  <b>Vision (Lv5)</b><span>Spirit thấy + gỡ camo</span>
+                </div>
+                <div class="skill-row">
+                  <b>Recovery (Lv10)</b
+                  ><span>Thiền hồi Mana cực nhanh 90s</span>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Book Wyrm Corvus <small>(Trophy Store)</small></span
+                >
+                <span class="skin-chip"
+                  >Default Corvus <small>(Mặc định)</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-dan">
+          <div class="hero-detail-header" onclick="toggleHero('dan')">
+            <span class="tier-badge tier-a">A</span>
+            <h3>🐵 Dan D'Monke</h3>
+            <span class="hero-cost">$7,000</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-dan">
+            <div class="upgrade-block" style="margin-bottom: 10px">
+              <b class="upgrade-block-title">⚡ Kỹ năng (Ability)</b>
+              <div class="skill-list">
+                <div class="skill-row">
+                  <b>Transformation (Lv3)</b
+                  ><span>Đổi form Dan ↔ Masqued Macaque + sét điện AoE</span>
+                </div>
+                <div class="skill-row">
+                  <b>Reposition (Lv7 — Dan)</b
+                  ><span>Dịch chuyển bất kỳ tower (kể cả bản thân)</span>
+                </div>
+                <div class="skill-row">
+                  <b>Volant Strike (Lv7 — Macaque)</b
+                  ><span>Nhảy tới vị trí, 75 dmg AoE + stun</span>
+                </div>
+                <div class="skill-row">
+                  <b>Rabble Rouser (Lv10 — Dan)</b
+                  ><span>Buff dmg x1.5, chậm attack, kích passive leak</span>
+                </div>
+                <div class="skill-row">
+                  <b>Berserk Frenzy (Lv10 — Macaque)</b
+                  ><span>Lao liên tục chém bloon toàn map 12s</span>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Prince Adam / He-Man
+                  <small>(IAP collab Mattel v55)</small></span
+                >
+                <span class="skin-chip"
+                  >Default Dan <small>(Mặc định)</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-gwendolin">
+          <div class="hero-detail-header" onclick="toggleHero('gwendolin')">
+            <span class="tier-badge tier-b">B</span>
+            <h3>🔥 Gwendolin</h3>
+            <span class="hero-cost">$900</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-gwendolin">
+            <div class="upgrade-block" style="margin-bottom: 10px">
+              <b class="upgrade-block-title">⚡ Kỹ năng (Ability)</b>
+              <div class="skill-list">
+                <div class="skill-row">
+                  <b>Cocktail of Fire (Lv3)</b
+                  ><span>Molotov tường lửa trên track</span>
+                </div>
+                <div class="skill-row">
+                  <b>Firestorm (Lv10)</b
+                  ><span>Thiêu toàn màn, pop Ceramic trước R80</span>
+                </div>
+                <div class="skill-row">
+                  <b>Passive (Lv4+)</b><span>Tower gần phá Lead + +1 dmg</span>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Scientist Gwendolin <small>(MM)</small></span
+                >
+                <span class="skin-chip">Harlegwen <small>(MM)</small></span>
+                <span class="skin-chip"
+                  >Firecracker Gwen
+                  <small>(Gameplay khác — AoE pháo hoa v53)</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-striker">
+          <div class="hero-detail-header" onclick="toggleHero('striker')">
+            <span class="tier-badge tier-b">B</span>
+            <h3>💣 Striker Jones</h3>
+            <span class="hero-cost">$750</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-striker">
+            <div class="upgrade-block" style="margin-bottom: 10px">
+              <b class="upgrade-block-title">⚡ Kỹ năng (Ability)</b>
+              <div class="skill-list">
+                <div class="skill-row">
+                  <b>Concussive Shell (Lv3)</b
+                  ><span>Stun mọi bloon trừ BAD</span>
+                </div>
+                <div class="skill-row">
+                  <b>Target Focus (Lv7)</b
+                  ><span>Tập trung hỏa lực vào 1 bloon</span>
+                </div>
+                <div class="skill-row">
+                  <b>Artillery Command (Lv10)</b
+                  ><span>Reset CD ability Bomb/Mortar toàn map</span>
+                </div>
+                <div class="skill-row">
+                  <b>Passive</b
+                  ><span
+                    >Buff Bomb/Mortar +10% speed; Black pop được bằng
+                    explosive</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-list">
+                <span class="skin-chip">Biker Bones <small>(MM)</small></span>
+                <span class="skin-chip"
+                  >Octojones <small>(Trophy Store)</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-brickell">
+          <div class="hero-detail-header" onclick="toggleHero('brickell')">
+            <span class="tier-badge tier-b">B</span>
+            <h3>🌊 Admiral Brickell</h3>
+            <span class="hero-cost">$750</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-brickell">
+            <div class="upgrade-block" style="margin-bottom: 10px">
+              <b class="upgrade-block-title">⚡ Kỹ năng (Ability)</b>
+              <div class="skill-list">
+                <div class="skill-row">
+                  <b>Naval Tactics (Lv3)</b
+                  ><span>+60% fire rate water tower, uptime 20%</span>
+                </div>
+                <div class="skill-row">
+                  <b>Mega Mine (Lv10)</b
+                  ><span>Mìn 4000→15000 dmg, 102 pierce</span>
+                </div>
+                <div class="skill-row">
+                  <b>Lv5/8/19</b
+                  ><span>Naval Tactics thêm pierce, lead/camo, toàn map</span>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Dread Pirate Brickell <small>(MM)</small></span
+                >
+                <span class="skin-chip"
+                  >Lifeguard Brickell <small>(Trophy Store)</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-etienne">
+          <div class="hero-detail-header" onclick="toggleHero('etienne')">
+            <span class="tier-badge tier-b">B</span>
+            <h3>🕵️ Etienne</h3>
+            <span class="hero-cost">$850</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-etienne">
+            <div class="upgrade-block" style="margin-bottom: 10px">
+              <b class="upgrade-block-title">⚡ Kỹ năng (Ability)</b>
+              <div class="skill-list">
+                <div class="skill-row">
+                  <b>Drone Swarm (Lv3)</b><span>+4 drone, uptime 25-50%</span>
+                </div>
+                <div class="skill-row">
+                  <b>UCAV (Lv10)</b
+                  ><span
+                    >Drone chiến đấu + decamo toàn map (permanent Lv20)</span
+                  >
+                </div>
+                <div class="skill-row">
+                  <b>Passive</b
+                  ><span>Camo detection toàn map khi UCAV active</span>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >ETn Etienne <small>(Trophy Store)</small></span
+                >
+                <span class="skin-chip"
+                  >Default Etienne <small>(Mặc định)</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-quincy">
+          <div class="hero-detail-header" onclick="toggleHero('quincy')">
+            <span class="tier-badge tier-c">C</span>
+            <h3>🏹 Quincy</h3>
+            <span class="hero-cost">$540</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-quincy">
+            <div class="upgrade-block" style="margin-bottom: 10px">
+              <b class="upgrade-block-title">⚡ Kỹ năng (Ability)</b>
+              <div class="skill-list">
+                <div class="skill-row">
+                  <b>Rapid Shot (Lv3)</b
+                  ><span>Bắn x3-4 nhanh trong thời gian ngắn</span>
+                </div>
+                <div class="skill-row">
+                  <b>Arrow Storm (Lv10)</b><span>Vòng tên hit nhiều bloon</span>
+                </div>
+                <div class="skill-row">
+                  <b>Lv20</b><span>Arrow Storm +100-250% dmg</span>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-list">
+                <span class="skin-chip">Cyber Quincy <small>(MM)</small></span>
+                <span class="skin-chip"
+                  >Wolfpack Quincy <small>(MM)</small></span
+                >
+                <span class="skin-chip"
+                  >Fēijiāngjūn Quincy <small>(Bản Trung Quốc)</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-ezili">
+          <div class="hero-detail-header" onclick="toggleHero('ezili')">
+            <span class="tier-badge tier-c">C</span>
+            <h3>💀 Ezili</h3>
+            <span class="hero-cost">$600</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-ezili">
+            <div class="upgrade-block" style="margin-bottom: 10px">
+              <b class="upgrade-block-title">⚡ Kỹ năng (Ability)</b>
+              <div class="skill-list">
+                <div class="skill-row">
+                  <b>Sacrificial Totem (Lv3)</b
+                  ><span>Totem buff tower, tốn 10 máu/round</span>
+                </div>
+                <div class="skill-row">
+                  <b>Hex (Lv7)</b
+                  ><span>Nguyền MOAB -10% HP/giây, không spawn con</span>
+                </div>
+                <div class="skill-row">
+                  <b>MOAB Domination (Lv10)</b
+                  ><span>Tiêu diệt MOAB mạnh nhất (trừ BAD)</span>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Smudge Catt Ezili <small>(MM)</small></span
+                >
+                <span class="skin-chip"
+                  >Galaxili <small>(Trophy Store)</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-detail-card" id="hero-churchill">
+          <div class="hero-detail-header" onclick="toggleHero('churchill')">
+            <span class="tier-badge tier-c">C</span>
+            <h3>🚂 Captain Churchill</h3>
+            <span class="hero-cost">$2,000</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+          <div class="hero-detail-body" id="hb-churchill">
+            <div class="upgrade-block" style="margin-bottom: 10px">
+              <b class="upgrade-block-title">⚡ Kỹ năng (Ability)</b>
+              <div class="skill-list">
+                <div class="skill-row">
+                  <b>Armor Piercing Shells (Lv3)</b
+                  ><span>Tạm phá Black, +dmg Ceramic/MOAB</span>
+                </div>
+                <div class="skill-row">
+                  <b>MOAB Barrage (Lv10)</b
+                  ><span>10 tên lửa x 100 dmg vào 10 MOAB</span>
+                </div>
+                <div class="skill-row">
+                  <b>Lv20</b><span>Barrage 25000 total dmg</span>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục (Skin)</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Sentai Churchill <small>(MM)</small></span
+                >
+                <span class="skin-chip"
+                  >Sleigh Churchill <small>(Trophy Store)</small></span
+                >
+                <span class="skin-chip"
+                  >Skeletor Churchill <small>(Halloween IAP)</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="sec-header" style="margin-top: 24px">
           <span class="sec-icon">🎯</span>
           <h2>Nên Chọn Hero Nào?</h2>
@@ -1497,6 +2494,101 @@
                 >
               </div>
             </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Sharp Shots</span
+                    ><span class="vi-desc">Mũi nhọn — +1 pierce</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Razor Sharp Shots</span
+                    ><span class="vi-desc">+2 pierce</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Spike-o-pult</span
+                    ><span class="vi-desc">Ném bóng gai, nảy tường</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Juggernaut</span
+                    ><span class="vi-desc"
+                      >Bóng gai khổng lồ, phá Ceramic/Lead</span
+                    >
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Ultra-Juggernaut</span
+                    ><span class="vi-desc">Bóng chia đôi thành 6 viên nhỏ</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Quick Shots</span
+                    ><span class="vi-desc">Bắn nhanh +15%</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Very Quick Shots</span
+                    ><span class="vi-desc">Bắn nhanh +33%</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Triple Shot</span
+                    ><span class="vi-desc">3 phi tiêu/lượt</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Super Monkey Fan Club</span
+                    ><span class="vi-desc"
+                      >Biến Dart thành Super Monkey tạm thời</span
+                    >
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Plasma Monkey Fan Club</span
+                    ><span class="vi-desc">Fan Club mạnh hơn, 20 Dart</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Long Range Darts</span
+                    ><span class="vi-desc">Tầm xa hơn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Enhanced Eyesight</span
+                    ><span class="vi-desc">Tầm xa + phát hiện camo</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Crossbow</span
+                    ><span class="vi-desc">Nỏ bắn xuyên 3 lớp</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Sharp Shooter</span
+                    ><span class="vi-desc">Crit mạnh mỗi vài phát</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Crossbow Master</span
+                    ><span class="vi-desc">Bắn cực nhanh, phá mọi loại</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Crossbow Fu <small>(Projectile Trophy)</small></span
+                >
+                <span class="skin-chip"
+                  >Plasma Fan Club FX <small>(Upgrade FX)</small></span
+                >
+                <span class="skin-chip"
+                  >Dart Pet — Dad of Quincy
+                  <small>(Pet (Hero liên quan))</small></span
+                >
+              </div>
+            </div>
             <p style="margin-bottom: 8px">
               <b>Khi nào dùng:</b> R1–10 để survive khi chưa đủ tiền. Bán ngay
               khi có tower tốt hơn. Chỉ đầu tư sâu nếu cần Paragon
@@ -1557,6 +2649,98 @@
               <div class="path-chip">
                 <b>5-0-0</b>
                 <span>Perma-MOAB Shredder — dot damage MOAB liên tục</span>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Improved Rangs</span
+                    ><span class="vi-desc">+4 pierce</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Glaives</span
+                    ><span class="vi-desc">Phi tiêu lưỡi, +5 pierce</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Glaive Ricochet</span
+                    ><span class="vi-desc">Lưỡi nảy tự động</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">M.O.A.R Glaives</span
+                    ><span class="vi-desc">Ricochet siêu mạnh</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Glaive Lord</span
+                    ><span class="vi-desc">Vòng lưỡi quay quanh tower</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Faster Throwing</span
+                    ><span class="vi-desc">Ném nhanh +33%</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Faster Rangs</span
+                    ><span class="vi-desc">Lưỡi bay nhanh hơn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Bionic Boomerang</span
+                    ><span class="vi-desc">Cánh tay robot, +MOAB dmg</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Turbo Charge</span
+                    ><span class="vi-desc"
+                      >Ability: tấn công siêu nhanh 10s</span
+                    >
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Perma Charge</span
+                    ><span class="vi-desc">Turbo Charge vĩnh viễn</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Long Range Rangs</span
+                    ><span class="vi-desc">Tầm ném xa</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Red Hot Rangs</span
+                    ><span class="vi-desc">Phá Lead/Frozen</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Kylie Boomerang</span
+                    ><span class="vi-desc">Ném thẳng, trúng 2 lần</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">MOAB Press</span
+                    ><span class="vi-desc">Stun + knockback MOAB</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">MOAB Domination</span
+                    ><span class="vi-desc"
+                      >Knockback + damage MOAB cực cao</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Candy Cane 'Rangs <small>(Projectile)</small></span
+                >
+                <span class="skin-chip">Kangaroo Pet <small>(Pet)</small></span>
+                <span class="skin-chip"
+                  >MOAB Press FX <small>(Upgrade FX)</small></span
+                >
               </div>
             </div>
             <p style="margin-bottom: 8px">
@@ -1624,6 +2808,94 @@
                 >
               </div>
             </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Bigger Bombs</span
+                    ><span class="vi-desc">Vụ nổ rộng hơn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Heavy Bombs</span
+                    ><span class="vi-desc">+1 dmg, xuyên 2 lớp</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Really Big Bombs</span
+                    ><span class="vi-desc">Knockback + vụ nổ lớn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Bloon Impact</span
+                    ><span class="vi-desc">Stun bloon thường</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Bloon Crush</span
+                    ><span class="vi-desc">Stun MOAB-class</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Faster Reload</span
+                    ><span class="vi-desc">Nạp nhanh +25%</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Missile Launcher</span
+                    ><span class="vi-desc">Đổi sang tên lửa</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">MOAB Mauler</span
+                    ><span class="vi-desc">+15 dmg MOAB</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">MOAB Assassin</span
+                    ><span class="vi-desc">Ability: 750 dmg MOAB</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">MOAB Eliminator</span
+                    ><span class="vi-desc">Assassin x6 dmg, CD ngắn</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Extra Range</span
+                    ><span class="vi-desc">Tầm xa</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Frag Bombs</span
+                    ><span class="vi-desc">Mảnh vỡ sau nổ</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Cluster Bombs</span
+                    ><span class="vi-desc">Bom cụm</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Recursive Cluster</span
+                    ><span class="vi-desc">Bom cụm đệ quy</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Bomb Blitz</span
+                    ><span class="vi-desc">Ability khi leak: nổ toàn màn</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Pumpkin Bombs <small>(Projectile Halloween)</small></span
+                >
+                <span class="skin-chip">Tortoise Pet <small>(Pet)</small></span>
+                <span class="skin-chip"
+                  >Fireworks Projectiles <small>(Projectile)</small></span
+                >
+              </div>
+            </div>
             <p style="margin-bottom: 8px">
               <b>Khi nào dùng:</b> Đặt 0-2-0 trước R40 để có MOAB damage cơ bản.
               Pop and Awe là lý do chính đầu tư — stun toàn màn kéo dài ~
@@ -1679,6 +2951,93 @@
               </div>
               <div class="path-chip">
                 <b>3-0-0</b> <span>Ring of Fire — vòng lửa đốt bloon</span>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Faster Shooting</span
+                    ><span class="vi-desc">Bắn nhanh +33%</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Even Faster Shooting</span
+                    ><span class="vi-desc">Bắn nhanh +67%</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Hot Shots</span
+                    ><span class="vi-desc">Phá Lead</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Ring of Fire</span
+                    ><span class="vi-desc">Vòng lửa thay đinh</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Inferno Ring</span
+                    ><span class="vi-desc">Lửa inferno + fireball</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Long Range Tacks</span
+                    ><span class="vi-desc">Tầm xa</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Super Range Tacks</span
+                    ><span class="vi-desc">Tầm xa hơn nữa</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Blade Shooter</span
+                    ><span class="vi-desc">Lưỡi sắc, pierce cao</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Blade Maelstrom</span
+                    ><span class="vi-desc">Ability: bão lưỡi</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Super Maelstrom</span
+                    ><span class="vi-desc">Maelstrom mạnh + lâu hơn</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">More Tacks</span
+                    ><span class="vi-desc">10 đinh/volley</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Even More Tacks</span
+                    ><span class="vi-desc">12 đinh/volley</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Tack Sprayer</span
+                    ><span class="vi-desc">16 đinh/volley</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Overdrive</span
+                    ><span class="vi-desc">Bắn cực nhanh</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">The Tack Zone</span
+                    ><span class="vi-desc">Đinh khắp vùng, damage khủng</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Blade Maelstrom FX <small>(Ability FX)</small></span
+                >
+                <span class="skin-chip"
+                  >Crucible Paragon Skin <small>(Paragon)</small></span
+                >
               </div>
             </div>
             <p style="margin-bottom: 8px">
@@ -1744,6 +3103,96 @@
                 <span>Cryo Cannon — đóng băng + DOT Cold kết hợp</span>
               </div>
             </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Permafrost</span
+                    ><span class="vi-desc">Chậm sau khi rã đông</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Cold Snap</span
+                    ><span class="vi-desc">Phá Lead + Camo</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Ice Shards</span
+                    ><span class="vi-desc">Mảnh băng khi pop frozen</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Embrittlement</span
+                    ><span class="vi-desc">Giòn + dmg MOAB</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Super Brittle</span
+                    ><span class="vi-desc">Frozen nhận dmg khổng lồ</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Enhanced Freeze</span
+                    ><span class="vi-desc">Đóng băng lâu hơn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Deep Freeze</span
+                    ><span class="vi-desc">Đóng băng thêm lớp</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Arctic Wind</span
+                    ><span class="vi-desc"
+                      >Aura lạnh + đặt tower trên nước</span
+                    >
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Snowstorm</span
+                    ><span class="vi-desc">Ability: bão tuyết toàn màn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Absolute Zero</span
+                    ><span class="vi-desc">Đóng băng mọi bloon mỗi đòn</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Larger Radius</span
+                    ><span class="vi-desc">Vùng đóng băng rộng</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Re-Freeze</span
+                    ><span class="vi-desc">Tái đóng băng bloon đã frozen</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Cryo Cannon</span
+                    ><span class="vi-desc">Bắn bóng băng tầm xa</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Icicles</span
+                    ><span class="vi-desc">Gai băng trên frozen bloon</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Icicle Impale</span
+                    ><span class="vi-desc">Gai khổng lồ, stun MOAB</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip">Snowman Pet <small>(Pet)</small></span>
+                <span class="skin-chip"
+                  >Walrus Pet <small>(Pet v51)</small></span
+                >
+                <span class="skin-chip"
+                  >Herald Paragon FX <small>(Paragon)</small></span
+                >
+              </div>
+            </div>
             <p style="margin-bottom: 8px">
               <b>Khi nào dùng:</b> Support tower đặt để nhóm bloon lại và làm
               chậm cho tower AoE dọn sạch. White bloon và Purple bloon miễn Cold
@@ -1800,6 +3249,93 @@
               </div>
               <div class="path-chip">
                 <b>0-5-0</b> <span>Bloon Liquefier — DOT AoE cực cao</span>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Glue Soak</span
+                    ><span class="vi-desc">Keo xuyên mọi lớp</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Corrosive Glue</span
+                    ><span class="vi-desc">Keo ăn mòn từng lớp</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Bloon Dissolver</span
+                    ><span class="vi-desc">Tan 2 lớp/giây</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Bloon Liquefier</span
+                    ><span class="vi-desc">Tan 10 lớp/giây</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">The Bloon Solver</span
+                    ><span class="vi-desc">Giải pháp cuối cho mọi bloon</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Bigger Globs</span
+                    ><span class="vi-desc">+1 pierce keo</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Glue Splatter</span
+                    ><span class="vi-desc">Keo splash 5 bloon</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Glue Hose</span
+                    ><span class="vi-desc">Bắn keo x3 tốc độ</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Glue Strike</span
+                    ><span class="vi-desc">Ability: keo toàn màn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Glue Storm</span
+                    ><span class="vi-desc">Keo liên tục 20s toàn màn</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Stickier Glue</span
+                    ><span class="vi-desc">Keo lâu hơn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Stronger Glue</span
+                    ><span class="vi-desc">Chậm gấp đôi</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">MOAB Glue</span
+                    ><span class="vi-desc">Keo dính MOAB</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Relentless Glue</span
+                    ><span class="vi-desc">Stun khi pop bloon keo</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Super Glue</span
+                    ><span class="vi-desc">Đóng băng bloon keo hoàn toàn</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Glue Splatter FX <small>(Projectile)</small></span
+                >
+                <span class="skin-chip"
+                  >Super Glue Drip FX <small>(Upgrade FX)</small></span
+                >
               </div>
             </div>
             <p style="margin-bottom: 8px">
@@ -1872,6 +3408,95 @@
                 <span>Supply Drop — nhả supply tiền mỗi round (farm!)</span>
               </div>
             </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Full Metal Jacket</span
+                    ><span class="vi-desc">+2 dmg, phá Lead</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Large Calibre</span
+                    ><span class="vi-desc">+3 dmg</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Deadly Precision</span
+                    ><span class="vi-desc">20 dmg, one-shot Ceramic</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Maim MOAB</span
+                    ><span class="vi-desc">Stun MOAB</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Cripple MOAB</span
+                    ><span class="vi-desc">Stun lâu + debuff dmg</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Night Vision Goggles</span
+                    ><span class="vi-desc">Phát hiện + dmg camo</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Shrapnel Shot</span
+                    ><span class="vi-desc">Mảnh vỡ khi pop</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Bouncing Bullets</span
+                    ><span class="vi-desc">Đạn nảy 2 lần</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Supply Drop</span
+                    ><span class="vi-desc">Ability: thả tiền</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Elite Sniper</span
+                    ><span class="vi-desc">Supply Drop lớn + buff sniper</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Fast Firing</span
+                    ><span class="vi-desc">Bắn nhanh +53%</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Even Faster Firing</span
+                    ><span class="vi-desc">Bắn nhanh hơn nữa</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Semi-Automatic</span
+                    ><span class="vi-desc">Bắn x3 tốc độ</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Full Auto Rifle</span
+                    ><span class="vi-desc">Bắn tự động</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Elite Defender</span
+                    ><span class="vi-desc"
+                      >Càng xa track càng nhanh + retaliation</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Chameleon Pet <small>(Pet)</small></span
+                >
+                <span class="skin-chip"
+                  >Supply Drop Crate FX <small>(Ability FX)</small></span
+                >
+              </div>
+            </div>
             <p style="margin-bottom: 8px">
               <b>Khi nào dùng:</b> Đặt bất kỳ đâu trên map (không cần cạnh
               track). Cực tốt để dọn bloon sắp leak hoặc xử lý mục tiêu đơn
@@ -1933,6 +3558,100 @@
                 <span
                   >Pre-Emptive Strike — phát hiện và missile MOAB trước khi xuất
                   hiện</span
+                >
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Longer Range</span
+                    ><span class="vi-desc">Tầm xa</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Advanced Intel</span
+                    ><span class="vi-desc">Dùng tầm tower khác</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Submerge and Support</span
+                    ><span class="vi-desc">Lặn phát hiện camo</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Bloontonium Reactor</span
+                    ><span class="vi-desc">Lặn gây dmg + giảm CD</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Energizer</span
+                    ><span class="vi-desc"
+                      >Buff hero XP +50%, giảm CD ability</span
+                    >
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Barbed Darts</span
+                    ><span class="vi-desc">+3 pierce</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Heat-tipped Darts</span
+                    ><span class="vi-desc">Phá Lead/Frozen</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Ballistic Missile</span
+                    ><span class="vi-desc">Tên lửa tầm xa</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">First Strike</span
+                    ><span class="vi-desc"
+                      >Ability: 10.000 dmg bloon mạnh nhất</span
+                    >
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Pre-emptive Strike</span
+                    ><span class="vi-desc">Tự bắn MOAB khi spawn</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Twin Guns</span
+                    ><span class="vi-desc">x2 tốc độ bắn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Airburst Darts</span
+                    ><span class="vi-desc">Phi tiêu chia 3</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Triple Guns</span
+                    ><span class="vi-desc">Thêm súng thứ 3</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Armor Piercing Darts</span
+                    ><span class="vi-desc">+dmg MOAB</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Sub Commander</span
+                    ><span class="vi-desc">Buff mọi Sub trên map</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Rubber Ducky Pet <small>(Pet)</small></span
+                >
+                <span class="skin-chip"
+                  >First Strike Torpedo FX <small>(Ability FX)</small></span
+                >
+                <span class="skin-chip"
+                  >Nautic Siege Paragon <small>(Paragon)</small></span
                 >
               </div>
             </div>
@@ -2000,6 +3719,94 @@
                 >
               </div>
             </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Faster Shooting</span
+                    ><span class="vi-desc">Bắn nhanh hơn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Double Shot</span
+                    ><span class="vi-desc">2 phát/lượt</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Destroyer</span
+                    ><span class="vi-desc">Bắn siêu nhanh</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Aircraft Carrier</span
+                    ><span class="vi-desc">Máy bay tấn công</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Carrier Flagship</span
+                    ><span class="vi-desc">Buff water tower + Ace</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Grape Shot</span
+                    ><span class="vi-desc">Nho sắc 5 hướng</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Hot Shot</span
+                    ><span class="vi-desc">Nho nóng phá Lead</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Cannon Ship</span
+                    ><span class="vi-desc">Thêm pháo bom</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Monkey Pirates</span
+                    ><span class="vi-desc">Ability: hạ gục MOAB</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Pirate Lord</span
+                    ><span class="vi-desc">3 móc cùng lúc, +tiền</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Long Range</span
+                    ><span class="vi-desc">Tầm xa</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Crow's Nest</span
+                    ><span class="vi-desc">Phát hiện camo</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Merchantman</span
+                    ><span class="vi-desc">Sinh $200/round</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Favored Trades</span
+                    ><span class="vi-desc">+$300/round, sell cao hơn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Trade Empire</span
+                    ><span class="vi-desc">Buff mọi Merchantman</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip">Narwhal Pet <small>(Pet)</small></span>
+                <span class="skin-chip"
+                  >Flavored Trades Projectiles <small>(Projectile)</small></span
+                >
+                <span class="skin-chip"
+                  >Navarch Paragon <small>(Paragon)</small></span
+                >
+              </div>
+            </div>
             <p style="margin-bottom: 8px">
               <b>Khi nào dùng:</b> Cần map có nước. Pirate Lord là 1 trong những
               counter MOAB-class tốt nhất game — hook kéo MOAB lại và damage rất
@@ -2054,6 +3861,96 @@
               <div class="path-chip">
                 <b>0-5-0</b>
                 <span>Flying Fortress — HP cao, sống sót tốt ở round khó</span>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Rapid Fire</span
+                    ><span class="vi-desc">Bắn nhanh +67%</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Lots More Darts</span
+                    ><span class="vi-desc">12 phi tiêu/volley</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Fighter Plane</span
+                    ><span class="vi-desc">Tên lửa chống MOAB</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Operation: Dart Storm</span
+                    ><span class="vi-desc">16 phi tiêu, x2 tốc độ</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Sky Shredder</span
+                    ><span class="vi-desc">Damage khủng toàn diện</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Exploding Pineapple</span
+                    ><span class="vi-desc">Thả dứa nổ</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Spy Plane</span
+                    ><span class="vi-desc">Phát hiện camo</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Bomber Ace</span
+                    ><span class="vi-desc">Thả bom dọc track</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Ground Zero</span
+                    ><span class="vi-desc">Ability: nuke toàn màn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Tsar Bomba</span
+                    ><span class="vi-desc">Bom hạt nhân khổng lồ</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Sharper Darts</span
+                    ><span class="vi-desc">8 pierce/dart</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Centered Path</span
+                    ><span class="vi-desc">Bay vòng map</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Neva-Miss Targeting</span
+                    ><span class="vi-desc">Phi tiêu tự dẫn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Spectre</span
+                    ><span class="vi-desc">Bom + dart liên tục</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Flying Fortress</span
+                    ><span class="vi-desc">Máy bay khổng lồ</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Bone Darts <small>(Projectile Halloween)</small></span
+                >
+                <span class="skin-chip"
+                  >Dragonfly Pet <small>(Pet)</small></span
+                >
+                <span class="skin-chip"
+                  >Goliath Doomship Paragon <small>(Paragon)</small></span
+                >
               </div>
             </div>
             <p style="margin-bottom: 8px">
@@ -2118,6 +4015,93 @@
                 >
               </div>
             </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Quad Darts</span
+                    ><span class="vi-desc">4 súng</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Pursuit</span
+                    ><span class="vi-desc">Tự đuổi bloon</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Razor Rotors</span
+                    ><span class="vi-desc">Cánh quạt cắt bloon</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Apache Dartship</span
+                    ><span class="vi-desc">Súng máy + tên lửa</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Apache Prime</span
+                    ><span class="vi-desc">Sát thương tối đa</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Bigger Jets</span
+                    ><span class="vi-desc">Bay nhanh hơn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">IFR</span
+                    ><span class="vi-desc">Phát hiện camo</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Downdraft</span
+                    ><span class="vi-desc">Thổi bloon lùi</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Support Chinook</span
+                    ><span class="vi-desc">Di chuyển tower + tiền/máu</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Special Poperations</span
+                    ><span class="vi-desc">Lính thủy đánh bộ</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Faster Darts</span
+                    ><span class="vi-desc">Phi tiêu nhanh</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Faster Firing</span
+                    ><span class="vi-desc">Bắn nhanh +25%</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">MOAB Shove</span
+                    ><span class="vi-desc">Đẩy lùi MOAB</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Comanche Defense</span
+                    ><span class="vi-desc">Gọi trực thăng phụ</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Comanche Commander</span
+                    ><span class="vi-desc">3 Comanche vĩnh viễn</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Comanche FX <small>(Ability FX)</small></span
+                >
+                <span class="skin-chip"
+                  >Chinook Redeploy FX <small>(Ability FX)</small></span
+                >
+              </div>
+            </div>
             <p style="margin-bottom: 8px">
               <b>Khi nào dùng:</b> Bay theo dõi bloon, không bị Line of Sight
               cản. Synergy rất tốt với Alchemist vì luôn bay gần track. Paragon
@@ -2171,6 +4155,98 @@
               <div class="path-chip">
                 <b>5-0-0</b>
                 <span>The Biggest One — bom khổng lồ, stun lớn</span>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Bigger Blast</span
+                    ><span class="vi-desc">Vụ nổ rộng</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Bloon Buster</span
+                    ><span class="vi-desc">Xuyên 3 lớp</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Shell Shock</span
+                    ><span class="vi-desc">Sóng xung kích stun</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">The Big One</span
+                    ><span class="vi-desc">10 lớp/vụ nổ</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">The Biggest One</span
+                    ><span class="vi-desc">Vụ nổ khổng lồ</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Faster Reload</span
+                    ><span class="vi-desc">Nạp nhanh</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Rapid Reload</span
+                    ><span class="vi-desc">Nạp nhanh hơn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Heavy Shells</span
+                    ><span class="vi-desc">Phá Black, +dmg Ceramic/MOAB</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Artillery Battery</span
+                    ><span class="vi-desc">Ability: bắn liên thanh</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Pop and Awe</span
+                    ><span class="vi-desc"
+                      >Ability: stun toàn màn liên tục</span
+                    >
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Increased Accuracy</span
+                    ><span class="vi-desc">Chính xác hơn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Burny Stuff</span
+                    ><span class="vi-desc">Thiêu đốt bloon</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Signal Flare</span
+                    ><span class="vi-desc">Gỡ camo vĩnh viễn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Shattering Shells</span
+                    ><span class="vi-desc"
+                      >Gỡ fortified/regrow BFB trở xuống</span
+                    >
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Blooncineration</span
+                    ><span class="vi-desc">Thiêu MOAB-class</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Striker Jones Paradrop FX
+                  <small>(Placement (Hero liên quan))</small></span
+                >
+                <span class="skin-chip"
+                  >Shell Shock FX <small>(Upgrade FX)</small></span
+                >
               </div>
             </div>
             <p style="margin-bottom: 8px">
@@ -2229,6 +4305,94 @@
               </div>
               <div class="path-chip">
                 <b>0-5-0</b> <span>Hyper Acceleration — bắn cực nhanh</span>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Focused Firing</span
+                    ><span class="vi-desc">Giảm spread</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Laser Shock</span
+                    ><span class="vi-desc">Sốc điện sau 1s</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Laser Cannon</span
+                    ><span class="vi-desc">Laser mạnh + MOAB dmg</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Plasma Accelerator</span
+                    ><span class="vi-desc">Chùm plasma pierce cao</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Ray of Doom</span
+                    ><span class="vi-desc">Tia hủy diệt liên tục</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Advanced Targeting</span
+                    ><span class="vi-desc">Phát hiện camo</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Faster Barrel Spin</span
+                    ><span class="vi-desc">Bắn nhanh +50%</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Hydra Rocket Pods</span
+                    ><span class="vi-desc">Tên lửa nổ nhiều lần</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Rocket Storm</span
+                    ><span class="vi-desc">Ability: bão tên lửa</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">M.A.D</span
+                    ><span class="vi-desc">Tên lửa khổng lồ chống MOAB</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Faster Swivel</span
+                    ><span class="vi-desc">Xoay nòng nhanh</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Powerful Darts</span
+                    ><span class="vi-desc">+2 pierce</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Buckshot</span
+                    ><span class="vi-desc">5 viên/bắn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b>
+                    <span class="en-name">Bloon Area Denial System</span
+                    ><span class="vi-desc">4 nòng auto</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Bloon Exclusion Zone</span
+                    ><span class="vi-desc">6 nòng, loại trừ bloon</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Easter Egg Pellets <small>(Projectile)</small></span
+                >
+                <span class="skin-chip"
+                  >Ray of Doom FX <small>(Upgrade FX)</small></span
+                >
               </div>
             </div>
             <p style="margin-bottom: 8px">
@@ -2298,6 +4462,94 @@
                 <b>0-5-0</b> <span>Arcane Mastery — Arcane Spike DOT mạnh</span>
               </div>
             </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Guided Magic</span
+                    ><span class="vi-desc">Phép tự dẫn, xuyên cover</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Arcane Blast</span
+                    ><span class="vi-desc">+1 dmg</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Arcane Mastery</span
+                    ><span class="vi-desc">Nhanh + pierce + dmg</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Arcane Spike</span
+                    ><span class="vi-desc">+MOAB dmg, phá Lead</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Archmage</span
+                    ><span class="vi-desc">Bậc thầy phép thuật</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Fireball</span
+                    ><span class="vi-desc">Cầu lửa nổ</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Wall of Fire</span
+                    ><span class="vi-desc">Tường lửa trên track</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Dragon's Breath</span
+                    ><span class="vi-desc">Phun lửa liên tục</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Summon Phoenix</span
+                    ><span class="vi-desc">Ability: triệu hồi phoenix</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Wizard Lord Phoenix</span
+                    ><span class="vi-desc">Biến thành Phoenix lửa</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Intense Magic</span
+                    ><span class="vi-desc">+5 pierce</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Monkey Sense</span
+                    ><span class="vi-desc">Phát hiện camo</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Shimmer</span
+                    ><span class="vi-desc">Làn sóng gỡ camo</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Necromancer</span
+                    ><span class="vi-desc">Triệu hồi bloon đã pop</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Prince of Darkness</span
+                    ><span class="vi-desc">Quân undead mạnh nhất</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Necromancer Zombie Bloons <small>(Projectile)</small></span
+                >
+                <span class="skin-chip">Sheep Pet <small>(Pet)</small></span>
+                <span class="skin-chip"
+                  >Magus Perfectus Paragon <small>(Paragon)</small></span
+                >
+              </div>
+            </div>
             <p style="margin-bottom: 8px">
               <b>Khi nào dùng:</b> Counter Lead tự nhiên (fire damage). Prince
               of Darkness hồi sinh zombie bloon làm lá chắn tự nhiên — bloon
@@ -2357,6 +4609,94 @@
               <div class="path-chip">
                 <b>3-0-0</b>
                 <span>Sun Avatar — stepping stone để build TSG</span>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Laser Blasts</span
+                    ><span class="vi-desc">Laser thay dart</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Plasma Blasts</span
+                    ><span class="vi-desc">Plasma x2 tốc độ</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Sun Avatar</span
+                    ><span class="vi-desc">Sức mặt trời</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Sun Temple</span
+                    ><span class="vi-desc">Hy sinh tower → Temple</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">True Sun God</span
+                    ><span class="vi-desc">Thần mặt trời tối thượng</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Super Range</span
+                    ><span class="vi-desc">Tầm xa</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Epic Range</span
+                    ><span class="vi-desc">Tầm epic</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Robo Monkey</span
+                    ><span class="vi-desc">2 súng robot</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Tech Terror</span
+                    ><span class="vi-desc">Ability: xóa bloon vùng lớn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">The Anti-Bloon</span
+                    ><span class="vi-desc">Laser hủy diệt MOAB</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Knockback</span
+                    ><span class="vi-desc">Đẩy lùi bloon</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Ultravision</span
+                    ><span class="vi-desc">Camo + tầm</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Dark Knight</span
+                    ><span class="vi-desc">Kiếm đen + Darkshift</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Dark Champion</span
+                    ><span class="vi-desc">Darkshift toàn map</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Legend of the Night</span
+                    ><span class="vi-desc">Bóng đêm tối thượng</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip">Bat Pet <small>(Pet)</small></span>
+                <span class="skin-chip"
+                  >Sun God FX <small>(Upgrade FX)</small></span
+                >
+                <span class="skin-chip"
+                  >VTSG FX <small>(Temple FX)</small></span
+                >
               </div>
             </div>
             <p style="margin-bottom: 8px">
@@ -2423,6 +4763,96 @@
                 <span
                   >Ascended Shadow (Paragon) — slow toàn màn + shuriken
                   homing</span
+                >
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Ninja Discipline</span
+                    ><span class="vi-desc">Tấn công nhanh hơn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Sharp Shurikens</span
+                    ><span class="vi-desc">4 pierce</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Double Shot</span
+                    ><span class="vi-desc">2 shuriken/lượt</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Bloonjitsu</span
+                    ><span class="vi-desc">5 shuriken/lượt</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Grandmaster Ninja</span
+                    ><span class="vi-desc">8 shuriken cực nhanh</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Distraction</span
+                    ><span class="vi-desc">Blowback bloon</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Counter-Espionage</span
+                    ><span class="vi-desc">Gỡ camo khi đánh</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Shinobi Tactics</span
+                    ><span class="vi-desc">Buff ninja lân cận</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Bloon Sabotage</span
+                    ><span class="vi-desc">Ability: chậm 50% 15s</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Grand Saboteur</span
+                    ><span class="vi-desc"
+                      >Sabotage lâu + debuff MOAB spawn</span
+                    >
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Seeking Shuriken</span
+                    ><span class="vi-desc">Tự dẫn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Caltrops</span
+                    ><span class="vi-desc">Rải gai trên track</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Flash Bomb</span
+                    ><span class="vi-desc">Bom flash stun</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Sticky Bomb</span
+                    ><span class="vi-desc">Bom dính MOAB 400 dmg</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Master Bomber</span
+                    ><span class="vi-desc">Máy hủy MOAB</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip">Kiwi Pet <small>(Pet)</small></span>
+                <span class="skin-chip"
+                  >Sticky Bomb FX <small>(Ability FX)</small></span
+                >
+                <span class="skin-chip"
+                  >Ascended Shadow Paragon <small>(Paragon)</small></span
                 >
               </div>
             </div>
@@ -2493,6 +4923,93 @@
                 >
               </div>
             </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Larger Potions</span
+                    ><span class="vi-desc">+15 pierce</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Acidic Mixture Dip</span
+                    ><span class="vi-desc">Buff phá Lead + Ceramic</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Berserker Brew</span
+                    ><span class="vi-desc">Buff dmg/speed/pierce</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Stronger Stimulant</span
+                    ><span class="vi-desc">Brew mạnh + lâu hơn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Permanent Brew</span
+                    ><span class="vi-desc">Brew vĩnh viễn</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Stronger Acid</span
+                    ><span class="vi-desc">Axit 4 dmg</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Perishing Potions</span
+                    ><span class="vi-desc">Gỡ fortified + MOAB dmg</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Unstable Concoction</span
+                    ><span class="vi-desc">Nổ MOAB khi pop</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Transforming Tonic</span
+                    ><span class="vi-desc">Biến thành quái vật laser</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Total Transformation</span
+                    ><span class="vi-desc">Biến 5 tower gần đó</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Faster Throwing</span
+                    ><span class="vi-desc">Ném nhanh +25%</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Acid Pool</span
+                    ><span class="vi-desc">Vũng axit trên track</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Lead to Gold</span
+                    ><span class="vi-desc">Lead → $50</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Rubber to Gold</span
+                    ><span class="vi-desc">x3 tiền từ bloon</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Bloon Master Alchemist</span
+                    ><span class="vi-desc">Thuốc giết bloon → 1 Red</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Brew Splash FX <small>(Upgrade FX)</small></span
+                >
+                <span class="skin-chip"
+                  >Transformation FX <small>(Ability FX)</small></span
+                >
+              </div>
+            </div>
             <p style="margin-bottom: 8px">
               <b>Khi nào dùng:</b> Đặt sớm nhất có thể — càng sớm buff càng
               nhiều. Acid Puddles giúp TOÀN BỘ tower Sharp dính Lead khi đi qua
@@ -2558,6 +5075,96 @@
                 <span
                   >Poplust — buff tốc độ bắn cho mọi Druid trong tầm, stack
                   nhiều cái</span
+                >
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Hard Thorns</span
+                    ><span class="vi-desc">+1 pierce</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Heart of Thunder</span
+                    ><span class="vi-desc">Sét lan</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Druid of the Storm</span
+                    ><span class="vi-desc">Lốc xoáy thổi bloon</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Ball Lightning</span
+                    ><span class="vi-desc">Bóng sét + freeze</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Monarch of Storms</span
+                    ><span class="vi-desc">Bão siêu mạnh toàn map</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Thorn Swarm</span
+                    ><span class="vi-desc">8 gai/lượt</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Heart of Oak</span
+                    ><span class="vi-desc">Gỡ regrow</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Druid of the Jungle</span
+                    ><span class="vi-desc">Dây leo stun + crush</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Jungle's Bounty</span
+                    ><span class="vi-desc">Sinh tiền/máu + ability</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Spirit of the Forest</span
+                    ><span class="vi-desc">Dây leo trên track liên tục</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Druidic Reach</span
+                    ><span class="vi-desc">Tầm xa lớn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Heart of Vengeance</span
+                    ><span class="vi-desc">+speed khi mất máu</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Druid of Wrath</span
+                    ><span class="vi-desc">+speed khi liên tục đánh</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Poplust</span
+                    ><span class="vi-desc">Buff druid lân cận</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Avatar of Wrath</span
+                    ><span class="vi-desc">Càng nhiều bloon càng mạnh</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Ghost Wolf Pet <small>(Pet Obyn liên quan)</small></span
+                >
+                <span class="skin-chip"
+                  >Forest Spirit FX <small>(Upgrade FX)</small></span
+                >
+                <span class="skin-chip"
+                  >Root of All Nature Paragon <small>(Paragon)</small></span
                 >
               </div>
             </div>
@@ -2642,6 +5249,97 @@
                 <span>Primary Expertise — buff Primary Monkey cực mạnh</span>
               </div>
             </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Bigger Radius</span
+                    ><span class="vi-desc">Vùng ảnh hưởng rộng</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Jungle Drums</span
+                    ><span class="vi-desc">+15% attack speed</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Primary Training</span
+                    ><span class="vi-desc">Primary +range +pierce</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Primary Mentoring</span
+                    ><span class="vi-desc">Primary tier 1 free</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Primary Expertise</span
+                    ><span class="vi-desc"
+                      >Primary tier 1-2 free + ballista</span
+                    >
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Grow Blocker</span
+                    ><span class="vi-desc">Chặn regrow</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Radar Scanner</span
+                    ><span class="vi-desc">Camo detection vùng</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b>
+                    <span class="en-name">Monkey Intelligence Bureau</span
+                    ><span class="vi-desc">Pop mọi loại bloon</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Call to Arms</span
+                    ><span class="vi-desc">Ability: +50% speed/pierce</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Homeland Defense</span
+                    ><span class="vi-desc">Call to Arms x2 mạnh hơn</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Monkey Business</span
+                    ><span class="vi-desc">Giảm giá tier 1-3</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Monkey Commerce</span
+                    ><span class="vi-desc">Giảm thêm 5%</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Monkey Town</span
+                    ><span class="vi-desc">+50% cash/pop</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Monkey City</span
+                    ><span class="vi-desc">Free Dart/round + tầm lớn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Monkeyopolis</span
+                    ><span class="vi-desc">Hấp thụ Banana Farm</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip">Elf Pet <small>(Pet)</small></span>
+                <span class="skin-chip"
+                  >Jungle Drums FX <small>(Upgrade FX)</small></span
+                >
+                <span class="skin-chip"
+                  >MIB Glow FX <small>(Upgrade FX)</small></span
+                >
+              </div>
+            </div>
             <p style="margin-bottom: 8px">
               <b>Khi nào dùng:</b> Gần như không thể thiếu trong build cạnh
               tranh. Đặt ở trung tâm để phủ nhiều tower nhất. MIB là cách rẻ
@@ -2702,6 +5400,93 @@
               </div>
               <div class="path-chip">
                 <b>3-0-0</b> <span>Long Reach — spike trải xa hơn</span>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Bigger Stacks</span
+                    ><span class="vi-desc">+5 pierce gai</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">White Hot Spikes</span
+                    ><span class="vi-desc">Phá Lead/Frozen</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Spiked Balls</span
+                    ><span class="vi-desc">Bóng gai + Ceramic dmg</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Spiked Mines</span
+                    ><span class="vi-desc">Mìn nổ khi hết gai</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Super Mines</span
+                    ><span class="vi-desc">Mìn khổng lồ hủy diệt</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Faster Production</span
+                    ><span class="vi-desc">Sản xuất nhanh</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Even Faster Production</span
+                    ><span class="vi-desc">Sản xuất nhanh hơn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">MOAB SHREDR</span
+                    ><span class="vi-desc">+MOAB dmg</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Spike Storm</span
+                    ><span class="vi-desc">Ability: 2000 gai toàn track</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Carpet of Spikes</span
+                    ><span class="vi-desc">Thảm gai tự động mỗi round</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Long Reach</span
+                    ><span class="vi-desc">Tầm xa + gai lâu hơn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Smart Spikes</span
+                    ><span class="vi-desc">Targeting đặc biệt</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Long Life Spikes</span
+                    ><span class="vi-desc">Gai qua round</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Deadly Spikes</span
+                    ><span class="vi-desc">3 lớp/gai</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Perma-Spike</span
+                    ><span class="vi-desc">Gai gần như vĩnh viễn</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Pineapples <small>(Projectile)</small></span
+                >
+                <span class="skin-chip"
+                  >Mega Massive Paragon <small>(Paragon)</small></span
+                >
               </div>
             </div>
             <p style="margin-bottom: 8px">
@@ -2777,6 +5562,97 @@
                 >
               </div>
             </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Increased Production</span
+                    ><span class="vi-desc">+2 buồng chuối</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Greater Production</span
+                    ><span class="vi-desc">+2 buồng nữa</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Banana Plantation</span
+                    ><span class="vi-desc">16 buồng/round</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b>
+                    <span class="en-name">Banana Research Facility</span
+                    ><span class="vi-desc">5 thùng $300</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Banana Central</span
+                    ><span class="vi-desc">Chuối tối đa</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Long Life Bananas</span
+                    ><span class="vi-desc">Chuối tồn 30s</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Valuable Bananas</span
+                    ><span class="vi-desc">+25% giá trị</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Monkey Bank</span
+                    ><span class="vi-desc">Lãi suất 15%</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">IMF Loan</span
+                    ><span class="vi-desc">Ability: vay $9000</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Monkey-Nomics</span
+                    ><span class="vi-desc">Vay không giới hạn</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">EZ Collect</span
+                    ><span class="vi-desc">Tự thu bán nửa giá</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Banana Salvage</span
+                    ><span class="vi-desc">Tự thu gần full giá</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Marketplace</span
+                    ><span class="vi-desc">Tự sinh tiền/round</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Central Market</span
+                    ><span class="vi-desc">Sinh tiền + buff Merchantman</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Monkey Wall Street</span
+                    ><span class="vi-desc">Thu nhập khổng lồ + sinh máu</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Candy Corn 'nanas <small>(Projectile Halloween)</small></span
+                >
+                <span class="skin-chip"
+                  >Present Bananas <small>(Projectile)</small></span
+                >
+                <span class="skin-chip"
+                  >Banana Vacuum Pro <small>(Power Pro)</small></span
+                >
+              </div>
+            </div>
             <p style="margin-bottom: 8px">
               <b>Khi nào dùng:</b> Đặt sớm nhất có thể (R14–15). Mục tiêu 4–6
               farm trước R40. Sau R40 đổ tiền tích lũy vào defense. Không dùng
@@ -2842,6 +5718,98 @@
                 >
               </div>
             </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Sentry Gun</span
+                    ><span class="vi-desc">Triển khai sentry</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Faster Engineering</span
+                    ><span class="vi-desc">Sentry nhanh hơn</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Sprockets</span
+                    ><span class="vi-desc">Engineer + sentry bắn nhanh</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Sentry Expert</span
+                    ><span class="vi-desc">Sentry theo loại bloon</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Sentry Champion</span
+                    ><span class="vi-desc">Sentry siêu mạnh</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Larger Service Area</span
+                    ><span class="vi-desc">Vùng triển khai rộng</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Deconstruction</span
+                    ><span class="vi-desc">+MOAB dmg</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Cleansing Foam</span
+                    ><span class="vi-desc">Xốp gỡ camo/regrow/lead</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Overclock</span
+                    ><span class="vi-desc"
+                      >Ability: buff attack speed tower</span
+                    >
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Ultraboost</span
+                    ><span class="vi-desc">Overclock buff vĩnh viễn</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Oversize Nails</span
+                    ><span class="vi-desc">+5 pierce</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Pin</span
+                    ><span class="vi-desc">Stun bloon</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Double Gun</span
+                    ><span class="vi-desc">2 súng</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Bloon Trap</span
+                    ><span class="vi-desc">Bẫy hút bloon → tiền</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">XXXL Trap</span
+                    ><span class="vi-desc">Bẫy khổng lồ hút MOAB</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Yes We Can Engineer Avatar <small>(Cosmetic)</small></span
+                >
+                <span class="skin-chip"
+                  >Overclock FX <small>(Ability FX)</small></span
+                >
+                <span class="skin-chip"
+                  >Master Builder Paragon <small>(Paragon)</small></span
+                >
+              </div>
+            </div>
             <p style="margin-bottom: 8px">
               <b>Khi nào dùng:</b> Overclock cực hữu dụng để spam lại ability
               quan trọng (Pop and Awe, Glue Strike...). Paragon
@@ -2901,6 +5869,97 @@
               <div class="path-chip">
                 <b>Path Chim</b>
                 <span>Pouakai — chim bay, có camo detect, flexible nhất</span>
+              </div>
+            </div>
+            <div class="upgrade-block">
+              <b class="upgrade-block-title"
+                >⚔️ Kỹ năng — 3 nhánh nâng cấp (T1→T5)</b
+              >
+              <div class="upgrade-grid">
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 1 (Trên)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Piranha</span
+                    ><span class="vi-desc">Cá piranha</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Barracuda</span
+                    ><span class="vi-desc">Cá nhám đẩy lùi</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Great White</span
+                    ><span class="vi-desc">Cá mập phá Lead</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Orca</span
+                    ><span class="vi-desc">Orca kéo MOAB</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Megalodon</span
+                    ><span class="vi-desc">Cá mập khổng lồ (cần 3 Orca)</span>
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 2 (Giữa)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Microraptor</span
+                    ><span class="vi-desc">Khủng long nhỏ</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Adasaurus</span
+                    ><span class="vi-desc">Răng sắc phá Lead</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Velociraptor</span
+                    ><span class="vi-desc">+dmg bloon stun</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Tyrannosaurus Rex</span
+                    ><span class="vi-desc">T-Rex + Stomp ability</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Giganotosaurus</span
+                    ><span class="vi-desc"
+                      >Khủng long mạnh nhất (cần 3 T-Rex)</span
+                    >
+                  </div>
+                </div>
+                <div class="upgrade-col">
+                  <span class="path-label">Nhánh 3 (Dưới)</span>
+                  <div class="upgrade-tier">
+                    <b>T1</b> <span class="en-name">Gyrfalcon</span
+                    ><span class="vi-desc">Chim săn mồi</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T2</b> <span class="en-name">Horned Owl</span
+                    ><span class="vi-desc">Cú phát hiện camo</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T3</b> <span class="en-name">Golden Eagle</span
+                    ><span class="vi-desc">Đại bàng bắt Ceramic</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T4</b> <span class="en-name">Giant Condor</span
+                    ><span class="vi-desc">Condor bắt MOAB nhỏ</span>
+                  </div>
+                  <div class="upgrade-tier">
+                    <b>T5</b> <span class="en-name">Pouākai</span
+                    ><span class="vi-desc"
+                      >Chim huyền thoại (cần 3 Condor)</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skin-block">
+              <b class="skin-block-title">👕 Trang phục &amp; cosmetic</b>
+              <div class="skin-list">
+                <span class="skin-chip"
+                  >Beast Merge FX <small>(Upgrade FX)</small></span
+                >
+                <span class="skin-chip"
+                  >Apex Predator Paragon <small>(Paragon)</small></span
+                >
               </div>
             </div>
             <p style="margin-bottom: 8px">
@@ -3392,6 +6451,13 @@
         document.getElementById(id).classList.add("active");
         btn.classList.add("active");
         window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function toggleHero(id) {
+        const card = document.getElementById("hero-" + id);
+        const body = document.getElementById("hb-" + id);
+        card.classList.toggle("open");
+        body.classList.toggle("open");
       }
 
       function toggleCard(id) {
